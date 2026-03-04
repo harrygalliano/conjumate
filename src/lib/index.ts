@@ -6,4 +6,16 @@ export type {
 	ConjumateButtonSize,
 	ConjumateButtonIconPosition
 } from './components/Button.svelte';
+export {
+	dbBulkSet,
+	dbClear,
+	dbDelete,
+	dbGet,
+	dbGetAll,
+	dbGetAllKeys,
+	dbSet,
+	dbUpdate,
+	STORE_NAMES,
+	type StoreName
+} from './storage/indexeddb';
 export { cn, type WithElementRef } from './utils.js';
