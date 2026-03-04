@@ -5,10 +5,20 @@ export type Verb = {
 	translation: string;
 	auxiliary: 'avere' | 'essere';
 	pastParticiple: string;
+	present?: VerbPresent;
+};
+
+export type VerbPresent = {
+	io: string;
+	tu: string;
+	lui_lei: string;
+	noi: string;
+	voi: string;
+	loro: string;
 };
 
 export type TenseDefinition = {
-	id: 'passato_prossimo';
+	id: 'presente' | 'passato_prossimo';
 	name: string;
 	shortName: string;
 	description: string[];
@@ -17,6 +27,21 @@ export type TenseDefinition = {
 };
 
 export const TENSES: TenseDefinition[] = [
+	{
+		id: 'presente',
+		name: 'Present (Presente)',
+		shortName: 'Present',
+		description: [
+			'Use it for actions happening now, routines, or general truths.',
+			'Conjugate the verb directly. No auxiliary needed.'
+		],
+		notes: ['Regular -are, -ere, -ire endings are common, but many verbs are irregular.'],
+		examples: [
+			{ italian: 'Io mangio una pizza.', english: 'I am eating a pizza.' },
+			{ italian: 'Noi studiamo italiano.', english: 'We study Italian.' },
+			{ italian: 'Loro parlano piano.', english: 'They speak slowly.' }
+		]
+	},
 	{
 		id: 'passato_prossimo',
 		name: 'Present Perfect (Passato Prossimo)',

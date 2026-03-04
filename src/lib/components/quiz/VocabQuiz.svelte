@@ -1,48 +1,21 @@
 <script lang="ts">
-	import type { TenseDefinition, Verb } from '$lib/data/italian';
+	import type { ColorVocab, NumberVocab, LocationVocab } from '$lib/data/vocab';
 	import { onDestroy } from 'svelte';
 
-	type Subject = {
-		id: 'io' | 'tu' | 'lui_lei' | 'noi' | 'voi' | 'loro';
-		label: string;
-		forms: string[];
-	};
+	type VocabType = 'colors' | 'numbers' | 'locations';
+	type VocabItem = { prompt: string; answer: string; hint?: string };
 
-	type Prompt = { verb: Verb; subject: Subject };
-
-	let { verbs, tense }: { verbs: Verb[]; tense: TenseDefinition } = $props();
-
-	const subjects: Subject[] = [
-		{ id: 'io', label: 'io', forms: ['io'] },
-		{ id: 'tu', label: 'tu', forms: ['tu'] },
-		{ id: 'lui_lei', label: 'lui/lei', forms: ['lui', 'lei'] },
-		{ id: 'noi', label: 'noi', forms: ['noi'] },
-		{ id: 'voi', label: 'voi', forms: ['voi'] },
-		{ id: 'loro', label: 'loro', forms: ['loro'] }
-	];
-
-	const auxiliaryForms: Record<Verb['auxiliary'], Record<Subject['id'], string>> = {
-		avere: {
-			io: 'ho',
-			tu: 'hai',
-			lui_lei: 'ha',
-			noi: 'abbiamo',
-			voi: 'avete',
-			loro: 'hanno'
-		},
-		essere: {
-			io: 'sono',
-			tu: 'sei',
-			lui_lei: 'è',
-			noi: 'siamo',
-			voi: 'siete',
-			loro: 'sono'
-		}
-	};
-
-	const availableVerbs = $derived(
-		tense.id === 'presente' ? verbs.filter((verb) => verb.present) : verbs
-	);
+	let {
+		type,
+		colors = [],
+		numbers = [],
+		locations = []
+	}: {
+		type: VocabType;
+		colors?: ColorVocab[];
+		numbers?: NumberVocab[];
+		locations?: LocationVocab[];
+	} = $props();
 
 	let isRunning = $state(false);
 	let timeLeft = $state(60);
@@ -50,17 +23,24 @@
 	let total = $state(0);
 	let answer = $state('');
 	let feedback = $state<'idle' | 'correct' | 'incorrect'>('idle');
-	let current = $state<Prompt | null>(null);
+	let current = $state<VocabItem | null>(null);
 	let lastExpected = $state<string | null>(null);
 
 	let intervalId: number | null = null;
 
 	const accuracy = $derived(total === 0 ? 0 : Math.round((correct / total) * 100));
-	const placeholder = $derived(tense.id === 'presente' ? 'io mangio' : 'io ho mangiato');
+	const placeholder = $derived(
+		type === 'colors' ? 'rosso' : type === 'numbers' ? 'venticinque' : 'sopra'
+	);
 	const instruction = $derived(
-		tense.id === 'presente'
-			? 'Type the full conjugation (pronoun + present form).'
-			: 'Type the full conjugation (pronoun + auxiliary + past participle).'
+		type === 'colors'
+			? 'Type the Italian word for the color shown.'
+			: type === 'numbers'
+				? 'Type the Italian word for the number shown.'
+				: 'Type the Italian preposition for the location shown.'
+	);
+	const title = $derived(
+		type === 'colors' ? 'Color Sprint' : type === 'numbers' ? 'Number Sprint' : 'Location Sprint'
 	);
 
 	const normalize = (input: string) =>
@@ -69,32 +49,39 @@
 			.toLowerCase()
 			.normalize('NFD')
 			.replace(/[\u0300-\u036f]/g, '')
-			.replace(/[’']/g, '')
+			.replace(/['']/g, '')
 			.replace(/\s+/g, ' ');
 
-	const buildExpected = (prompt: Prompt) => {
-		if (tense.id === 'presente') {
-			const form = prompt.verb.present?.[prompt.subject.id];
-			if (!form) return [];
-			const withPronoun = prompt.subject.forms.map((value) => `${value} ${form}`);
-			return [withPronoun[0], ...withPronoun.slice(1), form];
+	const buildItems = (): VocabItem[] => {
+		if (type === 'colors') {
+			return colors.map((c) => ({
+				prompt: c.english,
+				answer: c.italian,
+				hint: c.english
+			}));
 		}
-
-		const aux = auxiliaryForms[prompt.verb.auxiliary][prompt.subject.id];
-		const base = `${aux} ${prompt.verb.pastParticiple}`;
-		const withPronoun = prompt.subject.forms.map((form) => `${form} ${base}`);
-		return [withPronoun[0], ...withPronoun.slice(1), base];
+		if (type === 'locations') {
+			return locations.map((l) => ({
+				prompt: l.english,
+				answer: l.italian,
+				hint: l.example
+			}));
+		}
+		return numbers.map((n) => ({
+			prompt: String(n.value),
+			answer: n.italian,
+			hint: `Number ${n.value}`
+		}));
 	};
 
+	const items = $derived(buildItems());
+
 	const pickPrompt = () => {
-		if (!availableVerbs.length) {
+		if (!items.length) {
 			current = null;
 			return;
 		}
-
-		const verb = availableVerbs[Math.floor(Math.random() * availableVerbs.length)];
-		const subject = subjects[Math.floor(Math.random() * subjects.length)];
-		current = { verb, subject };
+		current = items[Math.floor(Math.random() * items.length)];
 	};
 
 	const clearTimer = () => {
@@ -132,14 +119,8 @@
 	const submit = () => {
 		if (!isRunning || !current) return;
 
-		const expectedRaw = buildExpected(current);
-		if (!expectedRaw.length) {
-			pickPrompt();
-			return;
-		}
-
-		const expected = expectedRaw.map(normalize);
-		const isCorrect = expected.includes(normalize(answer));
+		const expected = normalize(current.answer);
+		const isCorrect = normalize(answer) === expected;
 		total += 1;
 
 		if (isCorrect) {
@@ -148,7 +129,7 @@
 			lastExpected = null;
 		} else {
 			feedback = 'incorrect';
-			lastExpected = expectedRaw[0];
+			lastExpected = current.answer;
 		}
 
 		answer = '';
@@ -161,7 +142,7 @@
 <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
 	<div class="flex flex-wrap items-center justify-between gap-4">
 		<div>
-			<h3 class="text-xl font-semibold text-slate-900">One-Minute Conjugation Sprint</h3>
+			<h3 class="text-xl font-semibold text-slate-900">{title}</h3>
 			<p class="text-sm text-slate-500">{instruction}</p>
 		</div>
 		<div class="flex items-center gap-3">
@@ -182,18 +163,16 @@
 			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
 				<p class="text-xs uppercase tracking-wide text-slate-400">Prompt</p>
 				{#if current}
-					<p class="mt-2 text-lg font-semibold text-slate-900">
-						{current.subject.label} + {current.verb.infinitive}
+					<p class="mt-2 text-3xl font-bold text-slate-900">
+						{current.prompt}
 					</p>
-					<p class="text-sm text-slate-500">
-						{#if tense.id === 'presente'}
-							Meaning: {current.verb.translation}
-						{:else}
-							Aux: {current.verb.auxiliary} · Meaning: {current.verb.translation}
-						{/if}
-					</p>
+					{#if type === 'colors'}
+						<p class="text-sm text-slate-500">What is "{current.prompt}" in Italian?</p>
+					{:else}
+						<p class="text-sm text-slate-500">Write this number in Italian</p>
+					{/if}
 				{:else}
-					<p class="mt-2 text-sm text-slate-500">No verbs loaded.</p>
+					<p class="mt-2 text-sm text-slate-500">No items loaded.</p>
 				{/if}
 			</div>
 
@@ -259,20 +238,22 @@
 			</div>
 			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
 				<p class="font-semibold text-slate-800">Quick tips</p>
-				{#if tense.id === 'presente'}
+				{#if type === 'colors'}
 					<p class="mt-2">
-						Include the pronoun. We accept answers without it too. Focus on the present
-						form.
+						Type the Italian word for each color. Don't worry about accents - we'll
+						accept the answer without them.
+					</p>
+				{:else if type === 'numbers'}
+					<p class="mt-2">
+						Type the Italian word for each number. For compound numbers like 21, write
+						them as one word (ventuno).
 					</p>
 				{:else}
 					<p class="mt-2">
-						Include the pronoun. We accept answers without it too. For essere verbs, we
-						simplify agreement in this drill.
+						Type the Italian preposition shown. Some words like tra/fra are
+						interchangeable - we accept either.
 					</p>
 				{/if}
-				<p class="mt-2">
-					Tense selected: <span class="font-semibold">{tense.shortName}</span>
-				</p>
 			</div>
 		</div>
 	</div>

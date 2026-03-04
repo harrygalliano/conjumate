@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { Verb } from '$lib/data/italian';
 
-	let { verbs }: { verbs: Verb[] } = $props();
+	let { verbs, label = 'Verb list' }: { verbs: Verb[]; label?: string } = $props();
 </script>
 
 <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
 	<div class="flex items-center justify-between gap-3">
 		<h3 class="text-xl font-semibold text-slate-900">Popular Verbs</h3>
-		<p class="text-xs uppercase tracking-[0.2em] text-slate-400">Passato prossimo</p>
+		<p class="text-xs uppercase tracking-[0.2em] text-slate-400">{label}</p>
 	</div>
 	<div class="mt-4 grid gap-2">
 		<div class="grid grid-cols-[1.2fr_1fr_0.8fr] gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">

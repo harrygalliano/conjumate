@@ -56,11 +56,11 @@
 	<title>Conjumate · Learn Italian Offline</title>
 </svelte:head>
 
-<div class="min-h-[100svh] bg-slate-950 text-slate-100">
+<div class="min-h-[100svh] bg-gradient-to-b from-slate-950 via-[#0b1020] to-[#140b2a] text-slate-100">
 	<div class="relative overflow-hidden">
 		<div class="absolute -left-32 top-10 h-64 w-64 rounded-full bg-amber-400/30 blur-3xl"></div>
-		<div class="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl"></div>
-		<div class="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl"></div>
+		<div class="absolute right-0 top-0 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+		<div class="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-purple-500/20 blur-3xl"></div>
 
 		<header class="relative z-10 px-4 pt-8">
 			<nav class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4">
@@ -166,36 +166,36 @@
 	</div>
 </div>
 
-<section id="method" class="bg-slate-50 px-4 py-16 text-slate-900">
+<section id="method" class="bg-gradient-to-b from-[#0b1020] to-[#140b2a] px-4 py-16 text-slate-100">
 	<div class="mx-auto w-full max-w-6xl">
 		<div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
 			<div class="space-y-6">
-				<p class="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+				<p class="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400">
 					Method
 				</p>
-				<h2 class="text-3xl font-semibold">A simple loop: learn, sprint, repeat.</h2>
-				<p class="text-base text-slate-600">
+				<h2 class="text-3xl font-semibold text-white">A simple loop: learn, sprint, repeat.</h2>
+				<p class="text-base text-slate-300">
 					Conjumate keeps you in motion: short reviews, high-frequency verbs, and
 					instant feedback. Every round is a small win.
 				</p>
 				<div class="grid gap-3">
 					{#each steps as step, index (step.title)}
-						<div class="rounded-2xl border border-slate-200 bg-white p-4">
+						<div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
 							<p class="text-xs uppercase tracking-[0.2em] text-amber-500">
 								Step {index + 1}
 							</p>
-							<p class="mt-2 text-lg font-semibold text-slate-900">{step.title}</p>
-							<p class="text-sm text-slate-600">{step.description}</p>
+							<p class="mt-2 text-lg font-semibold text-white">{step.title}</p>
+							<p class="text-sm text-slate-300">{step.description}</p>
 						</div>
 					{/each}
 				</div>
 			</div>
 			<div class="grid gap-4">
 				{#each features as feature (feature.title)}
-					<div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+					<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-sm">
 						<p class="text-xs uppercase tracking-[0.2em] text-slate-400">{feature.meta}</p>
-						<p class="mt-2 text-xl font-semibold text-slate-900">{feature.title}</p>
-						<p class="mt-2 text-sm text-slate-600">{feature.description}</p>
+						<p class="mt-2 text-xl font-semibold text-white">{feature.title}</p>
+						<p class="mt-2 text-sm text-slate-300">{feature.description}</p>
 					</div>
 				{/each}
 			</div>
@@ -203,24 +203,24 @@
 	</div>
 </section>
 
-<section id="tense" class="bg-white px-4 py-16">
+<section id="tense" class="bg-[#140b2a] px-4 py-16 text-slate-100">
 	<div class="mx-auto w-full max-w-6xl">
 		<div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
 			<div class="space-y-3">
 				<p class="text-xs font-semibold uppercase tracking-[0.4em] text-amber-500">
 					Tense Focus
 				</p>
-				<h2 class="text-3xl font-semibold text-slate-900">
+				<h2 class="text-3xl font-semibold text-white">
 					Present perfect, powered by real verbs.
 				</h2>
-				<p class="max-w-xl text-base text-slate-600">
+				<p class="max-w-xl text-base text-slate-300">
 					We start with verbs you actually need for daily conversation. Stay tuned for
 					future tense packs you can download for offline practice.
 				</p>
 			</div>
-			<div class="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600">
+			<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 text-sm text-slate-300">
 				<p class="text-xs uppercase tracking-[0.2em] text-slate-400">Verb set</p>
-				<p class="mt-2 text-2xl font-semibold text-slate-900">28 high-frequency verbs</p>
+				<p class="mt-2 text-2xl font-semibold text-white">28 high-frequency verbs</p>
 				<p class="mt-2">
 					Balanced between essere + avere, perfect for building intuition.
 				</p>
@@ -229,7 +229,7 @@
 	</div>
 </section>
 
-<section id="offline" class="bg-slate-950 px-4 py-16 text-slate-100">
+<section id="offline" class="bg-[#0b1020] px-4 py-16 text-slate-100">
 	<div class="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
 		<div class="space-y-4">
 			<p class="text-xs font-semibold uppercase tracking-[0.4em] text-amber-300">
@@ -263,16 +263,16 @@
 	</div>
 </section>
 
-<section id="start" class="bg-white px-4 py-16">
+<section id="start" class="bg-[#0b1020] px-4 py-16">
 	<div class="mx-auto w-full max-w-6xl">
-		<div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-slate-900 sm:p-12">
+		<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8 text-slate-100 sm:p-12">
 			<div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
 				<div class="space-y-4">
 					<p class="text-xs font-semibold uppercase tracking-[0.4em] text-amber-500">
 						Start here
 					</p>
 					<h2 class="text-3xl font-semibold">Ready for your first sprint?</h2>
-					<p class="text-base text-slate-600">
+					<p class="text-base text-slate-300">
 						Jump into the present perfect and see how many conjugations you can
 						complete in 60 seconds.
 					</p>
@@ -280,7 +280,7 @@
 				<div class="flex flex-col justify-center gap-3">
 					<a
 						href="/practice"
-						class="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white"
+						class="rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold text-slate-900"
 					>
 						Start sprint
 					</a>
@@ -293,7 +293,7 @@
 	</div>
 </section>
 
-<footer class="bg-slate-950 px-4 py-10 text-slate-500">
+<footer class="bg-[#0b1020] px-4 py-10 text-slate-400">
 	<div class="mx-auto flex w-full max-w-6xl flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
 		<p>Conjumate (c) 2026. Learn Italian, offline.</p>
 		<div class="flex items-center gap-4">
