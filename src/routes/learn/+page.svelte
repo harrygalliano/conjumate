@@ -1,12 +1,26 @@
 <script lang="ts">
 	import { learnTenses, type LearnTense } from '$lib/data/learn';
+	import { italianVerbs, type Verb } from '$lib/data/italian';
+	import { VerbSearch, ConjugationBreakdown } from '$lib/components/learn';
 
 	type TenseId = LearnTense['id'];
+	type ViewMode = 'overview' | 'verb-lookup';
 
+	let viewMode = $state<ViewMode>('overview');
 	let activeTense = $state<TenseId>(learnTenses[0].id);
+	let selectedVerb = $state<Verb | null>(null);
+
 	const current = $derived(
 		learnTenses.find((tense) => tense.id === activeTense) ?? learnTenses[0]
 	);
+
+	const handleVerbSelect = (verb: Verb) => {
+		selectedVerb = verb;
+	};
+
+	const clearVerb = () => {
+		selectedVerb = null;
+	};
 </script>
 
 <svelte:head>
@@ -19,9 +33,64 @@
 			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Learn</p>
 			<h1 class="text-3xl font-semibold text-white sm:text-4xl">Grammar Library</h1>
 			<p class="text-base text-slate-300 sm:text-lg">
-				Choose a tense to get a quick, practical breakdown before you practice.
+				Search for any verb and see how to conjugate it, or explore tense guides below.
 			</p>
 		</header>
+
+		<!-- Verb Lookup Section -->
+		<section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
+			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Verb Lookup</p>
+			<p class="mt-2 text-sm text-slate-400">
+				Search 100 common Italian verbs by Italian or English
+			</p>
+			<div class="mt-4">
+				<VerbSearch verbs={italianVerbs} onselect={handleVerbSelect} />
+			</div>
+
+			{#if selectedVerb}
+				<div class="mt-6 space-y-4">
+					<div class="flex items-center justify-between">
+						<p class="text-sm text-slate-400">
+							Selected: <span class="font-semibold text-white">{selectedVerb.infinitive}</span>
+						</p>
+						<button
+							type="button"
+							onclick={clearVerb}
+							class="rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold text-slate-400 transition hover:border-slate-500 hover:text-white"
+						>
+							Clear
+						</button>
+					</div>
+
+					<!-- Tense selector for verb lookup -->
+					<div class="flex flex-wrap gap-2">
+						{#each learnTenses as tense (tense.id)}
+							<button
+								type="button"
+								onclick={() => (activeTense = tense.id)}
+								class={`rounded-xl border px-3 py-2 text-xs font-semibold transition ${
+									activeTense === tense.id
+										? 'border-amber-400/40 bg-amber-400/20 text-amber-300'
+										: 'border-slate-700 bg-slate-800 text-slate-400 hover:border-slate-600 hover:text-white'
+								}`}
+							>
+								{tense.shortName}
+							</button>
+						{/each}
+					</div>
+
+					<ConjugationBreakdown verb={selectedVerb} tense={current} />
+				</div>
+			{/if}
+		</section>
+
+		<!-- Tense Guide Section -->
+		<div class="border-t border-slate-800 pt-10">
+			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Tense Guides</p>
+			<p class="mt-2 text-sm text-slate-400">
+				Learn the rules and patterns for each tense
+			</p>
+		</div>
 
 		<div class="flex flex-wrap gap-2" role="tablist" aria-label="Learn tabs">
 			{#each learnTenses as tense (tense.id)}

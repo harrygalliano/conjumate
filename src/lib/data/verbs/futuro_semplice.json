@@ -1,0 +1,802 @@
+{
+	"essere": {
+		"io": "sarò",
+		"tu": "sarai",
+		"lui_lei": "sarà",
+		"noi": "saremo",
+		"voi": "sarete",
+		"loro": "saranno"
+	},
+	"avere": {
+		"io": "avrò",
+		"tu": "avrai",
+		"lui_lei": "avrà",
+		"noi": "avremo",
+		"voi": "avrete",
+		"loro": "avranno"
+	},
+	"volere": {
+		"io": "vorrò",
+		"tu": "vorrai",
+		"lui_lei": "vorrà",
+		"noi": "vorremo",
+		"voi": "vorrete",
+		"loro": "vorranno"
+	},
+	"fare": {
+		"io": "farò",
+		"tu": "farai",
+		"lui_lei": "farà",
+		"noi": "faremo",
+		"voi": "farete",
+		"loro": "faranno"
+	},
+	"dire": {
+		"io": "dirò",
+		"tu": "dirai",
+		"lui_lei": "dirà",
+		"noi": "diremo",
+		"voi": "direte",
+		"loro": "diranno"
+	},
+	"capire": {
+		"io": "capirò",
+		"tu": "capirai",
+		"lui_lei": "capirà",
+		"noi": "capiremo",
+		"voi": "capirete",
+		"loro": "capiranno"
+	},
+	"sapere": {
+		"io": "saprò",
+		"tu": "saprai",
+		"lui_lei": "saprà",
+		"noi": "sapremo",
+		"voi": "saprete",
+		"loro": "sapranno"
+	},
+	"spiegare": {
+		"io": "spiegherò",
+		"tu": "spiegherai",
+		"lui_lei": "spiegherà",
+		"noi": "spiegheremo",
+		"voi": "spiegherete",
+		"loro": "spiegheranno"
+	},
+	"uscire": {
+		"io": "uscirò",
+		"tu": "uscirai",
+		"lui_lei": "uscirà",
+		"noi": "usciremo",
+		"voi": "uscirete",
+		"loro": "usciranno"
+	},
+	"andare": {
+		"io": "andrò",
+		"tu": "andrai",
+		"lui_lei": "andrà",
+		"noi": "andremo",
+		"voi": "andrete",
+		"loro": "andranno"
+	},
+	"venire": {
+		"io": "verrò",
+		"tu": "verrai",
+		"lui_lei": "verrà",
+		"noi": "verremo",
+		"voi": "verrete",
+		"loro": "verranno"
+	},
+	"potere": {
+		"io": "potrò",
+		"tu": "potrai",
+		"lui_lei": "potrà",
+		"noi": "potremo",
+		"voi": "potrete",
+		"loro": "potranno"
+	},
+	"dovere": {
+		"io": "dovrò",
+		"tu": "dovrai",
+		"lui_lei": "dovrà",
+		"noi": "dovremo",
+		"voi": "dovrete",
+		"loro": "dovranno"
+	},
+	"preferire": {
+		"io": "preferirò",
+		"tu": "preferirai",
+		"lui_lei": "preferirà",
+		"noi": "preferiremo",
+		"voi": "preferirete",
+		"loro": "preferiranno"
+	},
+	"bere": {
+		"io": "berrò",
+		"tu": "berrai",
+		"lui_lei": "berrà",
+		"noi": "berremo",
+		"voi": "berrete",
+		"loro": "berranno"
+	},
+	"salire": {
+		"io": "salirò",
+		"tu": "salirai",
+		"lui_lei": "salirà",
+		"noi": "saliremo",
+		"voi": "salirete",
+		"loro": "saliranno"
+	},
+	"rimanere": {
+		"io": "rimarrò",
+		"tu": "rimarrai",
+		"lui_lei": "rimarrà",
+		"noi": "rimarremo",
+		"voi": "rimarrete",
+		"loro": "rimarranno"
+	},
+	"morire": {
+		"io": "morirò",
+		"tu": "morirai",
+		"lui_lei": "morirà",
+		"noi": "moriremo",
+		"voi": "morirete",
+		"loro": "moriranno"
+	},
+	"finire": {
+		"io": "finirò",
+		"tu": "finirai",
+		"lui_lei": "finirà",
+		"noi": "finiremo",
+		"voi": "finirete",
+		"loro": "finiranno"
+	},
+	"vedere": {
+		"io": "vedrò",
+		"tu": "vedrai",
+		"lui_lei": "vedrà",
+		"noi": "vedremo",
+		"voi": "vedrete",
+		"loro": "vedranno"
+	},
+	"leggere": {
+		"io": "leggerò",
+		"tu": "leggerai",
+		"lui_lei": "leggerà",
+		"noi": "leggeremo",
+		"voi": "leggerete",
+		"loro": "leggeranno"
+	},
+	"nascere": {
+		"io": "nascerò",
+		"tu": "nascerai",
+		"lui_lei": "nascerà",
+		"noi": "nasceremo",
+		"voi": "nascerete",
+		"loro": "nasceranno"
+	},
+	"chiedere": {
+		"io": "chiederò",
+		"tu": "chiederai",
+		"lui_lei": "chiederà",
+		"noi": "chiederemo",
+		"voi": "chiederete",
+		"loro": "chiederanno"
+	},
+	"rispondere": {
+		"io": "risponderò",
+		"tu": "risponderai",
+		"lui_lei": "risponderà",
+		"noi": "risponderemo",
+		"voi": "risponderete",
+		"loro": "risponderanno"
+	},
+	"conoscere": {
+		"io": "conoscerò",
+		"tu": "conoscerai",
+		"lui_lei": "conoscerà",
+		"noi": "conosceremo",
+		"voi": "conoscerete",
+		"loro": "conosceranno"
+	},
+	"mettere": {
+		"io": "metterò",
+		"tu": "metterai",
+		"lui_lei": "metterà",
+		"noi": "metteremo",
+		"voi": "metterete",
+		"loro": "metteranno"
+	},
+	"aprire": {
+		"io": "aprirò",
+		"tu": "aprirai",
+		"lui_lei": "aprirà",
+		"noi": "apriremo",
+		"voi": "aprirete",
+		"loro": "apriranno"
+	},
+	"perdere": {
+		"io": "perderò",
+		"tu": "perderai",
+		"lui_lei": "perderà",
+		"noi": "perderemo",
+		"voi": "perderete",
+		"loro": "perderanno"
+	},
+	"vivere": {
+		"io": "viverò",
+		"tu": "viverai",
+		"lui_lei": "viverà",
+		"noi": "viveremo",
+		"voi": "viverete",
+		"loro": "viveranno"
+	},
+	"cuocere": {
+		"io": "cuocerò",
+		"tu": "cuocerai",
+		"lui_lei": "cuocerà",
+		"noi": "cuoceremo",
+		"voi": "cuocerete",
+		"loro": "cuoceranno"
+	},
+	"scendere": {
+		"io": "scenderò",
+		"tu": "scenderai",
+		"lui_lei": "scenderà",
+		"noi": "scenderemo",
+		"voi": "scenderete",
+		"loro": "scenderanno"
+	},
+	"scrivere": {
+		"io": "scriverò",
+		"tu": "scriverai",
+		"lui_lei": "scriverà",
+		"noi": "scriveremo",
+		"voi": "scriverete",
+		"loro": "scriveranno"
+	},
+	"prendere": {
+		"io": "prenderò",
+		"tu": "prenderai",
+		"lui_lei": "prenderà",
+		"noi": "prenderemo",
+		"voi": "prenderete",
+		"loro": "prenderanno"
+	},
+	"rompere": {
+		"io": "romperò",
+		"tu": "romperai",
+		"lui_lei": "romperà",
+		"noi": "romperemo",
+		"voi": "romperete",
+		"loro": "romperanno"
+	},
+	"correre": {
+		"io": "correrò",
+		"tu": "correrai",
+		"lui_lei": "correrà",
+		"noi": "correremo",
+		"voi": "correrete",
+		"loro": "correranno"
+	},
+	"vincere": {
+		"io": "vincerò",
+		"tu": "vincerai",
+		"lui_lei": "vincerà",
+		"noi": "vinceremo",
+		"voi": "vincerete",
+		"loro": "vinceranno"
+	},
+	"tradurre": {
+		"io": "tradurrò",
+		"tu": "tradurrai",
+		"lui_lei": "tradurrà",
+		"noi": "tradurremo",
+		"voi": "tradurrete",
+		"loro": "tradurranno"
+	},
+	"chiudere": {
+		"io": "chiuderò",
+		"tu": "chiuderai",
+		"lui_lei": "chiuderà",
+		"noi": "chiuderemo",
+		"voi": "chiuderete",
+		"loro": "chiuderanno"
+	},
+	"accendere": {
+		"io": "accenderò",
+		"tu": "accenderai",
+		"lui_lei": "accenderà",
+		"noi": "accenderemo",
+		"voi": "accenderete",
+		"loro": "accenderanno"
+	},
+	"crescere": {
+		"io": "crescerò",
+		"tu": "crescerai",
+		"lui_lei": "crescerà",
+		"noi": "cresceremo",
+		"voi": "crescerete",
+		"loro": "cresceranno"
+	},
+	"spingere": {
+		"io": "spingerò",
+		"tu": "spingerai",
+		"lui_lei": "spingerà",
+		"noi": "spingeremo",
+		"voi": "spingerete",
+		"loro": "spingeranno"
+	},
+	"scusarsi": {
+		"io": "scuserò",
+		"tu": "scuserai",
+		"lui_lei": "scuserà",
+		"noi": "scuseremo",
+		"voi": "scuserete",
+		"loro": "scuseranno"
+	},
+	"chiamarsi": {
+		"io": "chiamerò",
+		"tu": "chiamerai",
+		"lui_lei": "chiamerà",
+		"noi": "chiameremo",
+		"voi": "chiamerete",
+		"loro": "chiameranno"
+	},
+	"divertirsi": {
+		"io": "divertirò",
+		"tu": "divertirai",
+		"lui_lei": "divertirà",
+		"noi": "divertiremo",
+		"voi": "divertirete",
+		"loro": "divertiranno"
+	},
+	"abituarsi": {
+		"io": "abituerò",
+		"tu": "abituerai",
+		"lui_lei": "abituerà",
+		"noi": "abitueremo",
+		"voi": "abituerete",
+		"loro": "abitueranno"
+	},
+	"comportarsi": {
+		"io": "comporterò",
+		"tu": "comporterai",
+		"lui_lei": "comporterà",
+		"noi": "comporteremo",
+		"voi": "comporterete",
+		"loro": "comporteranno"
+	},
+	"piacere": {
+		"io": "piacerò",
+		"tu": "piacerai",
+		"lui_lei": "piacerà",
+		"noi": "piaceremo",
+		"voi": "piacerete",
+		"loro": "piaceranno"
+	},
+	"dispiacere": {
+		"io": "dispiacerò",
+		"tu": "dispiacerai",
+		"lui_lei": "dispiacerà",
+		"noi": "dispiaceremo",
+		"voi": "dispiacerete",
+		"loro": "dispiaceranno"
+	},
+	"mancare": {
+		"io": "mancherò",
+		"tu": "mancherai",
+		"lui_lei": "mancherà",
+		"noi": "mancheremo",
+		"voi": "mancherete",
+		"loro": "mancheranno"
+	},
+	"interessare": {
+		"io": "interesserò",
+		"tu": "interesserai",
+		"lui_lei": "interesserà",
+		"noi": "interesseremo",
+		"voi": "interesserete",
+		"loro": "interesseranno"
+	},
+	"sembrare": {
+		"io": "sembrerò",
+		"tu": "sembrerai",
+		"lui_lei": "sembrerà",
+		"noi": "sembreremo",
+		"voi": "sembrerete",
+		"loro": "sembreranno"
+	},
+	"amare": {
+		"io": "amerò",
+		"tu": "amerai",
+		"lui_lei": "amerà",
+		"noi": "ameremo",
+		"voi": "amerete",
+		"loro": "ameranno"
+	},
+	"mangiare": {
+		"io": "mangerò",
+		"tu": "mangerai",
+		"lui_lei": "mangerà",
+		"noi": "mangeremo",
+		"voi": "mangerete",
+		"loro": "mangeranno"
+	},
+	"ascoltare": {
+		"io": "ascolterò",
+		"tu": "ascolterai",
+		"lui_lei": "ascolterà",
+		"noi": "ascolteremo",
+		"voi": "ascolterete",
+		"loro": "ascolteranno"
+	},
+	"parlare": {
+		"io": "parlerò",
+		"tu": "parlerai",
+		"lui_lei": "parlerà",
+		"noi": "parleremo",
+		"voi": "parlerete",
+		"loro": "parleranno"
+	},
+	"ordinare": {
+		"io": "ordinerò",
+		"tu": "ordinerai",
+		"lui_lei": "ordinerà",
+		"noi": "ordineremo",
+		"voi": "ordinerete",
+		"loro": "ordineranno"
+	},
+	"cercare": {
+		"io": "cercherò",
+		"tu": "cercherai",
+		"lui_lei": "cercherà",
+		"noi": "cercheremo",
+		"voi": "cercherete",
+		"loro": "cercheranno"
+	},
+	"pensare": {
+		"io": "penserò",
+		"tu": "penserai",
+		"lui_lei": "penserà",
+		"noi": "penseremo",
+		"voi": "penserete",
+		"loro": "penseranno"
+	},
+	"incontrare": {
+		"io": "incontrerò",
+		"tu": "incontrerai",
+		"lui_lei": "incontrerà",
+		"noi": "incontreremo",
+		"voi": "incontrerete",
+		"loro": "incontreranno"
+	},
+	"portare": {
+		"io": "porterò",
+		"tu": "porterai",
+		"lui_lei": "porterà",
+		"noi": "porteremo",
+		"voi": "porterete",
+		"loro": "porteranno"
+	},
+	"toccare": {
+		"io": "toccherò",
+		"tu": "toccherai",
+		"lui_lei": "toccherà",
+		"noi": "toccheremo",
+		"voi": "toccherete",
+		"loro": "toccheranno"
+	},
+	"guardare": {
+		"io": "guarderò",
+		"tu": "guarderai",
+		"lui_lei": "guarderà",
+		"noi": "guarderemo",
+		"voi": "guarderete",
+		"loro": "guarderanno"
+	},
+	"tornare": {
+		"io": "tornerò",
+		"tu": "tornerai",
+		"lui_lei": "tornerà",
+		"noi": "torneremo",
+		"voi": "tornerete",
+		"loro": "torneranno"
+	},
+	"trovare": {
+		"io": "troverò",
+		"tu": "troverai",
+		"lui_lei": "troverà",
+		"noi": "troveremo",
+		"voi": "troverete",
+		"loro": "troveranno"
+	},
+	"dare": {
+		"io": "darò",
+		"tu": "darai",
+		"lui_lei": "darà",
+		"noi": "daremo",
+		"voi": "darete",
+		"loro": "daranno"
+	},
+	"abitare": {
+		"io": "abiterò",
+		"tu": "abiterai",
+		"lui_lei": "abiterà",
+		"noi": "abiteremo",
+		"voi": "abiterete",
+		"loro": "abiteranno"
+	},
+	"sperare": {
+		"io": "spererò",
+		"tu": "spererai",
+		"lui_lei": "spererà",
+		"noi": "spereremo",
+		"voi": "spererete",
+		"loro": "spereranno"
+	},
+	"aspettare": {
+		"io": "aspetterò",
+		"tu": "aspetterai",
+		"lui_lei": "aspetterà",
+		"noi": "aspetteremo",
+		"voi": "aspetterete",
+		"loro": "aspetteranno"
+	},
+	"pranzare": {
+		"io": "pranzerò",
+		"tu": "pranzerai",
+		"lui_lei": "pranzerà",
+		"noi": "pranzeremo",
+		"voi": "pranzerete",
+		"loro": "pranzeranno"
+	},
+	"cenare": {
+		"io": "cenerò",
+		"tu": "cenerai",
+		"lui_lei": "cenerà",
+		"noi": "ceneremo",
+		"voi": "cenerete",
+		"loro": "ceneranno"
+	},
+	"telefonare": {
+		"io": "telefonerò",
+		"tu": "telefonerai",
+		"lui_lei": "telefonerà",
+		"noi": "telefoneremo",
+		"voi": "telefonerete",
+		"loro": "telefoneranno"
+	},
+	"comprare": {
+		"io": "comprerò",
+		"tu": "comprerai",
+		"lui_lei": "comprerà",
+		"noi": "compreremo",
+		"voi": "comprerete",
+		"loro": "compreranno"
+	},
+	"pagare": {
+		"io": "pagherò",
+		"tu": "pagherai",
+		"lui_lei": "pagherà",
+		"noi": "pagheremo",
+		"voi": "pagherete",
+		"loro": "pagheranno"
+	},
+	"entrare": {
+		"io": "entrerò",
+		"tu": "entrerai",
+		"lui_lei": "entrerà",
+		"noi": "entreremo",
+		"voi": "entrerete",
+		"loro": "entreranno"
+	},
+	"lavorare": {
+		"io": "lavorerò",
+		"tu": "lavorerai",
+		"lui_lei": "lavorerà",
+		"noi": "lavoreremo",
+		"voi": "lavorerete",
+		"loro": "lavoreranno"
+	},
+	"studiare": {
+		"io": "studierò",
+		"tu": "studierai",
+		"lui_lei": "studierà",
+		"noi": "studieremo",
+		"voi": "studierete",
+		"loro": "studieranno"
+	},
+	"mandare": {
+		"io": "manderò",
+		"tu": "manderai",
+		"lui_lei": "manderà",
+		"noi": "manderemo",
+		"voi": "manderete",
+		"loro": "manderanno"
+	},
+	"lasciare": {
+		"io": "lascerò",
+		"tu": "lascerai",
+		"lui_lei": "lascerà",
+		"noi": "lasceremo",
+		"voi": "lascerete",
+		"loro": "lasceranno"
+	},
+	"salutare": {
+		"io": "saluterò",
+		"tu": "saluterai",
+		"lui_lei": "saluterà",
+		"noi": "saluteremo",
+		"voi": "saluterete",
+		"loro": "saluteranno"
+	},
+	"usare": {
+		"io": "userò",
+		"tu": "userai",
+		"lui_lei": "userà",
+		"noi": "useremo",
+		"voi": "userete",
+		"loro": "useranno"
+	},
+	"visitare": {
+		"io": "visiterò",
+		"tu": "visiterai",
+		"lui_lei": "visiterà",
+		"noi": "visiteremo",
+		"voi": "visiterete",
+		"loro": "visiteranno"
+	},
+	"camminare": {
+		"io": "camminerò",
+		"tu": "camminerai",
+		"lui_lei": "camminerà",
+		"noi": "cammineremo",
+		"voi": "camminerete",
+		"loro": "cammineranno"
+	},
+	"iniziare": {
+		"io": "inizierò",
+		"tu": "inizierai",
+		"lui_lei": "inizierà",
+		"noi": "inizieremo",
+		"voi": "inizierete",
+		"loro": "inizieranno"
+	},
+	"imparare": {
+		"io": "imparerò",
+		"tu": "imparerai",
+		"lui_lei": "imparerà",
+		"noi": "impareremo",
+		"voi": "imparerete",
+		"loro": "impareranno"
+	},
+	"cambiare": {
+		"io": "cambierò",
+		"tu": "cambierai",
+		"lui_lei": "cambierà",
+		"noi": "cambieremo",
+		"voi": "cambierete",
+		"loro": "cambieranno"
+	},
+	"guadagnare": {
+		"io": "guadagnerò",
+		"tu": "guadagnerai",
+		"lui_lei": "guadagnerà",
+		"noi": "guadagneremo",
+		"voi": "guadagnerete",
+		"loro": "guadagneranno"
+	},
+	"aiutare": {
+		"io": "aiuterò",
+		"tu": "aiuterai",
+		"lui_lei": "aiuterà",
+		"noi": "aiuteremo",
+		"voi": "aiuterete",
+		"loro": "aiuteranno"
+	},
+	"ricordare": {
+		"io": "ricorderò",
+		"tu": "ricorderai",
+		"lui_lei": "ricorderà",
+		"noi": "ricorderemo",
+		"voi": "ricorderete",
+		"loro": "ricorderanno"
+	},
+	"tirare": {
+		"io": "tirerò",
+		"tu": "tirerai",
+		"lui_lei": "tirerà",
+		"noi": "tireremo",
+		"voi": "tirerete",
+		"loro": "tireranno"
+	},
+	"invitare": {
+		"io": "inviterò",
+		"tu": "inviterai",
+		"lui_lei": "inviterà",
+		"noi": "inviteremo",
+		"voi": "inviterete",
+		"loro": "inviteranno"
+	},
+	"diventare": {
+		"io": "diventerò",
+		"tu": "diventerai",
+		"lui_lei": "diventerà",
+		"noi": "diventeremo",
+		"voi": "diventerete",
+		"loro": "diventeranno"
+	},
+	"giocare": {
+		"io": "giocherò",
+		"tu": "giocherai",
+		"lui_lei": "giocherà",
+		"noi": "giocheremo",
+		"voi": "giocherete",
+		"loro": "giocheranno"
+	},
+	"credere": {
+		"io": "crederò",
+		"tu": "crederai",
+		"lui_lei": "crederà",
+		"noi": "crederemo",
+		"voi": "crederete",
+		"loro": "crederanno"
+	},
+	"vendere": {
+		"io": "venderò",
+		"tu": "venderai",
+		"lui_lei": "venderà",
+		"noi": "venderemo",
+		"voi": "venderete",
+		"loro": "venderanno"
+	},
+	"ripetere": {
+		"io": "ripeterò",
+		"tu": "ripeterai",
+		"lui_lei": "ripeterà",
+		"noi": "ripeteremo",
+		"voi": "ripeterete",
+		"loro": "ripeteranno"
+	},
+	"godere": {
+		"io": "goderò",
+		"tu": "goderai",
+		"lui_lei": "goderà",
+		"noi": "goderemo",
+		"voi": "goderete",
+		"loro": "goderanno"
+	},
+	"dormire": {
+		"io": "dormirò",
+		"tu": "dormirai",
+		"lui_lei": "dormirà",
+		"noi": "dormiremo",
+		"voi": "dormirete",
+		"loro": "dormiranno"
+	},
+	"servire": {
+		"io": "servirò",
+		"tu": "servirai",
+		"lui_lei": "servirà",
+		"noi": "serviremo",
+		"voi": "servirete",
+		"loro": "serviranno"
+	},
+	"partire": {
+		"io": "partirò",
+		"tu": "partirai",
+		"lui_lei": "partirà",
+		"noi": "partiremo",
+		"voi": "partirete",
+		"loro": "partiranno"
+	},
+	"pulire": {
+		"io": "pulirò",
+		"tu": "pulirai",
+		"lui_lei": "pulirà",
+		"noi": "puliremo",
+		"voi": "pulirete",
+		"loro": "puliranno"
+	}
+}

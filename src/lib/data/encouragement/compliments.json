@@ -2,13 +2,13 @@
 	{
 		"id": 1,
 		"it_feminine": "Bravissima, la mia zucchetta angelica!",
-		"it_masculine": "Bravissimo, la mia zucchetta angelica!",
+		"it_masculine": "Bravissimo, il mio zucchetto angelico!",
 		"literal_translation_en": "Very well done, my angelic little pumpkin/zucchini!",
 		"natural_english_version": "Well done, my sweet little angel-pumpkin!"
 	},
 	{
 		"id": 2,
-		"it_feminine": "Che brava, tesorino mio!",
+		"it_feminine": "Che brava, tesorina mia!",
 		"it_masculine": "Che bravo, tesorino mio!",
 		"literal_translation_en": "How good you are, my little treasure!",
 		"natural_english_version": "You did amazing, my little treasure!"
@@ -23,13 +23,13 @@
 	{
 		"id": 4,
 		"it_feminine": "Sei stata bravissima, stellina!",
-		"it_masculine": "Sei stato bravissimo, stellina!",
+		"it_masculine": "Sei stato bravissimo, stellino!",
 		"literal_translation_en": "You have been very good, little star!",
 		"natural_english_version": "You were brilliant, little star!"
 	},
 	{
 		"id": 5,
-		"it_feminine": "Complimenti, amorino mio!",
+		"it_feminine": "Complimenti, amorina mia!",
 		"it_masculine": "Complimenti, amorino mio!",
 		"literal_translation_en": "Compliments, my little love!",
 		"natural_english_version": "Great job, my love!"
@@ -50,14 +50,14 @@
 	},
 	{
 		"id": 8,
-		"it_feminine": "Benissimo, pulcino mio!",
+		"it_feminine": "Benissimo, pulcina mia!",
 		"it_masculine": "Benissimo, pulcino mio!",
 		"literal_translation_en": "Very well, my little chick!",
 		"natural_english_version": "So good, my little chick!"
 	},
 	{
 		"id": 9,
-		"it_feminine": "Hai fatto un lavorone, fiorellino!",
+		"it_feminine": "Hai fatto un lavorone, fiorellina!",
 		"it_masculine": "Hai fatto un lavorone, fiorellino!",
 		"literal_translation_en": "You did a big job, little flower!",
 		"natural_english_version": "You did a fantastic job, little flower!"
@@ -71,21 +71,21 @@
 	},
 	{
 		"id": 11,
-		"it_feminine": "Che orgoglio, angioletto!",
+		"it_feminine": "Che orgoglio, angioletta!",
 		"it_masculine": "Che orgoglio, angioletto!",
 		"literal_translation_en": "What pride, little angel!",
-		"natural_english_version": "I’m so proud of you, little angel!"
+		"natural_english_version": "I'm so proud of you, little angel!"
 	},
 	{
 		"id": 12,
-		"it_feminine": "Sei un genio, piccola meraviglia!",
-		"it_masculine": "Sei un genio, piccolo meraviglia!",
+		"it_feminine": "Sei una genia, piccola meraviglia!",
+		"it_masculine": "Sei un genio, piccola meraviglia!",
 		"literal_translation_en": "You are a genius, little wonder!",
-		"natural_english_version": "You’re a genius, you little wonder!"
+		"natural_english_version": "You're a genius, you little wonder!"
 	},
 	{
 		"id": 13,
-		"it_feminine": "Brava, biscottino!",
+		"it_feminine": "Brava, biscottina!",
 		"it_masculine": "Bravo, biscottino!",
 		"literal_translation_en": "Well done, little cookie/biscuit!",
 		"natural_english_version": "Good job, cookie!"

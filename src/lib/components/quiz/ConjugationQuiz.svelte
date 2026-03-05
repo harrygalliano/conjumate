@@ -54,6 +54,14 @@
 		voi: 'state',
 		loro: 'stanno'
 	};
+	const reflexivePronouns: Record<Subject['id'], string> = {
+		io: 'mi',
+		tu: 'ti',
+		lui_lei: 'si',
+		noi: 'ci',
+		voi: 'vi',
+		loro: 'si'
+	};
 
 	const availableVerbs = $derived(
 		tense.id === 'presente'
@@ -133,31 +141,38 @@
 			.replace(/\s+/g, ' ');
 
 	const buildExpected = (prompt: Prompt) => {
+		const withSubjectPronoun = (phrase: string) => {
+			const withPronoun = prompt.subject.forms.map((value) => `${value} ${phrase}`);
+			return [withPronoun[0], ...withPronoun.slice(1), phrase];
+		};
+
+		const withReflexivePronoun = (phrase: string) => {
+			const reflexive = reflexivePronouns[prompt.subject.id];
+			const withPronoun = prompt.subject.forms.map((value) => `${value} ${reflexive} ${phrase}`);
+			return [withPronoun[0], ...withPronoun.slice(1), `${reflexive} ${phrase}`];
+		};
+
 		if (tense.id === 'presente') {
 			const form = prompt.verb.present?.[prompt.subject.id];
 			if (!form) return [];
-			const withPronoun = prompt.subject.forms.map((value) => `${value} ${form}`);
-			return [withPronoun[0], ...withPronoun.slice(1), form];
+			return prompt.verb.reflexive ? withReflexivePronoun(form) : withSubjectPronoun(form);
 		}
 		if (tense.id === 'gerundio') {
 			const gerund = prompt.verb.gerund;
 			if (!gerund) return [];
 			const aux = stareForms[prompt.subject.id];
 			const base = `${aux} ${gerund}`;
-			const withPronoun = prompt.subject.forms.map((value) => `${value} ${base}`);
-			return [withPronoun[0], ...withPronoun.slice(1), base];
+			return prompt.verb.reflexive ? withReflexivePronoun(base) : withSubjectPronoun(base);
 		}
 		if (tense.id === 'futuro_semplice') {
 			const future = prompt.verb.future?.[prompt.subject.id];
 			if (!future) return [];
-			const withPronoun = prompt.subject.forms.map((value) => `${value} ${future}`);
-			return [withPronoun[0], ...withPronoun.slice(1), future];
+			return prompt.verb.reflexive ? withReflexivePronoun(future) : withSubjectPronoun(future);
 		}
 
 		const aux = auxiliaryForms[prompt.verb.auxiliary][prompt.subject.id];
 		const base = `${aux} ${prompt.verb.pastParticiple}`;
-		const withPronoun = prompt.subject.forms.map((form) => `${form} ${base}`);
-		return [withPronoun[0], ...withPronoun.slice(1), base];
+		return prompt.verb.reflexive ? withReflexivePronoun(base) : withSubjectPronoun(base);
 	};
 
 	const pickPrompt = () => {

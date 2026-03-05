@@ -1,0 +1,402 @@
+{
+	"essere": {
+		"auxiliary": "essere",
+		"pastParticiple": "stato"
+	},
+	"avere": {
+		"auxiliary": "avere",
+		"pastParticiple": "avuto"
+	},
+	"volere": {
+		"auxiliary": "avere",
+		"pastParticiple": "voluto"
+	},
+	"fare": {
+		"auxiliary": "avere",
+		"pastParticiple": "fatto"
+	},
+	"dire": {
+		"auxiliary": "avere",
+		"pastParticiple": "detto"
+	},
+	"capire": {
+		"auxiliary": "avere",
+		"pastParticiple": "capito"
+	},
+	"sapere": {
+		"auxiliary": "avere",
+		"pastParticiple": "saputo"
+	},
+	"spiegare": {
+		"auxiliary": "avere",
+		"pastParticiple": "spiegato"
+	},
+	"uscire": {
+		"auxiliary": "essere",
+		"pastParticiple": "uscito"
+	},
+	"andare": {
+		"auxiliary": "essere",
+		"pastParticiple": "andato"
+	},
+	"venire": {
+		"auxiliary": "essere",
+		"pastParticiple": "venuto"
+	},
+	"potere": {
+		"auxiliary": "avere",
+		"pastParticiple": "potuto"
+	},
+	"dovere": {
+		"auxiliary": "avere",
+		"pastParticiple": "dovuto"
+	},
+	"preferire": {
+		"auxiliary": "avere",
+		"pastParticiple": "preferito"
+	},
+	"bere": {
+		"auxiliary": "avere",
+		"pastParticiple": "bevuto"
+	},
+	"salire": {
+		"auxiliary": "essere",
+		"pastParticiple": "salito"
+	},
+	"rimanere": {
+		"auxiliary": "essere",
+		"pastParticiple": "rimasto"
+	},
+	"morire": {
+		"auxiliary": "essere",
+		"pastParticiple": "morto"
+	},
+	"finire": {
+		"auxiliary": "avere",
+		"pastParticiple": "finito"
+	},
+	"vedere": {
+		"auxiliary": "avere",
+		"pastParticiple": "visto"
+	},
+	"leggere": {
+		"auxiliary": "avere",
+		"pastParticiple": "letto"
+	},
+	"nascere": {
+		"auxiliary": "essere",
+		"pastParticiple": "nato"
+	},
+	"chiedere": {
+		"auxiliary": "avere",
+		"pastParticiple": "chiesto"
+	},
+	"rispondere": {
+		"auxiliary": "avere",
+		"pastParticiple": "risposto"
+	},
+	"conoscere": {
+		"auxiliary": "avere",
+		"pastParticiple": "conoscuto"
+	},
+	"mettere": {
+		"auxiliary": "avere",
+		"pastParticiple": "messo"
+	},
+	"aprire": {
+		"auxiliary": "avere",
+		"pastParticiple": "aperto"
+	},
+	"perdere": {
+		"auxiliary": "avere",
+		"pastParticiple": "perso"
+	},
+	"vivere": {
+		"auxiliary": "avere",
+		"pastParticiple": "vissuto"
+	},
+	"cuocere": {
+		"auxiliary": "avere",
+		"pastParticiple": "cotto"
+	},
+	"scendere": {
+		"auxiliary": "essere",
+		"pastParticiple": "sceso"
+	},
+	"scrivere": {
+		"auxiliary": "avere",
+		"pastParticiple": "scritto"
+	},
+	"prendere": {
+		"auxiliary": "avere",
+		"pastParticiple": "preso"
+	},
+	"rompere": {
+		"auxiliary": "avere",
+		"pastParticiple": "rotto"
+	},
+	"correre": {
+		"auxiliary": "avere",
+		"pastParticiple": "corso"
+	},
+	"vincere": {
+		"auxiliary": "avere",
+		"pastParticiple": "vinto"
+	},
+	"tradurre": {
+		"auxiliary": "avere",
+		"pastParticiple": "tradotto"
+	},
+	"chiudere": {
+		"auxiliary": "avere",
+		"pastParticiple": "chiuso"
+	},
+	"accendere": {
+		"auxiliary": "avere",
+		"pastParticiple": "acceso"
+	},
+	"crescere": {
+		"auxiliary": "essere",
+		"pastParticiple": "cresciuto"
+	},
+	"spingere": {
+		"auxiliary": "avere",
+		"pastParticiple": "spinto"
+	},
+	"scusarsi": {
+		"auxiliary": "essere",
+		"pastParticiple": "scusato"
+	},
+	"chiamarsi": {
+		"auxiliary": "essere",
+		"pastParticiple": "chiamato"
+	},
+	"divertirsi": {
+		"auxiliary": "essere",
+		"pastParticiple": "divertito"
+	},
+	"abituarsi": {
+		"auxiliary": "essere",
+		"pastParticiple": "abituato"
+	},
+	"comportarsi": {
+		"auxiliary": "essere",
+		"pastParticiple": "comportato"
+	},
+	"piacere": {
+		"auxiliary": "essere",
+		"pastParticiple": "piaciuto"
+	},
+	"dispiacere": {
+		"auxiliary": "essere",
+		"pastParticiple": "dispiaciuto"
+	},
+	"mancare": {
+		"auxiliary": "avere",
+		"pastParticiple": "mancato"
+	},
+	"interessare": {
+		"auxiliary": "avere",
+		"pastParticiple": "interessato"
+	},
+	"sembrare": {
+		"auxiliary": "essere",
+		"pastParticiple": "sembrato"
+	},
+	"amare": {
+		"auxiliary": "avere",
+		"pastParticiple": "amato"
+	},
+	"mangiare": {
+		"auxiliary": "avere",
+		"pastParticiple": "mangiato"
+	},
+	"ascoltare": {
+		"auxiliary": "avere",
+		"pastParticiple": "ascoltato"
+	},
+	"parlare": {
+		"auxiliary": "avere",
+		"pastParticiple": "parlato"
+	},
+	"ordinare": {
+		"auxiliary": "avere",
+		"pastParticiple": "ordinato"
+	},
+	"cercare": {
+		"auxiliary": "avere",
+		"pastParticiple": "cercato"
+	},
+	"pensare": {
+		"auxiliary": "avere",
+		"pastParticiple": "pensato"
+	},
+	"incontrare": {
+		"auxiliary": "avere",
+		"pastParticiple": "incontrato"
+	},
+	"portare": {
+		"auxiliary": "avere",
+		"pastParticiple": "portato"
+	},
+	"toccare": {
+		"auxiliary": "avere",
+		"pastParticiple": "toccato"
+	},
+	"guardare": {
+		"auxiliary": "avere",
+		"pastParticiple": "guardato"
+	},
+	"tornare": {
+		"auxiliary": "essere",
+		"pastParticiple": "tornato"
+	},
+	"trovare": {
+		"auxiliary": "avere",
+		"pastParticiple": "trovato"
+	},
+	"dare": {
+		"auxiliary": "avere",
+		"pastParticiple": "dato"
+	},
+	"abitare": {
+		"auxiliary": "avere",
+		"pastParticiple": "abitato"
+	},
+	"sperare": {
+		"auxiliary": "avere",
+		"pastParticiple": "sperato"
+	},
+	"aspettare": {
+		"auxiliary": "avere",
+		"pastParticiple": "aspettato"
+	},
+	"pranzare": {
+		"auxiliary": "avere",
+		"pastParticiple": "pranzato"
+	},
+	"cenare": {
+		"auxiliary": "avere",
+		"pastParticiple": "cenato"
+	},
+	"telefonare": {
+		"auxiliary": "avere",
+		"pastParticiple": "telefonato"
+	},
+	"comprare": {
+		"auxiliary": "avere",
+		"pastParticiple": "comprato"
+	},
+	"pagare": {
+		"auxiliary": "avere",
+		"pastParticiple": "pagato"
+	},
+	"entrare": {
+		"auxiliary": "essere",
+		"pastParticiple": "entrato"
+	},
+	"lavorare": {
+		"auxiliary": "avere",
+		"pastParticiple": "lavorato"
+	},
+	"studiare": {
+		"auxiliary": "avere",
+		"pastParticiple": "studiato"
+	},
+	"mandare": {
+		"auxiliary": "avere",
+		"pastParticiple": "mandato"
+	},
+	"lasciare": {
+		"auxiliary": "avere",
+		"pastParticiple": "lasciato"
+	},
+	"salutare": {
+		"auxiliary": "avere",
+		"pastParticiple": "salutato"
+	},
+	"usare": {
+		"auxiliary": "avere",
+		"pastParticiple": "usato"
+	},
+	"visitare": {
+		"auxiliary": "avere",
+		"pastParticiple": "visitato"
+	},
+	"camminare": {
+		"auxiliary": "avere",
+		"pastParticiple": "camminato"
+	},
+	"iniziare": {
+		"auxiliary": "avere",
+		"pastParticiple": "iniziato"
+	},
+	"imparare": {
+		"auxiliary": "avere",
+		"pastParticiple": "imparato"
+	},
+	"cambiare": {
+		"auxiliary": "avere",
+		"pastParticiple": "cambiato"
+	},
+	"guadagnare": {
+		"auxiliary": "avere",
+		"pastParticiple": "guadagnato"
+	},
+	"aiutare": {
+		"auxiliary": "avere",
+		"pastParticiple": "aiutato"
+	},
+	"ricordare": {
+		"auxiliary": "avere",
+		"pastParticiple": "ricordato"
+	},
+	"tirare": {
+		"auxiliary": "avere",
+		"pastParticiple": "tirato"
+	},
+	"invitare": {
+		"auxiliary": "avere",
+		"pastParticiple": "invitato"
+	},
+	"diventare": {
+		"auxiliary": "essere",
+		"pastParticiple": "diventato"
+	},
+	"giocare": {
+		"auxiliary": "avere",
+		"pastParticiple": "giocato"
+	},
+	"credere": {
+		"auxiliary": "avere",
+		"pastParticiple": "creduto"
+	},
+	"vendere": {
+		"auxiliary": "avere",
+		"pastParticiple": "venduto"
+	},
+	"ripetere": {
+		"auxiliary": "avere",
+		"pastParticiple": "ripetuto"
+	},
+	"godere": {
+		"auxiliary": "avere",
+		"pastParticiple": "goduto"
+	},
+	"dormire": {
+		"auxiliary": "avere",
+		"pastParticiple": "dormito"
+	},
+	"servire": {
+		"auxiliary": "avere",
+		"pastParticiple": "servito"
+	},
+	"partire": {
+		"auxiliary": "essere",
+		"pastParticiple": "partito"
+	},
+	"pulire": {
+		"auxiliary": "avere",
+		"pastParticiple": "pulito"
+	}
+}

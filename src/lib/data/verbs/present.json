@@ -15,6 +15,14 @@
 		"voi": "avete",
 		"loro": "hanno"
 	},
+	"volere": {
+		"io": "voglio",
+		"tu": "vuoi",
+		"lui_lei": "vuole",
+		"noi": "vogliamo",
+		"voi": "volete",
+		"loro": "vogliono"
+	},
 	"fare": {
 		"io": "faccio",
 		"tu": "fai",
@@ -30,6 +38,38 @@
 		"noi": "diciamo",
 		"voi": "dite",
 		"loro": "dicono"
+	},
+	"capire": {
+		"io": "capisco",
+		"tu": "capisci",
+		"lui_lei": "capisce",
+		"noi": "capiamo",
+		"voi": "capite",
+		"loro": "capiscono"
+	},
+	"sapere": {
+		"io": "so",
+		"tu": "sai",
+		"lui_lei": "sa",
+		"noi": "sappiamo",
+		"voi": "sapete",
+		"loro": "sanno"
+	},
+	"spiegare": {
+		"io": "spiego",
+		"tu": "spieghi",
+		"lui_lei": "spiega",
+		"noi": "spieghiamo",
+		"voi": "spiegate",
+		"loro": "spiegano"
+	},
+	"uscire": {
+		"io": "esco",
+		"tu": "esci",
+		"lui_lei": "esce",
+		"noi": "usciamo",
+		"voi": "uscite",
+		"loro": "escono"
 	},
 	"andare": {
 		"io": "vado",
@@ -47,29 +87,45 @@
 		"voi": "venite",
 		"loro": "vengono"
 	},
-	"arrivare": {
-		"io": "arrivo",
-		"tu": "arrivi",
-		"lui_lei": "arriva",
-		"noi": "arriviamo",
-		"voi": "arrivate",
-		"loro": "arrivano"
+	"potere": {
+		"io": "posso",
+		"tu": "puoi",
+		"lui_lei": "può",
+		"noi": "possiamo",
+		"voi": "potete",
+		"loro": "possono"
 	},
-	"partire": {
-		"io": "parto",
-		"tu": "parti",
-		"lui_lei": "parte",
-		"noi": "partiamo",
-		"voi": "partite",
-		"loro": "partono"
+	"dovere": {
+		"io": "devo",
+		"tu": "devi",
+		"lui_lei": "deve",
+		"noi": "dobbiamo",
+		"voi": "dovete",
+		"loro": "devono"
 	},
-	"tornare": {
-		"io": "torno",
-		"tu": "torni",
-		"lui_lei": "torna",
-		"noi": "torniamo",
-		"voi": "tornate",
-		"loro": "tornano"
+	"preferire": {
+		"io": "preferisco",
+		"tu": "preferisci",
+		"lui_lei": "preferisce",
+		"noi": "preferiamo",
+		"voi": "preferite",
+		"loro": "preferiscono"
+	},
+	"bere": {
+		"io": "bevo",
+		"tu": "bevi",
+		"lui_lei": "beve",
+		"noi": "beviamo",
+		"voi": "bevete",
+		"loro": "bevono"
+	},
+	"salire": {
+		"io": "salgo",
+		"tu": "sali",
+		"lui_lei": "sale",
+		"noi": "saliamo",
+		"voi": "salite",
+		"loro": "salgono"
 	},
 	"rimanere": {
 		"io": "rimango",
@@ -79,14 +135,6 @@
 		"voi": "rimanete",
 		"loro": "rimangono"
 	},
-	"nascere": {
-		"io": "nasco",
-		"tu": "nasci",
-		"lui_lei": "nasce",
-		"noi": "nasciamo",
-		"voi": "nascete",
-		"loro": "nascono"
-	},
 	"morire": {
 		"io": "muoio",
 		"tu": "muori",
@@ -95,45 +143,13 @@
 		"voi": "morite",
 		"loro": "muoiono"
 	},
-	"uscire": {
-		"io": "esco",
-		"tu": "esci",
-		"lui_lei": "esce",
-		"noi": "usciamo",
-		"voi": "uscite",
-		"loro": "escono"
-	},
-	"entrare": {
-		"io": "entro",
-		"tu": "entri",
-		"lui_lei": "entra",
-		"noi": "entriamo",
-		"voi": "entrate",
-		"loro": "entrano"
-	},
-	"mangiare": {
-		"io": "mangio",
-		"tu": "mangi",
-		"lui_lei": "mangia",
-		"noi": "mangiamo",
-		"voi": "mangiate",
-		"loro": "mangiano"
-	},
-	"parlare": {
-		"io": "parlo",
-		"tu": "parli",
-		"lui_lei": "parla",
-		"noi": "parliamo",
-		"voi": "parlate",
-		"loro": "parlano"
-	},
-	"studiare": {
-		"io": "studio",
-		"tu": "studi",
-		"lui_lei": "studia",
-		"noi": "studiamo",
-		"voi": "studiate",
-		"loro": "studiano"
+	"finire": {
+		"io": "finisco",
+		"tu": "finisci",
+		"lui_lei": "finisce",
+		"noi": "finiamo",
+		"voi": "finite",
+		"loro": "finiscono"
 	},
 	"vedere": {
 		"io": "vedo",
@@ -151,6 +167,86 @@
 		"voi": "leggete",
 		"loro": "leggono"
 	},
+	"nascere": {
+		"io": "nasco",
+		"tu": "nasci",
+		"lui_lei": "nasce",
+		"noi": "nasciamo",
+		"voi": "nascete",
+		"loro": "nascono"
+	},
+	"chiedere": {
+		"io": "chiedo",
+		"tu": "chiedi",
+		"lui_lei": "chiede",
+		"noi": "chiediamo",
+		"voi": "chiedete",
+		"loro": "chiedono"
+	},
+	"rispondere": {
+		"io": "rispondo",
+		"tu": "rispondi",
+		"lui_lei": "risponde",
+		"noi": "rispondiamo",
+		"voi": "rispondete",
+		"loro": "rispondono"
+	},
+	"conoscere": {
+		"io": "conosco",
+		"tu": "conosci",
+		"lui_lei": "conosce",
+		"noi": "conosciamo",
+		"voi": "conoscete",
+		"loro": "conoscono"
+	},
+	"mettere": {
+		"io": "metto",
+		"tu": "metti",
+		"lui_lei": "mette",
+		"noi": "mettiamo",
+		"voi": "mettete",
+		"loro": "mettono"
+	},
+	"aprire": {
+		"io": "apro",
+		"tu": "apri",
+		"lui_lei": "apre",
+		"noi": "apriamo",
+		"voi": "aprite",
+		"loro": "aprono"
+	},
+	"perdere": {
+		"io": "perdo",
+		"tu": "perdi",
+		"lui_lei": "perde",
+		"noi": "perdiamo",
+		"voi": "perdete",
+		"loro": "perdono"
+	},
+	"vivere": {
+		"io": "vivo",
+		"tu": "vivi",
+		"lui_lei": "vive",
+		"noi": "viviamo",
+		"voi": "vivete",
+		"loro": "vivono"
+	},
+	"cuocere": {
+		"io": "cuocio",
+		"tu": "cuoci",
+		"lui_lei": "cuoce",
+		"noi": "cuociamo",
+		"voi": "cuocete",
+		"loro": "cuociono"
+	},
+	"scendere": {
+		"io": "scendo",
+		"tu": "scendi",
+		"lui_lei": "scende",
+		"noi": "scendiamo",
+		"voi": "scendete",
+		"loro": "scendono"
+	},
 	"scrivere": {
 		"io": "scrivo",
 		"tu": "scrivi",
@@ -167,21 +263,509 @@
 		"voi": "prendete",
 		"loro": "prendono"
 	},
-	"mettere": {
-		"io": "metto",
-		"tu": "metti",
-		"lui_lei": "mette",
-		"noi": "mettiamo",
-		"voi": "mettete",
-		"loro": "mettono"
+	"rompere": {
+		"io": "rompo",
+		"tu": "rompi",
+		"lui_lei": "rompe",
+		"noi": "rompiamo",
+		"voi": "rompete",
+		"loro": "rompono"
 	},
-	"finire": {
-		"io": "finisco",
-		"tu": "finisci",
-		"lui_lei": "finisce",
-		"noi": "finiamo",
-		"voi": "finite",
-		"loro": "finiscono"
+	"correre": {
+		"io": "corro",
+		"tu": "corri",
+		"lui_lei": "corre",
+		"noi": "corriamo",
+		"voi": "correte",
+		"loro": "corrono"
+	},
+	"vincere": {
+		"io": "vinco",
+		"tu": "vinci",
+		"lui_lei": "vince",
+		"noi": "vinciamo",
+		"voi": "vincete",
+		"loro": "vincono"
+	},
+	"tradurre": {
+		"io": "traduco",
+		"tu": "traduci",
+		"lui_lei": "traduce",
+		"noi": "traduciamo",
+		"voi": "traducete",
+		"loro": "traducono"
+	},
+	"chiudere": {
+		"io": "chiudo",
+		"tu": "chiudi",
+		"lui_lei": "chiude",
+		"noi": "chiudiamo",
+		"voi": "chiudete",
+		"loro": "chiudono"
+	},
+	"accendere": {
+		"io": "accendo",
+		"tu": "accendi",
+		"lui_lei": "accende",
+		"noi": "accendiamo",
+		"voi": "accendete",
+		"loro": "accendono"
+	},
+	"crescere": {
+		"io": "cresco",
+		"tu": "cresci",
+		"lui_lei": "cresce",
+		"noi": "cresciamo",
+		"voi": "crescete",
+		"loro": "crescono"
+	},
+	"spingere": {
+		"io": "spingo",
+		"tu": "spingi",
+		"lui_lei": "spinge",
+		"noi": "spingiamo",
+		"voi": "spingete",
+		"loro": "spingono"
+	},
+	"scusarsi": {
+		"io": "scuso",
+		"tu": "scusi",
+		"lui_lei": "scusa",
+		"noi": "scusiamo",
+		"voi": "scusate",
+		"loro": "scusano"
+	},
+	"chiamarsi": {
+		"io": "chiamo",
+		"tu": "chiami",
+		"lui_lei": "chiama",
+		"noi": "chiamiamo",
+		"voi": "chiamate",
+		"loro": "chiamano"
+	},
+	"divertirsi": {
+		"io": "diverto",
+		"tu": "diverti",
+		"lui_lei": "diverte",
+		"noi": "divertiamo",
+		"voi": "divertite",
+		"loro": "divertono"
+	},
+	"abituarsi": {
+		"io": "abituo",
+		"tu": "abitui",
+		"lui_lei": "abitua",
+		"noi": "abituiamo",
+		"voi": "abituate",
+		"loro": "abituano"
+	},
+	"comportarsi": {
+		"io": "comporto",
+		"tu": "comporti",
+		"lui_lei": "comporta",
+		"noi": "comportiamo",
+		"voi": "comportate",
+		"loro": "comportano"
+	},
+	"piacere": {
+		"io": "piaccio",
+		"tu": "piaci",
+		"lui_lei": "piace",
+		"noi": "piacciamo",
+		"voi": "piacete",
+		"loro": "piacciono"
+	},
+	"dispiacere": {
+		"io": "dispiaccio",
+		"tu": "dispiaci",
+		"lui_lei": "dispiace",
+		"noi": "dispiacciamo",
+		"voi": "dispiacete",
+		"loro": "dispiacciono"
+	},
+	"mancare": {
+		"io": "manco",
+		"tu": "manchi",
+		"lui_lei": "manca",
+		"noi": "manchiamo",
+		"voi": "mancate",
+		"loro": "mancano"
+	},
+	"interessare": {
+		"io": "interesso",
+		"tu": "interessi",
+		"lui_lei": "interessa",
+		"noi": "interessiamo",
+		"voi": "interessate",
+		"loro": "interessano"
+	},
+	"sembrare": {
+		"io": "sembro",
+		"tu": "sembri",
+		"lui_lei": "sembra",
+		"noi": "sembriamo",
+		"voi": "sembrate",
+		"loro": "sembrano"
+	},
+	"amare": {
+		"io": "amo",
+		"tu": "ami",
+		"lui_lei": "ama",
+		"noi": "amiamo",
+		"voi": "amate",
+		"loro": "amano"
+	},
+	"mangiare": {
+		"io": "mangio",
+		"tu": "mangi",
+		"lui_lei": "mangia",
+		"noi": "mangiamo",
+		"voi": "mangiate",
+		"loro": "mangiano"
+	},
+	"ascoltare": {
+		"io": "ascolto",
+		"tu": "ascolti",
+		"lui_lei": "ascolta",
+		"noi": "ascoltiamo",
+		"voi": "ascoltate",
+		"loro": "ascoltano"
+	},
+	"parlare": {
+		"io": "parlo",
+		"tu": "parli",
+		"lui_lei": "parla",
+		"noi": "parliamo",
+		"voi": "parlate",
+		"loro": "parlano"
+	},
+	"ordinare": {
+		"io": "ordino",
+		"tu": "ordini",
+		"lui_lei": "ordina",
+		"noi": "ordiniamo",
+		"voi": "ordinate",
+		"loro": "ordinano"
+	},
+	"cercare": {
+		"io": "cerco",
+		"tu": "cerchi",
+		"lui_lei": "cerca",
+		"noi": "cerchiamo",
+		"voi": "cercate",
+		"loro": "cercano"
+	},
+	"pensare": {
+		"io": "penso",
+		"tu": "pensi",
+		"lui_lei": "pensa",
+		"noi": "pensiamo",
+		"voi": "pensate",
+		"loro": "pensano"
+	},
+	"incontrare": {
+		"io": "incontro",
+		"tu": "incontri",
+		"lui_lei": "incontra",
+		"noi": "incontriamo",
+		"voi": "incontrate",
+		"loro": "incontrano"
+	},
+	"portare": {
+		"io": "porto",
+		"tu": "porti",
+		"lui_lei": "porta",
+		"noi": "portiamo",
+		"voi": "portate",
+		"loro": "portano"
+	},
+	"toccare": {
+		"io": "tocco",
+		"tu": "tocchi",
+		"lui_lei": "tocca",
+		"noi": "tocchiamo",
+		"voi": "toccate",
+		"loro": "toccano"
+	},
+	"guardare": {
+		"io": "guardo",
+		"tu": "guardi",
+		"lui_lei": "guarda",
+		"noi": "guardiamo",
+		"voi": "guardate",
+		"loro": "guardano"
+	},
+	"tornare": {
+		"io": "torno",
+		"tu": "torni",
+		"lui_lei": "torna",
+		"noi": "torniamo",
+		"voi": "tornate",
+		"loro": "tornano"
+	},
+	"trovare": {
+		"io": "trovo",
+		"tu": "trovi",
+		"lui_lei": "trova",
+		"noi": "troviamo",
+		"voi": "trovate",
+		"loro": "trovano"
+	},
+	"dare": {
+		"io": "do",
+		"tu": "dai",
+		"lui_lei": "dà",
+		"noi": "diamo",
+		"voi": "date",
+		"loro": "danno"
+	},
+	"abitare": {
+		"io": "abito",
+		"tu": "abiti",
+		"lui_lei": "abita",
+		"noi": "abitiamo",
+		"voi": "abitate",
+		"loro": "abitano"
+	},
+	"sperare": {
+		"io": "spero",
+		"tu": "speri",
+		"lui_lei": "spera",
+		"noi": "speriamo",
+		"voi": "sperate",
+		"loro": "sperano"
+	},
+	"aspettare": {
+		"io": "aspetto",
+		"tu": "aspetti",
+		"lui_lei": "aspetta",
+		"noi": "aspettiamo",
+		"voi": "aspettate",
+		"loro": "aspettano"
+	},
+	"pranzare": {
+		"io": "pranzo",
+		"tu": "pranzi",
+		"lui_lei": "pranza",
+		"noi": "pranziamo",
+		"voi": "pranzate",
+		"loro": "pranzano"
+	},
+	"cenare": {
+		"io": "ceno",
+		"tu": "ceni",
+		"lui_lei": "cena",
+		"noi": "ceniamo",
+		"voi": "cenate",
+		"loro": "cenano"
+	},
+	"telefonare": {
+		"io": "telefono",
+		"tu": "telefoni",
+		"lui_lei": "telefona",
+		"noi": "telefoniamo",
+		"voi": "telefonate",
+		"loro": "telefonano"
+	},
+	"comprare": {
+		"io": "compro",
+		"tu": "compri",
+		"lui_lei": "compra",
+		"noi": "compriamo",
+		"voi": "comprate",
+		"loro": "comprano"
+	},
+	"pagare": {
+		"io": "pago",
+		"tu": "paghi",
+		"lui_lei": "paga",
+		"noi": "paghiamo",
+		"voi": "pagate",
+		"loro": "pagano"
+	},
+	"entrare": {
+		"io": "entro",
+		"tu": "entri",
+		"lui_lei": "entra",
+		"noi": "entriamo",
+		"voi": "entrate",
+		"loro": "entrano"
+	},
+	"lavorare": {
+		"io": "lavoro",
+		"tu": "lavori",
+		"lui_lei": "lavora",
+		"noi": "lavoriamo",
+		"voi": "lavorate",
+		"loro": "lavorano"
+	},
+	"studiare": {
+		"io": "studio",
+		"tu": "studi",
+		"lui_lei": "studia",
+		"noi": "studiamo",
+		"voi": "studiate",
+		"loro": "studiano"
+	},
+	"mandare": {
+		"io": "mando",
+		"tu": "mandi",
+		"lui_lei": "manda",
+		"noi": "mandiamo",
+		"voi": "mandate",
+		"loro": "mandano"
+	},
+	"lasciare": {
+		"io": "lascio",
+		"tu": "lasci",
+		"lui_lei": "lascia",
+		"noi": "lasciamo",
+		"voi": "lasciate",
+		"loro": "lasciano"
+	},
+	"salutare": {
+		"io": "saluto",
+		"tu": "saluti",
+		"lui_lei": "saluta",
+		"noi": "salutiamo",
+		"voi": "salutate",
+		"loro": "salutano"
+	},
+	"usare": {
+		"io": "uso",
+		"tu": "usi",
+		"lui_lei": "usa",
+		"noi": "usiamo",
+		"voi": "usate",
+		"loro": "usano"
+	},
+	"visitare": {
+		"io": "visito",
+		"tu": "visiti",
+		"lui_lei": "visita",
+		"noi": "visitiamo",
+		"voi": "visitate",
+		"loro": "visitano"
+	},
+	"camminare": {
+		"io": "cammino",
+		"tu": "cammini",
+		"lui_lei": "cammina",
+		"noi": "camminiamo",
+		"voi": "camminate",
+		"loro": "camminano"
+	},
+	"iniziare": {
+		"io": "inizio",
+		"tu": "inizi",
+		"lui_lei": "inizia",
+		"noi": "iniziamo",
+		"voi": "iniziate",
+		"loro": "iniziano"
+	},
+	"imparare": {
+		"io": "imparo",
+		"tu": "impari",
+		"lui_lei": "impara",
+		"noi": "impariamo",
+		"voi": "imparate",
+		"loro": "imparano"
+	},
+	"cambiare": {
+		"io": "cambio",
+		"tu": "cambi",
+		"lui_lei": "cambia",
+		"noi": "cambiamo",
+		"voi": "cambiate",
+		"loro": "cambiano"
+	},
+	"guadagnare": {
+		"io": "guadagno",
+		"tu": "guadagni",
+		"lui_lei": "guadagna",
+		"noi": "guadagniamo",
+		"voi": "guadagnate",
+		"loro": "guadagnano"
+	},
+	"aiutare": {
+		"io": "aiuto",
+		"tu": "aiuti",
+		"lui_lei": "aiuta",
+		"noi": "aiutiamo",
+		"voi": "aiutate",
+		"loro": "aiutano"
+	},
+	"ricordare": {
+		"io": "ricordo",
+		"tu": "ricordi",
+		"lui_lei": "ricorda",
+		"noi": "ricordiamo",
+		"voi": "ricordate",
+		"loro": "ricordano"
+	},
+	"tirare": {
+		"io": "tiro",
+		"tu": "tiri",
+		"lui_lei": "tira",
+		"noi": "tiriamo",
+		"voi": "tirate",
+		"loro": "tirano"
+	},
+	"invitare": {
+		"io": "invito",
+		"tu": "inviti",
+		"lui_lei": "invita",
+		"noi": "invitiamo",
+		"voi": "invitate",
+		"loro": "invitano"
+	},
+	"diventare": {
+		"io": "divento",
+		"tu": "diventi",
+		"lui_lei": "diventa",
+		"noi": "diventiamo",
+		"voi": "diventate",
+		"loro": "diventano"
+	},
+	"giocare": {
+		"io": "gioco",
+		"tu": "giochi",
+		"lui_lei": "gioca",
+		"noi": "giochiamo",
+		"voi": "giocate",
+		"loro": "giocano"
+	},
+	"credere": {
+		"io": "credo",
+		"tu": "credi",
+		"lui_lei": "crede",
+		"noi": "crediamo",
+		"voi": "credete",
+		"loro": "credono"
+	},
+	"vendere": {
+		"io": "vendo",
+		"tu": "vendi",
+		"lui_lei": "vende",
+		"noi": "vendiamo",
+		"voi": "vendete",
+		"loro": "vendono"
+	},
+	"ripetere": {
+		"io": "ripeto",
+		"tu": "ripeti",
+		"lui_lei": "ripete",
+		"noi": "ripetiamo",
+		"voi": "ripetete",
+		"loro": "ripetono"
+	},
+	"godere": {
+		"io": "godo",
+		"tu": "godi",
+		"lui_lei": "gode",
+		"noi": "godiamo",
+		"voi": "godete",
+		"loro": "godono"
 	},
 	"dormire": {
 		"io": "dormo",
@@ -191,28 +775,28 @@
 		"voi": "dormite",
 		"loro": "dormono"
 	},
-	"vivere": {
-		"io": "vivo",
-		"tu": "vivi",
-		"lui_lei": "vive",
-		"noi": "viviamo",
-		"voi": "vivete",
-		"loro": "vivono"
+	"servire": {
+		"io": "servo",
+		"tu": "servi",
+		"lui_lei": "serve",
+		"noi": "serviamo",
+		"voi": "servite",
+		"loro": "servono"
 	},
-	"conoscere": {
-		"io": "conosco",
-		"tu": "conosci",
-		"lui_lei": "conosce",
-		"noi": "conosciamo",
-		"voi": "conoscete",
-		"loro": "conoscono"
+	"partire": {
+		"io": "parto",
+		"tu": "parti",
+		"lui_lei": "parte",
+		"noi": "partiamo",
+		"voi": "partite",
+		"loro": "partono"
 	},
-	"trovare": {
-		"io": "trovo",
-		"tu": "trovi",
-		"lui_lei": "trova",
-		"noi": "troviamo",
-		"voi": "trovate",
-		"loro": "trovano"
+	"pulire": {
+		"io": "pulisco",
+		"tu": "pulisci",
+		"lui_lei": "pulisce",
+		"noi": "puliamo",
+		"voi": "pulite",
+		"loro": "puliscono"
 	}
 }
