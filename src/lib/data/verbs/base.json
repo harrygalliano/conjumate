@@ -3,162 +3,324 @@
 		"infinitive": "essere",
 		"translation": "to be",
 		"auxiliary": "essere",
-		"pastParticiple": "stato"
+		"pastParticiple": "stato",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": true
+		}
 	},
 	{
 		"infinitive": "avere",
 		"translation": "to have",
 		"auxiliary": "avere",
-		"pastParticiple": "avuto"
+		"pastParticiple": "avuto",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": true
+		}
 	},
 	{
 		"infinitive": "fare",
 		"translation": "to do / make",
 		"auxiliary": "avere",
-		"pastParticiple": "fatto"
+		"pastParticiple": "fatto",
+		"irregular": {
+			"presente": true,
+			"gerundio": true,
+			"passato_prossimo": true,
+			"futuro_semplice": true
+		}
 	},
 	{
 		"infinitive": "dire",
 		"translation": "to say / tell",
 		"auxiliary": "avere",
-		"pastParticiple": "detto"
+		"pastParticiple": "detto",
+		"irregular": {
+			"presente": true,
+			"gerundio": true,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "andare",
 		"translation": "to go",
 		"auxiliary": "essere",
-		"pastParticiple": "andato"
+		"pastParticiple": "andato",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": true
+		}
 	},
 	{
 		"infinitive": "venire",
 		"translation": "to come",
 		"auxiliary": "essere",
-		"pastParticiple": "venuto"
+		"pastParticiple": "venuto",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": true
+		}
 	},
 	{
 		"infinitive": "arrivare",
 		"translation": "to arrive",
 		"auxiliary": "essere",
-		"pastParticiple": "arrivato"
+		"pastParticiple": "arrivato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "partire",
 		"translation": "to leave",
 		"auxiliary": "essere",
-		"pastParticiple": "partito"
+		"pastParticiple": "partito",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "tornare",
 		"translation": "to return",
 		"auxiliary": "essere",
-		"pastParticiple": "tornato"
+		"pastParticiple": "tornato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "rimanere",
 		"translation": "to stay",
 		"auxiliary": "essere",
-		"pastParticiple": "rimasto"
+		"pastParticiple": "rimasto",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "nascere",
 		"translation": "to be born",
 		"auxiliary": "essere",
-		"pastParticiple": "nato"
+		"pastParticiple": "nato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "morire",
 		"translation": "to die",
 		"auxiliary": "essere",
-		"pastParticiple": "morto"
+		"pastParticiple": "morto",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "uscire",
 		"translation": "to go out",
 		"auxiliary": "essere",
-		"pastParticiple": "uscito"
+		"pastParticiple": "uscito",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "entrare",
 		"translation": "to enter",
 		"auxiliary": "essere",
-		"pastParticiple": "entrato"
+		"pastParticiple": "entrato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "mangiare",
 		"translation": "to eat",
 		"auxiliary": "avere",
-		"pastParticiple": "mangiato"
+		"pastParticiple": "mangiato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "parlare",
 		"translation": "to speak",
 		"auxiliary": "avere",
-		"pastParticiple": "parlato"
+		"pastParticiple": "parlato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "studiare",
 		"translation": "to study",
 		"auxiliary": "avere",
-		"pastParticiple": "studiato"
+		"pastParticiple": "studiato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "vedere",
 		"translation": "to see",
 		"auxiliary": "avere",
-		"pastParticiple": "visto"
+		"pastParticiple": "visto",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": true
+		}
 	},
 	{
 		"infinitive": "leggere",
 		"translation": "to read",
 		"auxiliary": "avere",
-		"pastParticiple": "letto"
+		"pastParticiple": "letto",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "scrivere",
 		"translation": "to write",
 		"auxiliary": "avere",
-		"pastParticiple": "scritto"
+		"pastParticiple": "scritto",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "prendere",
 		"translation": "to take",
 		"auxiliary": "avere",
-		"pastParticiple": "preso"
+		"pastParticiple": "preso",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "mettere",
 		"translation": "to put",
 		"auxiliary": "avere",
-		"pastParticiple": "messo"
+		"pastParticiple": "messo",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "finire",
 		"translation": "to finish",
 		"auxiliary": "avere",
-		"pastParticiple": "finito"
+		"pastParticiple": "finito",
+		"irregular": {
+			"presente": true,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "dormire",
 		"translation": "to sleep",
 		"auxiliary": "avere",
-		"pastParticiple": "dormito"
+		"pastParticiple": "dormito",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "vivere",
 		"translation": "to live",
 		"auxiliary": "avere",
-		"pastParticiple": "vissuto"
+		"pastParticiple": "vissuto",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "conoscere",
 		"translation": "to know / meet",
 		"auxiliary": "avere",
-		"pastParticiple": "conosciuto"
+		"pastParticiple": "conosciuto",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": true,
+			"futuro_semplice": false
+		}
 	},
 	{
 		"infinitive": "trovare",
 		"translation": "to find",
 		"auxiliary": "avere",
-		"pastParticiple": "trovato"
+		"pastParticiple": "trovato",
+		"irregular": {
+			"presente": false,
+			"gerundio": false,
+			"passato_prossimo": false,
+			"futuro_semplice": false
+		}
 	}
 ]

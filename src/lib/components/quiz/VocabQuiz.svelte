@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { compliments, type Compliment } from '$lib/data/encouragement';
 	import type {
 		ColorVocab,
 		NumberVocab,
@@ -6,11 +7,13 @@
 		FamilyQuizItem,
 		PeopleDescriptionItem
 	} from '$lib/data/vocab';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, tick } from 'svelte';
 
 	type VocabType = 'colors' | 'numbers' | 'locations' | 'family' | 'people';
 	type VocabItem = { prompt: string; answer: string; hint?: string };
 	type Mode = 'sprint' | 'race' | 'mastery';
+	type Gender = 'feminine' | 'masculine';
+	type Outcome = 'idle' | 'success' | 'fail' | 'time';
 
 	let {
 		type,
@@ -39,7 +42,11 @@
 	let lastExpected = $state<string | null>(null);
 	let mode = $state<Mode>('sprint');
 	let target = $state(25);
-	let outcome = $state<'idle' | 'success' | 'fail' | 'time'>('idle');
+	let outcome = $state<Outcome>('idle');
+	let gender = $state<Gender>('feminine');
+	let sessionEnded = $state(false);
+	let endCompliment = $state<Compliment | null>(null);
+	let answerInput: HTMLInputElement | null = null;
 
 	let intervalId: number | null = null;
 
@@ -157,6 +164,26 @@
 		}
 	};
 
+	const focusAnswer = async () => {
+		await tick();
+		answerInput?.focus();
+	};
+
+	const pickCompliment = () => {
+		if (!compliments.length) return null;
+		return compliments[Math.floor(Math.random() * compliments.length)];
+	};
+
+	const endSession = (nextOutcome?: Outcome) => {
+		if (nextOutcome) {
+			outcome = nextOutcome;
+		}
+		isRunning = false;
+		clearTimer();
+		sessionEnded = true;
+		endCompliment = pickCompliment();
+	};
+
 	const start = () => {
 		clearTimer();
 		isRunning = true;
@@ -168,15 +195,16 @@
 		lastExpected = null;
 		answer = '';
 		outcome = 'idle';
+		sessionEnded = false;
+		endCompliment = null;
 		pickPrompt();
+		focusAnswer();
 
 		intervalId = window.setInterval(() => {
 			if (mode === 'sprint') {
 				timeLeft = Math.max(0, timeLeft - 1);
 				if (timeLeft === 0) {
-					isRunning = false;
-					outcome = 'time';
-					clearTimer();
+					endSession('time');
 				}
 			} else {
 				elapsed += 1;
@@ -185,8 +213,13 @@
 	};
 
 	const stop = () => {
-		isRunning = false;
-		clearTimer();
+		endSession();
+	};
+
+	const skip = () => {
+		if (!isRunning) return;
+		pickPrompt();
+		focusAnswer();
 	};
 
 	const submit = () => {
@@ -220,13 +253,13 @@
 		}
 
 		if (finished) {
-			isRunning = false;
-			clearTimer();
+			endSession();
 		}
 
 		answer = '';
 		if (isRunning) {
 			pickPrompt();
+			focusAnswer();
 		}
 	};
 
@@ -245,7 +278,11 @@
 		<div class="flex items-center gap-3">
 			<button
 				onclick={isRunning ? stop : start}
-				class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white"
+				class={`rounded-full px-6 py-3 text-base font-semibold transition ${
+					isRunning
+						? 'bg-slate-900 text-white'
+						: 'bg-amber-400 text-slate-900 shadow-lg shadow-amber-500/30 hover:-translate-y-0.5'
+				}`}
 			>
 				{isRunning ? 'Stop' : 'Start'}
 			</button>
@@ -325,9 +362,11 @@
 					</button>
 				{/each}
 			</div>
-		{:else if mode === 'mastery'}
+		{/if}
+		{#if mode === 'mastery'}
 			<p class="text-xs text-slate-500">Hit 100 correct with zero mistakes.</p>
 		{/if}
+
 	</div>
 
 	<div class="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -371,6 +410,7 @@
 					class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-base shadow-sm focus:border-slate-400 focus:outline-none"
 					type="text"
 					bind:value={answer}
+					bind:this={answerInput}
 					placeholder={placeholder}
 					disabled={!isRunning}
 					autocapitalize="none"
@@ -388,7 +428,7 @@
 					<button
 						type="button"
 						class="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600"
-						onclick={pickPrompt}
+						onclick={skip}
 						disabled={!isRunning}
 					>
 						Skip
@@ -434,6 +474,58 @@
 					{:else}
 						Time’s up! Check your score and restart.
 					{/if}
+				</div>
+			{/if}
+
+			{#if sessionEnded && endCompliment}
+				<div class="rounded-2xl border border-indigo-200 bg-indigo-50 px-4 py-4 text-sm text-indigo-800">
+					<div class="flex flex-wrap items-center justify-between gap-3">
+						<p class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400">
+							Encouragement
+						</p>
+						<div class="flex flex-wrap items-center gap-2">
+							<p class="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-indigo-400">
+								Gender
+							</p>
+							<div class="flex flex-wrap gap-2">
+								<button
+									type="button"
+									aria-pressed={gender === 'feminine'}
+									onclick={() => (gender = 'feminine')}
+									class={`rounded-full border px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition ${
+										gender === 'feminine'
+											? 'border-indigo-300 bg-white text-indigo-800'
+											: 'border-indigo-200 bg-indigo-100 text-indigo-700 hover:border-indigo-300'
+									}`}
+								>
+									Feminine
+								</button>
+								<button
+									type="button"
+									aria-pressed={gender === 'masculine'}
+									onclick={() => (gender = 'masculine')}
+									class={`rounded-full border px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition ${
+										gender === 'masculine'
+											? 'border-indigo-300 bg-white text-indigo-800'
+											: 'border-indigo-200 bg-indigo-100 text-indigo-700 hover:border-indigo-300'
+									}`}
+								>
+									Masculine
+								</button>
+							</div>
+						</div>
+					</div>
+					<p class="mt-2 text-lg font-semibold text-indigo-900">
+						{gender === 'feminine'
+							? endCompliment.it_feminine
+							: endCompliment.it_masculine}
+					</p>
+					<p class="mt-1 text-sm text-indigo-700">
+						{endCompliment.natural_english_version}
+					</p>
+					<p class="mt-2 text-xs text-indigo-500">
+						Literal: {endCompliment.literal_translation_en}
+					</p>
 				</div>
 			{/if}
 		</div>

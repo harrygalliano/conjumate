@@ -7,12 +7,20 @@ type VerbBase = {
 	translation: string;
 	auxiliary: 'avere' | 'essere';
 	pastParticiple: string;
+	irregular: VerbIrregular;
 };
 
 export type Verb = VerbBase & {
 	present?: VerbPresent;
 	gerund?: string;
 	future?: VerbFuture;
+};
+
+export type VerbIrregular = {
+	presente: boolean;
+	gerundio: boolean;
+	passato_prossimo: boolean;
+	futuro_semplice: boolean;
 };
 
 export type VerbPresent = {
