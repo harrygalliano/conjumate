@@ -10,6 +10,7 @@
 
 	type VocabType = 'colors' | 'numbers' | 'locations' | 'family' | 'people';
 	type VocabItem = { prompt: string; answer: string; hint?: string };
+	type Mode = 'sprint' | 'race' | 'mastery';
 
 	let {
 		type,
@@ -29,16 +30,21 @@
 
 	let isRunning = $state(false);
 	let timeLeft = $state(60);
+	let elapsed = $state(0);
 	let correct = $state(0);
 	let total = $state(0);
 	let answer = $state('');
 	let feedback = $state<'idle' | 'correct' | 'incorrect'>('idle');
 	let current = $state<VocabItem | null>(null);
 	let lastExpected = $state<string | null>(null);
+	let mode = $state<Mode>('sprint');
+	let target = $state(25);
+	let outcome = $state<'idle' | 'success' | 'fail' | 'time'>('idle');
 
 	let intervalId: number | null = null;
 
 	const accuracy = $derived(total === 0 ? 0 : Math.round((correct / total) * 100));
+	const raceTargets = [25, 50, 100];
 	const placeholder = $derived(
 		type === 'colors'
 			? 'rosso'
@@ -63,14 +69,30 @@
 	);
 	const title = $derived(
 		type === 'colors'
-			? 'Color Sprint'
+			? 'Color Challenge'
 			: type === 'numbers'
-				? 'Number Sprint'
+				? 'Number Challenge'
 				: type === 'family'
-					? 'Family Sprint'
+					? 'Family Challenge'
 					: type === 'people'
-						? 'Describe People Sprint'
-						: 'Location Sprint'
+						? 'Describe People Challenge'
+						: 'Location Challenge'
+	);
+	const formatTime = (seconds: number) => {
+		const minutes = Math.floor(seconds / 60);
+		const remainder = seconds % 60;
+		return `${minutes}:${remainder.toString().padStart(2, '0')}`;
+	};
+	const timerValue = $derived(
+		mode === 'sprint' ? `${timeLeft}s` : formatTime(elapsed)
+	);
+	const timerLabel = $derived(mode === 'sprint' ? 'Time left' : 'Time');
+	const modeSummary = $derived(
+		mode === 'sprint'
+			? '60-second sprint.'
+			: mode === 'race'
+				? `Target ${target} correct.`
+				: 'Mastery: 100 correct, zero mistakes.'
 	);
 
 	const normalize = (input: string) =>
@@ -139,18 +161,25 @@
 		clearTimer();
 		isRunning = true;
 		timeLeft = 60;
+		elapsed = 0;
 		correct = 0;
 		total = 0;
 		feedback = 'idle';
 		lastExpected = null;
 		answer = '';
+		outcome = 'idle';
 		pickPrompt();
 
 		intervalId = window.setInterval(() => {
-			timeLeft = Math.max(0, timeLeft - 1);
-			if (timeLeft === 0) {
-				isRunning = false;
-				clearTimer();
+			if (mode === 'sprint') {
+				timeLeft = Math.max(0, timeLeft - 1);
+				if (timeLeft === 0) {
+					isRunning = false;
+					outcome = 'time';
+					clearTimer();
+				}
+			} else {
+				elapsed += 1;
 			}
 		}, 1000);
 	};
@@ -176,8 +205,29 @@
 			lastExpected = current.answer;
 		}
 
+		let finished = false;
+		if (mode === 'mastery' && !isCorrect) {
+			outcome = 'fail';
+			finished = true;
+		}
+		if (mode === 'race' && correct >= target) {
+			outcome = 'success';
+			finished = true;
+		}
+		if (mode === 'mastery' && isCorrect && correct >= 100) {
+			outcome = 'success';
+			finished = true;
+		}
+
+		if (finished) {
+			isRunning = false;
+			clearTimer();
+		}
+
 		answer = '';
-		pickPrompt();
+		if (isRunning) {
+			pickPrompt();
+		}
 	};
 
 	onDestroy(clearTimer);
@@ -188,6 +238,9 @@
 		<div>
 			<h3 class="text-xl font-semibold text-slate-900">{title}</h3>
 			<p class="text-sm text-slate-500">{instruction}</p>
+			<p class="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+				{modeSummary}
+			</p>
 		</div>
 		<div class="flex items-center gap-3">
 			<button
@@ -196,10 +249,85 @@
 			>
 				{isRunning ? 'Stop' : 'Start'}
 			</button>
-			<div class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-600">
-				{timeLeft}s
+			<div class="rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
+				{timerLabel}
+				<span class="ml-2 text-sm font-semibold text-slate-700">{timerValue}</span>
 			</div>
 		</div>
+	</div>
+
+	<div class="mt-4 flex flex-wrap items-center gap-3">
+		<div class="flex flex-wrap gap-2">
+			<button
+				type="button"
+				onclick={() => {
+					mode = 'sprint';
+					outcome = 'idle';
+				}}
+				disabled={isRunning}
+				class={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+					mode === 'sprint'
+						? 'border-slate-900 bg-slate-900 text-white'
+						: 'border-slate-200 bg-white text-slate-600 hover:border-slate-400'
+				}`}
+			>
+				Sprint
+			</button>
+			<button
+				type="button"
+				onclick={() => {
+					mode = 'race';
+					outcome = 'idle';
+				}}
+				disabled={isRunning}
+				class={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+					mode === 'race'
+						? 'border-slate-900 bg-slate-900 text-white'
+						: 'border-slate-200 bg-white text-slate-600 hover:border-slate-400'
+				}`}
+			>
+				Target
+			</button>
+			<button
+				type="button"
+				onclick={() => {
+					mode = 'mastery';
+					outcome = 'idle';
+				}}
+				disabled={isRunning}
+				class={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+					mode === 'mastery'
+						? 'border-slate-900 bg-slate-900 text-white'
+						: 'border-slate-200 bg-white text-slate-600 hover:border-slate-400'
+				}`}
+			>
+				Mastery
+			</button>
+		</div>
+
+		{#if mode === 'race'}
+			<div class="flex flex-wrap gap-2">
+				{#each raceTargets as value (value)}
+					<button
+						type="button"
+						onclick={() => {
+							target = value;
+							outcome = 'idle';
+						}}
+						disabled={isRunning}
+						class={`rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+							target === value
+								? 'border-amber-400 bg-amber-100 text-amber-800'
+								: 'border-amber-100 bg-white text-amber-700 hover:border-amber-300'
+						}`}
+					>
+						{value}
+					</button>
+				{/each}
+			</div>
+		{:else if mode === 'mastery'}
+			<p class="text-xs text-slate-500">Hit 100 correct with zero mistakes.</p>
+		{/if}
 	</div>
 
 	<div class="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -282,6 +410,32 @@
 					{/if}
 				</div>
 			{/if}
+
+			{#if outcome !== 'idle'}
+				<div
+					class={`rounded-2xl border px-4 py-3 text-sm ${
+						outcome === 'success'
+							? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+							: outcome === 'fail'
+								? 'border-rose-200 bg-rose-50 text-rose-700'
+								: 'border-amber-200 bg-amber-50 text-amber-700'
+					}`}
+				>
+					{#if outcome === 'success'}
+						{#if mode === 'race'}
+							Target hit in <span class="font-semibold">{formatTime(elapsed)}</span>.
+						{:else if mode === 'mastery'}
+							Mastery complete in <span class="font-semibold">{formatTime(elapsed)}</span>.
+						{:else}
+							Nice work!
+						{/if}
+					{:else if outcome === 'fail'}
+						Mistake made — mastery failed. Try again!
+					{:else}
+						Time’s up! Check your score and restart.
+					{/if}
+				</div>
+			{/if}
 		</div>
 
 		<div class="space-y-4">
@@ -291,6 +445,14 @@
 					{correct} / {total}
 				</p>
 				<p class="text-sm text-slate-500">Accuracy: {accuracy}%</p>
+				<p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+					Mode: {mode}
+				</p>
+				{#if mode === 'race'}
+					<p class="text-xs text-slate-500">Target: {target} correct</p>
+				{:else if mode === 'mastery'}
+					<p class="text-xs text-slate-500">Goal: 100 correct, no mistakes</p>
+				{/if}
 			</div>
 			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
 				<p class="font-semibold text-slate-800">Quick tips</p>

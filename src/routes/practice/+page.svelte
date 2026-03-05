@@ -24,7 +24,7 @@
 	type LocationView = 'list' | 'test';
 
 	const tabItems: Array<{ id: TabId; label: string; description: string }> = [
-		{ id: 'grammar', label: 'Grammar', description: 'Conjugation sprints' },
+		{ id: 'grammar', label: 'Grammar', description: 'Conjugation modes' },
 		{ id: 'vocab', label: 'Vocab', description: 'Colors + numbers + people + family' },
 		{ id: 'location', label: 'Location', description: 'Prepositions' }
 	];
@@ -73,7 +73,7 @@
 				</p>
 				<h1 class="text-3xl font-semibold text-white sm:text-4xl">Italian Trainer</h1>
 				<p class="text-base text-slate-300 sm:text-lg">
-					Pick a mode and play a fast 60-second round.
+					Pick a mode and start a fast drill.
 				</p>
 			</div>
 
@@ -106,9 +106,9 @@
 						<TenseSelect tenses={TENSES} bind:value={selectedTense} />
 						<div class="rounded-3xl border border-white/10 bg-white/10 p-5 text-sm text-slate-200">
 							<p class="font-semibold text-white">Quick rules</p>
-							<p class="mt-2">
-								Choose a tense and race the 60-second timer. Focus on speed and accuracy.
-							</p>
+						<p class="mt-2">
+							Choose a tense, then pick Sprint, Target, or Mastery. Focus on speed and accuracy.
+						</p>
 						</div>
 					</div>
 					<TenseBlurb tense={currentTense} />
@@ -290,7 +290,7 @@
 							Test Me
 						</button>
 						<div class="mt-4 grid gap-3 sm:grid-cols-2">
-							{#each familyMembers as member (member.italian)}
+							{#each familyMembers as member (member.english)}
 								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
 									<p class="text-lg font-semibold text-white">{member.italian}</p>
 									<p class="text-sm text-slate-300">{member.english}</p>
@@ -300,9 +300,9 @@
 						<div class="mt-4 border-t border-white/10 pt-4">
 							<p class="text-xs uppercase tracking-[0.2em] text-slate-300">Possessives</p>
 							<div class="mt-2 flex flex-wrap gap-2">
-								{#each possessives as item (item.italian)}
+								{#each possessives as item (item.pronoun)}
 									<span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
-										{item.italian} · {item.english}
+										{item.forms.ms} · {item.english}
 									</span>
 								{/each}
 							</div>
@@ -321,7 +321,7 @@
 						>
 							← Back to location list
 						</button>
-						<LocationIcon />
+						<VocabQuiz type="locations" {locations} />
 					</div>
 				{:else}
 					<section class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
@@ -351,9 +351,9 @@
 								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
 									<p class="text-lg font-semibold text-white">{location.italian}</p>
 									<p class="text-sm text-slate-300">{location.english}</p>
-									<p class="text-xs uppercase tracking-[0.2em] text-slate-400">
-										{location.preposition}
-									</p>
+									{#if location.example}
+										<p class="mt-1 text-xs italic text-slate-400">{location.example}</p>
+									{/if}
 								</div>
 							{/each}
 						</div>
