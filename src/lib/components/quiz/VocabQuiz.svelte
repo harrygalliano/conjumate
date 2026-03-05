@@ -1,8 +1,14 @@
 <script lang="ts">
-	import type { ColorVocab, NumberVocab, LocationVocab, FamilyQuizItem } from '$lib/data/vocab';
+	import type {
+		ColorVocab,
+		NumberVocab,
+		LocationVocab,
+		FamilyQuizItem,
+		PeopleDescriptionItem
+	} from '$lib/data/vocab';
 	import { onDestroy } from 'svelte';
 
-	type VocabType = 'colors' | 'numbers' | 'locations' | 'family';
+	type VocabType = 'colors' | 'numbers' | 'locations' | 'family' | 'people';
 	type VocabItem = { prompt: string; answer: string; hint?: string };
 
 	let {
@@ -10,13 +16,15 @@
 		colors = [],
 		numbers = [],
 		locations = [],
-		familyItems = []
+		familyItems = [],
+		peopleItems = []
 	}: {
 		type: VocabType;
 		colors?: ColorVocab[];
 		numbers?: NumberVocab[];
 		locations?: LocationVocab[];
 		familyItems?: FamilyQuizItem[];
+		peopleItems?: PeopleDescriptionItem[];
 	} = $props();
 
 	let isRunning = $state(false);
@@ -38,7 +46,9 @@
 				? 'venticinque'
 				: type === 'family'
 					? 'mio padre'
-					: 'sopra'
+					: type === 'people'
+						? 'loro sono alti'
+						: 'sopra'
 	);
 	const instruction = $derived(
 		type === 'colors'
@@ -47,7 +57,9 @@
 				? 'Type the Italian word for the number shown.'
 				: type === 'family'
 					? 'Type the Italian possessive + family member.'
-					: 'Type the Italian preposition for the location shown.'
+					: type === 'people'
+						? 'Translate the sentence using pronoun + essere + adjective.'
+						: 'Type the Italian preposition for the location shown.'
 	);
 	const title = $derived(
 		type === 'colors'
@@ -56,7 +68,9 @@
 				? 'Number Sprint'
 				: type === 'family'
 					? 'Family Sprint'
-					: 'Location Sprint'
+					: type === 'people'
+						? 'Describe People Sprint'
+						: 'Location Sprint'
 	);
 
 	const normalize = (input: string) =>
@@ -88,6 +102,13 @@
 				prompt: f.english,
 				answer: f.italian,
 				hint: `${f.pronoun} → ${f.member}`
+			}));
+		}
+		if (type === 'people') {
+			return peopleItems.map((p) => ({
+				prompt: p.english,
+				answer: p.italian,
+				hint: `${p.pronoun} → ${p.adjective}`
 			}));
 		}
 		return numbers.map((n) => ({
@@ -191,8 +212,20 @@
 					</p>
 					{#if type === 'colors'}
 						<p class="text-sm text-slate-500">What is "{current.prompt}" in Italian?</p>
+					{:else if type === 'numbers'}
+						<p class="text-sm text-slate-500">Write this number in Italian.</p>
+					{:else if type === 'family'}
+						<p class="text-sm text-slate-500">
+							Translate the family phrase into Italian.
+						</p>
+					{:else if type === 'locations'}
+						<p class="text-sm text-slate-500">
+							Translate the location phrase into Italian.
+						</p>
 					{:else}
-						<p class="text-sm text-slate-500">Write this number in Italian</p>
+						<p class="text-sm text-slate-500">
+							Translate the sentence into Italian using essere.
+						</p>
 					{/if}
 				{:else}
 					<p class="mt-2 text-sm text-slate-500">No items loaded.</p>
@@ -275,6 +308,10 @@
 					<p class="mt-2">
 						Include the article when needed: plurals always need it (i miei fratelli), 
 						singular family doesn't (mio padre) - except "loro" (il loro padre).
+					</p>
+				{:else if type === 'people'}
+					<p class="mt-2">
+						Use pronoun + essere + adjective. Match gender and number (o/a/i/e).
 					</p>
 				{:else}
 					<p class="mt-2">

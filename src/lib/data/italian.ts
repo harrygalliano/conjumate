@@ -10,6 +10,7 @@ type VerbBase = {
 
 export type Verb = VerbBase & {
 	present?: VerbPresent;
+	gerund?: string;
 };
 
 export type VerbPresent = {
@@ -22,7 +23,7 @@ export type VerbPresent = {
 };
 
 export type TenseDefinition = {
-	id: 'presente' | 'passato_prossimo';
+	id: 'presente' | 'gerundio' | 'passato_prossimo';
 	name: string;
 	shortName: string;
 	description: string[];
@@ -47,6 +48,21 @@ export const TENSES: TenseDefinition[] = [
 		]
 	},
 	{
+		id: 'gerundio',
+		name: 'Present Continuous (Gerundio)',
+		shortName: 'Gerund',
+		description: [
+			'Use stare + gerundio for actions happening right now.',
+			'Form the gerund with -ando for -are verbs and -endo for -ere/-ire verbs.'
+		],
+		notes: ['Common pattern: io sto parlando, tu stai studiando.'],
+		examples: [
+			{ italian: 'Io sto mangiando.', english: 'I am eating.' },
+			{ italian: 'Lei sta studiando.', english: 'She is studying.' },
+			{ italian: 'Stiamo parlando.', english: 'We are talking.' }
+		]
+	},
+	{
 		id: 'passato_prossimo',
 		name: 'Present Perfect (Passato Prossimo)',
 		shortName: 'Present Perfect',
@@ -67,8 +83,22 @@ export const TENSES: TenseDefinition[] = [
 
 // Merge base verbs with tense-specific conjugations
 const presentConjugations = presentTense as Record<string, VerbPresent>;
+const gerundOverrides: Record<string, string> = {
+	fare: 'facendo',
+	dire: 'dicendo'
+};
+
+const toGerund = (infinitive: string) => {
+	if (gerundOverrides[infinitive]) return gerundOverrides[infinitive];
+	if (infinitive.endsWith('are')) return `${infinitive.slice(0, -3)}ando`;
+	if (infinitive.endsWith('ere') || infinitive.endsWith('ire')) {
+		return `${infinitive.slice(0, -3)}endo`;
+	}
+	return infinitive;
+};
 
 export const italianVerbs: Verb[] = (verbsBase as VerbBase[]).map((verb) => ({
 	...verb,
-	present: presentConjugations[verb.infinitive]
+	present: presentConjugations[verb.infinitive],
+	gerund: toGerund(verb.infinitive)
 }));

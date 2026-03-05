@@ -40,8 +40,21 @@
 		}
 	};
 
+	const stareForms: Record<Subject['id'], string> = {
+		io: 'sto',
+		tu: 'stai',
+		lui_lei: 'sta',
+		noi: 'stiamo',
+		voi: 'state',
+		loro: 'stanno'
+	};
+
 	const availableVerbs = $derived(
-		tense.id === 'presente' ? verbs.filter((verb) => verb.present) : verbs
+		tense.id === 'presente'
+			? verbs.filter((verb) => verb.present)
+			: tense.id === 'gerundio'
+				? verbs.filter((verb) => verb.gerund)
+				: verbs
 	);
 
 	let isRunning = $state(false);
@@ -56,11 +69,19 @@
 	let intervalId: number | null = null;
 
 	const accuracy = $derived(total === 0 ? 0 : Math.round((correct / total) * 100));
-	const placeholder = $derived(tense.id === 'presente' ? 'io mangio' : 'io ho mangiato');
+	const placeholder = $derived(
+		tense.id === 'presente'
+			? 'io mangio'
+			: tense.id === 'gerundio'
+				? 'io sto mangiando'
+				: 'io ho mangiato'
+	);
 	const instruction = $derived(
 		tense.id === 'presente'
 			? 'Type the full conjugation (pronoun + present form).'
-			: 'Type the full conjugation (pronoun + auxiliary + past participle).'
+			: tense.id === 'gerundio'
+				? 'Type the full conjugation (pronoun + stare + gerundio).'
+				: 'Type the full conjugation (pronoun + auxiliary + past participle).'
 	);
 
 	const normalize = (input: string) =>
@@ -78,6 +99,14 @@
 			if (!form) return [];
 			const withPronoun = prompt.subject.forms.map((value) => `${value} ${form}`);
 			return [withPronoun[0], ...withPronoun.slice(1), form];
+		}
+		if (tense.id === 'gerundio') {
+			const gerund = prompt.verb.gerund;
+			if (!gerund) return [];
+			const aux = stareForms[prompt.subject.id];
+			const base = `${aux} ${gerund}`;
+			const withPronoun = prompt.subject.forms.map((value) => `${value} ${base}`);
+			return [withPronoun[0], ...withPronoun.slice(1), base];
 		}
 
 		const aux = auxiliaryForms[prompt.verb.auxiliary][prompt.subject.id];
@@ -188,6 +217,8 @@
 					<p class="text-sm text-slate-500">
 						{#if tense.id === 'presente'}
 							Meaning: {current.verb.translation}
+						{:else if tense.id === 'gerundio'}
+							Pattern: stare + gerundio · Meaning: {current.verb.translation}
 						{:else}
 							Aux: {current.verb.auxiliary} · Meaning: {current.verb.translation}
 						{/if}
@@ -263,6 +294,10 @@
 					<p class="mt-2">
 						Include the pronoun. We accept answers without it too. Focus on the present
 						form.
+					</p>
+				{:else if tense.id === 'gerundio'}
+					<p class="mt-2">
+						Use stare + gerundio. We accept answers without the pronoun too.
 					</p>
 				{:else}
 					<p class="mt-2">
