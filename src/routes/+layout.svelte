@@ -43,7 +43,7 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class="min-h-[100svh]">
+<div class="min-h-[100svh] bg-gradient-to-br from-slate-950 via-[#0b1020] to-[#140b2a]">
 	<div class="sticky top-0 z-40 flex items-center justify-between border-b border-slate-900/60 bg-slate-950/90 px-4 py-3 text-slate-100 backdrop-blur lg:hidden">
 		<div class="flex items-center gap-3">
 			<div class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-400 text-sm font-bold text-slate-900">
