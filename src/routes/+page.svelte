@@ -1,15 +1,47 @@
 <script lang="ts">
 	const navLinks = [
+		{ href: '#install', label: 'Install' },
 		{ href: '#method', label: 'Method' },
 		{ href: '#tense', label: 'Tense Focus' },
 		{ href: '#offline', label: 'Offline' },
 		{ href: '/practice', label: 'Practice' }
 	];
 
-	const highlights = [
-		{ title: '60 seconds', detail: 'Timed recall sprints' },
-		{ title: 'Top 28 verbs', detail: 'Built-in verb set' },
-		{ title: 'Offline ready', detail: 'No signal required' }
+	const installGuides = [
+		{
+			platform: 'iPhone / iPad (Safari)',
+			steps: [
+				'Open Conjumate in Safari.',
+				'Tap Share.',
+				'Tap Add to Home Screen.',
+				'Launch from your home screen.'
+			]
+		},
+		{
+			platform: 'Android (Chrome)',
+			steps: [
+				'Open Conjumate in Chrome.',
+				'Tap the ⋮ menu.',
+				'Tap Install app or Add to Home screen.',
+				'Open from your app launcher.'
+			]
+		},
+		{
+			platform: 'Desktop (Chrome/Edge)',
+			steps: [
+				'Open Conjumate in your browser.',
+				'Click the Install icon in the address bar.',
+				'Confirm Install.',
+				'Launch it like a desktop app.'
+			]
+		}
+	];
+
+	const offlineChecklist = [
+		{ title: 'Install once', detail: 'Add it to your device so it feels like an app.' },
+		{ title: 'Open online first', detail: 'Run one time to cache the lesson data.' },
+		{ title: 'Go offline', detail: 'Launch from the home screen with no signal.' },
+		{ title: 'Refresh later', detail: 'Reconnect occasionally to sync updates.' }
 	];
 
 	const features = [
@@ -45,11 +77,6 @@
 		}
 	];
 
-	const examples = [
-		{ italian: 'Io ho mangiato una pizza.', english: 'I ate a pizza.' },
-		{ italian: 'Lei ha studiato italiano.', english: 'She studied Italian.' },
-		{ italian: 'Noi siamo arrivati tardi.', english: 'We arrived late.' }
-	];
 </script>
 
 <svelte:head>
@@ -96,69 +123,72 @@
 		</header>
 
 		<main class="relative z-10 px-4 pb-16 pt-12">
-			<section class="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+			<section id="install" class="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr]">
 				<div class="space-y-8">
 					<div class="space-y-4">
 						<p class="text-xs font-semibold uppercase tracking-[0.4em] text-amber-300">
-							Offline Italian
+							Install + Offline
 						</p>
 						<h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-							Build fast Italian recall with 60-second verb sprints.
+							Install Conjumate as a PWA, then use it anywhere.
 						</h1>
 						<p class="max-w-xl text-base text-slate-300 sm:text-lg">
-							Conjumate is a mobile-first drill space for the passato prossimo. Learn the
-							pattern, then race the clock on high-frequency verbs.
+							Follow the steps for your device. Once installed, open it once online to
+							cache lessons, then you can practice offline.
 						</p>
 					</div>
-					<div class="flex flex-wrap gap-3">
-						<a
-							href="/practice"
-							class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900"
-						>
-							Start a sprint
-						</a>
-						<a
-							href="#method"
-							class="rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100"
-						>
-							See the method
-						</a>
-					</div>
-					<div class="grid gap-3 sm:grid-cols-3">
-						{#each highlights as item (item.title)}
+					<div class="grid gap-4 md:grid-cols-2">
+						{#each installGuides as guide (guide.platform)}
 							<div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-								<p class="text-lg font-semibold text-white">{item.title}</p>
-								<p class="text-xs uppercase tracking-[0.18em] text-slate-400">
-									{item.detail}
+								<p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
+									{guide.platform}
 								</p>
+								<ul class="mt-3 space-y-1 text-sm text-slate-300">
+									{#each guide.steps as step (step)}
+										<li>• {step}</li>
+									{/each}
+								</ul>
 							</div>
 						{/each}
 					</div>
 				</div>
 				<div class="space-y-6">
 					<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl shadow-black/30">
-						<p class="text-xs uppercase tracking-[0.3em] text-amber-300">Passato prossimo</p>
-						<h2 class="mt-3 text-2xl font-semibold text-white">Present Perfect Focus</h2>
-						<p class="mt-2 text-sm text-slate-300">
-							Present of <span class="text-amber-200">avere/essere</span> + past participle.
-						</p>
+						<p class="text-xs uppercase tracking-[0.3em] text-amber-300">Offline checklist</p>
 						<div class="mt-4 space-y-3">
-							{#each examples as example (example.italian)}
-								<div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
-									<p class="text-base font-semibold text-white">{example.italian}</p>
-									<p class="text-xs uppercase tracking-[0.2em] text-slate-400">
-										{example.english}
-									</p>
+							{#each offlineChecklist as item, index (item.title)}
+								<div class="flex gap-3 rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
+									<span class="mt-0.5 h-6 w-6 rounded-full bg-amber-400 text-center text-xs font-semibold text-slate-900">
+										{index + 1}
+									</span>
+									<div>
+										<p class="text-sm font-semibold text-white">{item.title}</p>
+										<p class="text-xs text-slate-300">{item.detail}</p>
+									</div>
 								</div>
 							{/each}
 						</div>
 					</div>
 					<div class="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950 p-6">
-						<p class="text-xs uppercase tracking-[0.3em] text-slate-400">Next up</p>
-						<p class="mt-3 text-sm text-slate-300">
-							We will expand to imperfetto, conditional, and congiuntivo, each with its
-							own sprint mode.
+						<p class="text-xs uppercase tracking-[0.3em] text-slate-400">Ready to practice</p>
+						<h2 class="mt-3 text-2xl font-semibold text-white">Start your first sprint</h2>
+						<p class="mt-2 text-sm text-slate-300">
+							Launch a 60-second drill and see how fast you can recall verbs.
 						</p>
+						<div class="mt-4 flex flex-wrap gap-3">
+							<a
+								href="/practice"
+								class="rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold text-slate-900"
+							>
+								Start a sprint
+							</a>
+							<a
+								href="#method"
+								class="rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100"
+							>
+								See the method
+							</a>
+						</div>
 					</div>
 				</div>
 			</section>
