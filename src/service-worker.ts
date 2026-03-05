@@ -49,7 +49,9 @@ const staleWhileRevalidate = async (request: Request, cacheName: string) => {
 
 self.addEventListener('install', (event) => {
 	self.skipWaiting();
-	event.waitUntil(caches.open(APP_CACHE).then((cache) => cache.addAll(ASSETS)));
+	event.waitUntil(
+		caches.open(APP_CACHE).then((cache) => cache.addAll(ASSETS))
+	);
 });
 
 self.addEventListener('activate', (event) => {
@@ -73,16 +75,44 @@ self.addEventListener('fetch', (event) => {
 	const url = new URL(request.url);
 	if (url.origin !== self.location.origin) return;
 
+	// Static assets from build - serve from cache
 	if (ASSETS.includes(url.pathname)) {
-		event.respondWith(caches.open(APP_CACHE).then((cache) => cache.match(url.pathname)));
+		event.respondWith(
+			caches.open(APP_CACHE).then((cache) => 
+				cache.match(url.pathname).then((response) => response ?? fetch(request))
+			)
+		);
 		return;
 	}
 
+	// Navigation requests - cache first for offline support
 	if (request.mode === 'navigate') {
 		event.respondWith(
-			networkFirst(request, RUNTIME_CACHE).catch(() =>
-				caches.match('/offline.html').then((response) => response ?? caches.match('/'))
-			)
+			(async () => {
+				try {
+					// Try network first
+					const response = await fetch(request);
+					// Cache the page for offline use
+					const cache = await caches.open(RUNTIME_CACHE);
+					cache.put(request, response.clone());
+					return response;
+				} catch {
+					// Network failed - try cache
+					const cached = await caches.match(request);
+					if (cached) return cached;
+					// Fall back to cached home page as app shell
+					const fallback = await caches.match('/');
+					if (fallback) return fallback;
+					// Last resort - return any cached page
+					const cache = await caches.open(RUNTIME_CACHE);
+					const keys = await cache.keys();
+					if (keys.length > 0) {
+						const any = await cache.match(keys[0]);
+						if (any) return any;
+					}
+					return new Response('Offline', { status: 503 });
+				}
+			})()
 		);
 		return;
 	}
