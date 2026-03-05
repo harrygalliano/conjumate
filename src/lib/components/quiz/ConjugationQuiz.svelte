@@ -57,7 +57,9 @@
 			? verbs.filter((verb) => verb.present)
 			: tense.id === 'gerundio'
 				? verbs.filter((verb) => verb.gerund)
-				: verbs
+				: tense.id === 'futuro_semplice'
+					? verbs.filter((verb) => verb.future)
+					: verbs
 	);
 
 	let isRunning = $state(false);
@@ -81,14 +83,18 @@
 			? 'io mangio'
 			: tense.id === 'gerundio'
 				? 'io sto mangiando'
-				: 'io ho mangiato'
+				: tense.id === 'futuro_semplice'
+					? 'io parlerò'
+					: 'io ho mangiato'
 	);
 	const instruction = $derived(
 		tense.id === 'presente'
 			? 'Type the full conjugation (pronoun + present form).'
 			: tense.id === 'gerundio'
 				? 'Type the full conjugation (pronoun + stare + gerundio).'
-				: 'Type the full conjugation (pronoun + auxiliary + past participle).'
+				: tense.id === 'futuro_semplice'
+					? 'Type the full conjugation (pronoun + future form).'
+					: 'Type the full conjugation (pronoun + auxiliary + past participle).'
 	);
 	const formatTime = (seconds: number) => {
 		const minutes = Math.floor(seconds / 60);
@@ -130,6 +136,12 @@
 			const base = `${aux} ${gerund}`;
 			const withPronoun = prompt.subject.forms.map((value) => `${value} ${base}`);
 			return [withPronoun[0], ...withPronoun.slice(1), base];
+		}
+		if (tense.id === 'futuro_semplice') {
+			const future = prompt.verb.future?.[prompt.subject.id];
+			if (!future) return [];
+			const withPronoun = prompt.subject.forms.map((value) => `${value} ${future}`);
+			return [withPronoun[0], ...withPronoun.slice(1), future];
 		}
 
 		const aux = auxiliaryForms[prompt.verb.auxiliary][prompt.subject.id];
@@ -344,14 +356,16 @@
 						{current.subject.label} + {current.verb.infinitive}
 					</p>
 					<p class="text-sm text-slate-500">
-						{#if tense.id === 'presente'}
-							Meaning: {current.verb.translation}
-						{:else if tense.id === 'gerundio'}
-							Pattern: stare + gerundio · Meaning: {current.verb.translation}
-						{:else}
-							Aux: {current.verb.auxiliary} · Meaning: {current.verb.translation}
-						{/if}
-					</p>
+					{#if tense.id === 'presente'}
+						Meaning: {current.verb.translation}
+					{:else if tense.id === 'gerundio'}
+						Pattern: stare + gerundio · Meaning: {current.verb.translation}
+					{:else if tense.id === 'futuro_semplice'}
+						Pattern: future stem + ending · Meaning: {current.verb.translation}
+					{:else}
+						Aux: {current.verb.auxiliary} · Meaning: {current.verb.translation}
+					{/if}
+				</p>
 				{:else}
 					<p class="mt-2 text-sm text-slate-500">No verbs loaded.</p>
 				{/if}
@@ -461,6 +475,10 @@
 				{:else if tense.id === 'gerundio'}
 					<p class="mt-2">
 						Use stare + gerundio. We accept answers without the pronoun too.
+					</p>
+				{:else if tense.id === 'futuro_semplice'}
+					<p class="mt-2">
+						Use the future stem + endings. We accept answers without the pronoun too.
 					</p>
 				{:else}
 					<p class="mt-2">

@@ -1,41 +1,12 @@
 <script lang="ts">
-	import { TENSES, type TenseDefinition } from '$lib/data/italian';
+	import { learnTenses, type LearnTense } from '$lib/data/learn';
 
-	type TenseId = TenseDefinition['id'];
+	type TenseId = LearnTense['id'];
 
-	const guides: Record<TenseId, { formula: string; tips: string[]; focus: string }> = {
-		presente: {
-			formula: 'Pronoun + present tense form',
-			focus: 'Habits, routines, and what is happening now.',
-			tips: [
-				'-are verbs end with -o, -i, -a, -iamo, -ate, -ano.',
-				'-ere verbs end with -o, -i, -e, -iamo, -ete, -ono.',
-				'-ire verbs end with -o, -i, -e, -iamo, -ite, -ono.'
-			]
-		},
-		gerundio: {
-			formula: 'Pronoun + stare (present) + gerundio',
-			focus: 'Actions in progress right now.',
-			tips: [
-				'Use -ando for -are verbs, -endo for -ere and -ire verbs.',
-				'Stare forms: sto, stai, sta, stiamo, state, stanno.',
-				'Pronouns are optional in spoken Italian.'
-			]
-		},
-		passato_prossimo: {
-			formula: 'Present of avere/essere + past participle',
-			focus: 'Completed actions with present relevance.',
-			tips: [
-				'Avere is most common; movement/state verbs use essere.',
-				'Past participle often ends in -ato, -uto, or -ito.',
-				'We ignore agreement in drills for speed.'
-			]
-		}
-	};
-
-	let activeTense = $state<TenseId>(TENSES[0].id);
-	const current = $derived(TENSES.find((tense) => tense.id === activeTense) ?? TENSES[0]);
-	const guide = $derived(guides[activeTense]);
+	let activeTense = $state<TenseId>(learnTenses[0].id);
+	const current = $derived(
+		learnTenses.find((tense) => tense.id === activeTense) ?? learnTenses[0]
+	);
 </script>
 
 <svelte:head>
@@ -53,7 +24,7 @@
 		</header>
 
 		<div class="flex flex-wrap gap-2" role="tablist" aria-label="Learn tabs">
-			{#each TENSES as tense (tense.id)}
+			{#each learnTenses as tense (tense.id)}
 				<button
 					type="button"
 					role="tab"
@@ -77,7 +48,7 @@
 			<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
 				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Focus</p>
 				<h2 class="mt-3 text-2xl font-semibold text-white">{current.name}</h2>
-				<p class="mt-2 text-sm text-slate-300">{guide.focus}</p>
+				<p class="mt-2 text-sm text-slate-300">{current.focus}</p>
 				<div class="mt-4 space-y-2 text-sm text-slate-300">
 					{#each current.description as line, index (index)}
 						<p>{line}</p>
@@ -85,7 +56,7 @@
 				</div>
 				<div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
 					<p class="text-xs uppercase tracking-[0.2em] text-slate-400">Formula</p>
-					<p class="mt-2 text-base font-semibold text-white">{guide.formula}</p>
+					<p class="mt-2 text-base font-semibold text-white">{current.formula}</p>
 				</div>
 			</div>
 
@@ -105,7 +76,7 @@
 		<section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
 			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Tips</p>
 			<ul class="mt-4 space-y-2 text-sm text-slate-300">
-				{#each guide.tips as tip, index (index)}
+				{#each current.tips as tip, index (index)}
 					<li class="rounded-2xl border border-slate-800 bg-slate-950/70 p-3">{tip}</li>
 				{/each}
 			</ul>

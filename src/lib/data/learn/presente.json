@@ -1,0 +1,31 @@
+{
+	"id": "presente",
+	"name": "Present (Presente)",
+	"shortName": "Present",
+	"description": [
+		"Use it for actions happening now, routines, or general truths.",
+		"Conjugate the verb directly. No auxiliary needed."
+	],
+	"notes": [
+		"Regular -are, -ere, -ire endings are common, but many verbs are irregular."
+	],
+	"examples": [
+		{ "italian": "Io mangio una pizza.", "english": "I am eating a pizza." },
+		{ "italian": "Tu leggi un libro.", "english": "You read a book." },
+		{ "italian": "Lei scrive una lettera.", "english": "She writes a letter." },
+		{ "italian": "Noi studiamo italiano.", "english": "We study Italian." },
+		{ "italian": "Voi dormite bene.", "english": "You all sleep well." },
+		{ "italian": "Loro parlano piano.", "english": "They speak slowly." },
+		{ "italian": "Io vivo a Londra.", "english": "I live in London." },
+		{ "italian": "Tu prendi il treno.", "english": "You take the train." },
+		{ "italian": "Lui vede il mare.", "english": "He sees the sea." },
+		{ "italian": "Noi finiamo presto.", "english": "We finish early." }
+	],
+	"focus": "Habits, routines, and what is happening now.",
+	"formula": "Pronoun + present tense form",
+	"tips": [
+		"-are verbs end with -o, -i, -a, -iamo, -ate, -ano.",
+		"-ere verbs end with -o, -i, -e, -iamo, -ete, -ono.",
+		"-ire verbs end with -o, -i, -e, -iamo, -ite, -ono."
+	]
+}

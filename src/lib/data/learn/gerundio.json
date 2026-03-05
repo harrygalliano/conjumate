@@ -1,0 +1,31 @@
+{
+	"id": "gerundio",
+	"name": "Present Continuous (Gerundio)",
+	"shortName": "Gerund",
+	"description": [
+		"Use stare + gerundio for actions happening right now.",
+		"Form the gerund with -ando for -are verbs and -endo for -ere/-ire verbs."
+	],
+	"notes": [
+		"Common pattern: io sto parlando, tu stai studiando."
+	],
+	"examples": [
+		{ "italian": "Io sto mangiando.", "english": "I am eating." },
+		{ "italian": "Tu stai leggendo.", "english": "You are reading." },
+		{ "italian": "Lei sta studiando.", "english": "She is studying." },
+		{ "italian": "Noi stiamo parlando.", "english": "We are talking." },
+		{ "italian": "Voi state dormendo.", "english": "You all are sleeping." },
+		{ "italian": "Loro stanno scrivendo.", "english": "They are writing." },
+		{ "italian": "Io sto finendo.", "english": "I am finishing." },
+		{ "italian": "Tu stai vedendo il film.", "english": "You are watching the film." },
+		{ "italian": "Lei sta tornando.", "english": "She is coming back." },
+		{ "italian": "Noi stiamo arrivando.", "english": "We are arriving." }
+	],
+	"focus": "Actions in progress right now.",
+	"formula": "Pronoun + stare (present) + gerundio",
+	"tips": [
+		"Use -ando for -are verbs, -endo for -ere and -ire verbs.",
+		"Stare forms: sto, stai, sta, stiamo, state, stanno.",
+		"Pronouns are optional in spoken Italian."
+	]
+}

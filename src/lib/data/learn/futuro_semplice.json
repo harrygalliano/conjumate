@@ -1,0 +1,32 @@
+{
+	"id": "futuro_semplice",
+	"name": "Future (Futuro Semplice)",
+	"shortName": "Future",
+	"description": [
+		"Use it for actions that will happen in the future.",
+		"Form it by adding future endings to the future stem."
+	],
+	"notes": [
+		"-are and -ere verbs share -erò, -erai, -erà, -eremo, -erete, -eranno.",
+		"-ire verbs use -irò, -irai, -irà, -iremo, -irete, -iranno."
+	],
+	"examples": [
+		{ "italian": "Io parlerò italiano.", "english": "I will speak Italian." },
+		{ "italian": "Tu mangerai con noi.", "english": "You will eat with us." },
+		{ "italian": "Lei studierà stasera.", "english": "She will study tonight." },
+		{ "italian": "Noi partiremo domani.", "english": "We will leave tomorrow." },
+		{ "italian": "Voi dormirete bene.", "english": "You all will sleep well." },
+		{ "italian": "Loro vedranno il film.", "english": "They will see the film." },
+		{ "italian": "Io andrò a Roma.", "english": "I will go to Rome." },
+		{ "italian": "Tu farai una torta.", "english": "You will make a cake." },
+		{ "italian": "Lei sarà felice.", "english": "She will be happy." },
+		{ "italian": "Noi avremo tempo.", "english": "We will have time." }
+	],
+	"focus": "Actions that will happen in the future.",
+	"formula": "Pronoun + future stem + ending",
+	"tips": [
+		"-are and -ere verbs share -erò, -erai, -erà, -eremo, -erete, -eranno.",
+		"-ire verbs use -irò, -irai, -irà, -iremo, -irete, -iranno.",
+		"Common irregulars: essere → sarò, avere → avrò, andare → andrò."
+	]
+}

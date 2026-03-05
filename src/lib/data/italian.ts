@@ -1,5 +1,6 @@
 import verbsBase from './verbs/base.json';
 import presentTense from './verbs/present.json';
+import { learnTenses } from './learn';
 
 type VerbBase = {
 	infinitive: string;
@@ -11,6 +12,7 @@ type VerbBase = {
 export type Verb = VerbBase & {
 	present?: VerbPresent;
 	gerund?: string;
+	future?: VerbFuture;
 };
 
 export type VerbPresent = {
@@ -22,8 +24,10 @@ export type VerbPresent = {
 	loro: string;
 };
 
+export type VerbFuture = VerbPresent;
+
 export type TenseDefinition = {
-	id: 'presente' | 'gerundio' | 'passato_prossimo';
+	id: 'presente' | 'gerundio' | 'passato_prossimo' | 'futuro_semplice';
 	name: string;
 	shortName: string;
 	description: string[];
@@ -31,61 +35,113 @@ export type TenseDefinition = {
 	examples: Array<{ italian: string; english: string }>;
 };
 
-export const TENSES: TenseDefinition[] = [
-	{
-		id: 'presente',
-		name: 'Present (Presente)',
-		shortName: 'Present',
-		description: [
-			'Use it for actions happening now, routines, or general truths.',
-			'Conjugate the verb directly. No auxiliary needed.'
-		],
-		notes: ['Regular -are, -ere, -ire endings are common, but many verbs are irregular.'],
-		examples: [
-			{ italian: 'Io mangio una pizza.', english: 'I am eating a pizza.' },
-			{ italian: 'Noi studiamo italiano.', english: 'We study Italian.' },
-			{ italian: 'Loro parlano piano.', english: 'They speak slowly.' }
-		]
-	},
-	{
-		id: 'gerundio',
-		name: 'Present Continuous (Gerundio)',
-		shortName: 'Gerund',
-		description: [
-			'Use stare + gerundio for actions happening right now.',
-			'Form the gerund with -ando for -are verbs and -endo for -ere/-ire verbs.'
-		],
-		notes: ['Common pattern: io sto parlando, tu stai studiando.'],
-		examples: [
-			{ italian: 'Io sto mangiando.', english: 'I am eating.' },
-			{ italian: 'Lei sta studiando.', english: 'She is studying.' },
-			{ italian: 'Stiamo parlando.', english: 'We are talking.' }
-		]
-	},
-	{
-		id: 'passato_prossimo',
-		name: 'Present Perfect (Passato Prossimo)',
-		shortName: 'Present Perfect',
-		description: [
-			'Use it for completed actions in the past that still feel relevant now.',
-			'Form it with the present of avere or essere plus the past participle.'
-		],
-		notes: [
-			'Many movement or state verbs take essere. Agreement is simplified in this quiz.'
-		],
-		examples: [
-			{ italian: 'Io ho mangiato una pizza.', english: 'I ate a pizza.' },
-			{ italian: 'Lei ha studiato italiano.', english: 'She studied Italian.' },
-			{ italian: 'Noi siamo arrivati tardi.', english: 'We arrived late.' }
-		]
-	}
-];
+export const TENSES: TenseDefinition[] = learnTenses;
 
 // Merge base verbs with tense-specific conjugations
 const presentConjugations = presentTense as Record<string, VerbPresent>;
 const gerundOverrides: Record<string, string> = {
 	fare: 'facendo',
 	dire: 'dicendo'
+};
+
+const futureOverrides: Record<string, VerbFuture> = {
+	essere: {
+		io: 'sarò',
+		tu: 'sarai',
+		lui_lei: 'sarà',
+		noi: 'saremo',
+		voi: 'sarete',
+		loro: 'saranno'
+	},
+	avere: {
+		io: 'avrò',
+		tu: 'avrai',
+		lui_lei: 'avrà',
+		noi: 'avremo',
+		voi: 'avrete',
+		loro: 'avranno'
+	},
+	fare: {
+		io: 'farò',
+		tu: 'farai',
+		lui_lei: 'farà',
+		noi: 'faremo',
+		voi: 'farete',
+		loro: 'faranno'
+	},
+	andare: {
+		io: 'andrò',
+		tu: 'andrai',
+		lui_lei: 'andrà',
+		noi: 'andremo',
+		voi: 'andrete',
+		loro: 'andranno'
+	},
+	venire: {
+		io: 'verrò',
+		tu: 'verrai',
+		lui_lei: 'verrà',
+		noi: 'verremo',
+		voi: 'verrete',
+		loro: 'verranno'
+	},
+	dare: {
+		io: 'darò',
+		tu: 'darai',
+		lui_lei: 'darà',
+		noi: 'daremo',
+		voi: 'darete',
+		loro: 'daranno'
+	},
+	stare: {
+		io: 'starò',
+		tu: 'starai',
+		lui_lei: 'starà',
+		noi: 'staremo',
+		voi: 'starete',
+		loro: 'staranno'
+	},
+	vedere: {
+		io: 'vedrò',
+		tu: 'vedrai',
+		lui_lei: 'vedrà',
+		noi: 'vedremo',
+		voi: 'vedrete',
+		loro: 'vedranno'
+	},
+	potere: {
+		io: 'potrò',
+		tu: 'potrai',
+		lui_lei: 'potrà',
+		noi: 'potremo',
+		voi: 'potrete',
+		loro: 'potranno'
+	},
+	dovere: {
+		io: 'dovrò',
+		tu: 'dovrai',
+		lui_lei: 'dovrà',
+		noi: 'dovremo',
+		voi: 'dovrete',
+		loro: 'dovranno'
+	},
+	volere: {
+		io: 'vorrò',
+		tu: 'vorrai',
+		lui_lei: 'vorrà',
+		noi: 'vorremo',
+		voi: 'vorrete',
+		loro: 'vorranno'
+	}
+};
+
+const futureEndings: VerbFuture = {
+	io: 'ò',
+	tu: 'ai',
+	lui_lei: 'à',
+	noi: 'emo',
+	voi: 'ete',
+	loro: 'anno'
 };
 
 const toGerund = (infinitive: string) => {
@@ -97,8 +153,29 @@ const toGerund = (infinitive: string) => {
 	return infinitive;
 };
 
+const futureStem = (infinitive: string) => {
+	if (infinitive.endsWith('are')) return `${infinitive.slice(0, -3)}er`;
+	if (infinitive.endsWith('ere')) return `${infinitive.slice(0, -3)}er`;
+	if (infinitive.endsWith('ire')) return `${infinitive.slice(0, -3)}ir`;
+	return infinitive;
+};
+
+const toFuture = (infinitive: string): VerbFuture => {
+	if (futureOverrides[infinitive]) return futureOverrides[infinitive];
+	const stem = futureStem(infinitive);
+	return {
+		io: `${stem}${futureEndings.io}`,
+		tu: `${stem}${futureEndings.tu}`,
+		lui_lei: `${stem}${futureEndings.lui_lei}`,
+		noi: `${stem}${futureEndings.noi}`,
+		voi: `${stem}${futureEndings.voi}`,
+		loro: `${stem}${futureEndings.loro}`
+	};
+};
+
 export const italianVerbs: Verb[] = (verbsBase as VerbBase[]).map((verb) => ({
 	...verb,
 	present: presentConjugations[verb.infinitive],
-	gerund: toGerund(verb.infinitive)
+	gerund: toGerund(verb.infinitive),
+	future: toFuture(verb.infinitive)
 }));

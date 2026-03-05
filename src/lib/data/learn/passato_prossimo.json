@@ -1,0 +1,31 @@
+{
+	"id": "passato_prossimo",
+	"name": "Present Perfect (Passato Prossimo)",
+	"shortName": "Present Perfect",
+	"description": [
+		"Use it for completed actions in the past that still feel relevant now.",
+		"Form it with the present of avere or essere plus the past participle."
+	],
+	"notes": [
+		"Many movement or state verbs take essere. Agreement is simplified in this quiz."
+	],
+	"examples": [
+		{ "italian": "Io ho mangiato una pizza.", "english": "I ate a pizza." },
+		{ "italian": "Tu hai letto il giornale.", "english": "You read the newspaper." },
+		{ "italian": "Lei ha studiato italiano.", "english": "She studied Italian." },
+		{ "italian": "Noi siamo arrivati tardi.", "english": "We arrived late." },
+		{ "italian": "Voi avete scritto un'email.", "english": "You all wrote an email." },
+		{ "italian": "Loro hanno parlato con Marco.", "english": "They spoke with Marco." },
+		{ "italian": "Io sono uscito presto.", "english": "I went out early." },
+		{ "italian": "Tu sei venuto qui.", "english": "You came here." },
+		{ "italian": "Lei è partita ieri.", "english": "She left yesterday." },
+		{ "italian": "Noi abbiamo finito il lavoro.", "english": "We finished the work." }
+	],
+	"focus": "Completed actions with present relevance.",
+	"formula": "Present of avere/essere + past participle",
+	"tips": [
+		"Avere is most common; movement/state verbs use essere.",
+		"Past participle often ends in -ato, -uto, or -ito.",
+		"We ignore agreement in drills for speed."
+	]
+}

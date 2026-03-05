@@ -156,8 +156,8 @@
 					<div class="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950 p-6">
 						<p class="text-xs uppercase tracking-[0.3em] text-slate-400">Next up</p>
 						<p class="mt-3 text-sm text-slate-300">
-							We will expand to imperfetto, futuro semplice, and conditional, each with
-							its own sprint mode.
+							We will expand to imperfetto, conditional, and congiuntivo, each with its
+							own sprint mode.
 						</p>
 					</div>
 				</div>
