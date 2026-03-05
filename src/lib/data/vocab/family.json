@@ -1,0 +1,22 @@
+[
+	{ "english": "father", "italian": "padre", "gender": "m", "plural": "padri", "pluralEnglish": "fathers" },
+	{ "english": "mother", "italian": "madre", "gender": "f", "plural": "madri", "pluralEnglish": "mothers" },
+	{ "english": "brother", "italian": "fratello", "gender": "m", "plural": "fratelli", "pluralEnglish": "brothers" },
+	{ "english": "sister", "italian": "sorella", "gender": "f", "plural": "sorelle", "pluralEnglish": "sisters" },
+	{ "english": "son", "italian": "figlio", "gender": "m", "plural": "figli", "pluralEnglish": "sons" },
+	{ "english": "daughter", "italian": "figlia", "gender": "f", "plural": "figlie", "pluralEnglish": "daughters" },
+	{ "english": "grandfather", "italian": "nonno", "gender": "m", "plural": "nonni", "pluralEnglish": "grandfathers" },
+	{ "english": "grandmother", "italian": "nonna", "gender": "f", "plural": "nonne", "pluralEnglish": "grandmothers" },
+	{ "english": "uncle", "italian": "zio", "gender": "m", "plural": "zii", "pluralEnglish": "uncles" },
+	{ "english": "aunt", "italian": "zia", "gender": "f", "plural": "zie", "pluralEnglish": "aunts" },
+	{ "english": "cousin (m)", "italian": "cugino", "gender": "m", "plural": "cugini", "pluralEnglish": "cousins (m)" },
+	{ "english": "cousin (f)", "italian": "cugina", "gender": "f", "plural": "cugine", "pluralEnglish": "cousins (f)" },
+	{ "english": "nephew", "italian": "nipote", "gender": "m", "plural": "nipoti", "pluralEnglish": "nephews" },
+	{ "english": "niece", "italian": "nipote", "gender": "f", "plural": "nipoti", "pluralEnglish": "nieces" },
+	{ "english": "husband", "italian": "marito", "gender": "m", "plural": "mariti", "pluralEnglish": "husbands" },
+	{ "english": "wife", "italian": "moglie", "gender": "f", "plural": "mogli", "pluralEnglish": "wives" },
+	{ "english": "father-in-law", "italian": "suocero", "gender": "m", "plural": "suoceri", "pluralEnglish": "fathers-in-law" },
+	{ "english": "mother-in-law", "italian": "suocera", "gender": "f", "plural": "suocere", "pluralEnglish": "mothers-in-law" },
+	{ "english": "brother-in-law", "italian": "cognato", "gender": "m", "plural": "cognati", "pluralEnglish": "brothers-in-law" },
+	{ "english": "sister-in-law", "italian": "cognata", "gender": "f", "plural": "cognate", "pluralEnglish": "sisters-in-law" }
+]

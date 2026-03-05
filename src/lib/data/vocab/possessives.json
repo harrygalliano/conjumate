@@ -1,0 +1,44 @@
+[
+	{
+		"pronoun": "io",
+		"pronounLabel": "io",
+		"english": "my",
+		"forms": { "ms": "mio", "fs": "mia", "mp": "miei", "fp": "mie" },
+		"usesArticleSingular": false
+	},
+	{
+		"pronoun": "tu",
+		"pronounLabel": "tu",
+		"english": "your",
+		"forms": { "ms": "tuo", "fs": "tua", "mp": "tuoi", "fp": "tue" },
+		"usesArticleSingular": false
+	},
+	{
+		"pronoun": "lui_lei",
+		"pronounLabel": "lui/lei",
+		"english": "his/her",
+		"forms": { "ms": "suo", "fs": "sua", "mp": "suoi", "fp": "sue" },
+		"usesArticleSingular": false
+	},
+	{
+		"pronoun": "noi",
+		"pronounLabel": "noi",
+		"english": "our",
+		"forms": { "ms": "nostro", "fs": "nostra", "mp": "nostri", "fp": "nostre" },
+		"usesArticleSingular": false
+	},
+	{
+		"pronoun": "voi",
+		"pronounLabel": "voi",
+		"english": "your (pl)",
+		"forms": { "ms": "vostro", "fs": "vostra", "mp": "vostri", "fp": "vostre" },
+		"usesArticleSingular": false
+	},
+	{
+		"pronoun": "loro",
+		"pronounLabel": "loro",
+		"english": "their",
+		"forms": { "ms": "loro", "fs": "loro", "mp": "loro", "fp": "loro" },
+		"usesArticleSingular": true
+	}
+]

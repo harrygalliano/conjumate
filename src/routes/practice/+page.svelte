@@ -8,16 +8,16 @@
 		VocabQuiz
 	} from '$lib/components/quiz';
 	import { TENSES, italianVerbs } from '$lib/data/italian';
-	import { colors, numbers, locations } from '$lib/data/vocab';
+	import { colors, numbers, locations, familyMembers, familyQuizItems, possessives } from '$lib/data/vocab';
 	import { onMount } from 'svelte';
 
 	type TabId = 'grammar' | 'vocab' | 'location';
-	type VocabView = 'list' | 'colors-test' | 'numbers-test';
+	type VocabView = 'list' | 'colors-test' | 'numbers-test' | 'family-test';
 	type LocationView = 'list' | 'test';
 
 	const tabItems: Array<{ id: TabId; label: string; description: string }> = [
 		{ id: 'grammar', label: 'Grammar', description: 'Conjugation sprints' },
-		{ id: 'vocab', label: 'Vocab', description: 'Colors + numbers' },
+		{ id: 'vocab', label: 'Vocab', description: 'Colors + numbers + family' },
 		{ id: 'location', label: 'Location', description: 'Prepositions' }
 	];
 
@@ -178,6 +178,17 @@
 								</button>
 								<VocabQuiz type="numbers" {numbers} />
 							</div>
+						{:else if vocabView === 'family-test'}
+							<div class="space-y-4">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'list')}
+									class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+								>
+									← Back to vocab list
+								</button>
+								<VocabQuiz type="family" familyItems={familyQuizItems} />
+							</div>
 						{:else}
 							<section class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
 								<div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -247,6 +258,52 @@
 												</div>
 											{/each}
 										</div>
+									</div>
+								</div>
+							</section>
+
+							<section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+								<div class="flex items-center justify-between gap-3">
+									<div>
+										<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
+											Family
+										</p>
+										<h2 class="text-2xl font-semibold text-slate-900">La Famiglia</h2>
+										<p class="mt-2 text-sm text-slate-500">
+											Family members with possessive adjectives. Learn to say "my father", "our aunts", etc.
+										</p>
+									</div>
+									<span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
+										{familyMembers.length}
+									</span>
+								</div>
+								<button
+									type="button"
+									onclick={() => (vocabView = 'family-test')}
+									class="mt-4 w-full rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
+								>
+									Test Me
+								</button>
+								<div class="mt-4 space-y-4">
+									<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+										<p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Possessives</p>
+										<div class="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
+											{#each possessives as poss (poss.pronoun)}
+												<div class="text-sm">
+													<span class="font-semibold text-slate-900">{poss.english}</span>
+													<span class="text-slate-500"> → {poss.forms.ms}/{poss.forms.fs}</span>
+												</div>
+											{/each}
+										</div>
+									</div>
+									<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+										{#each familyMembers as member (member.english)}
+											<div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
+												<p class="font-semibold text-slate-900">{member.italian}</p>
+												<p class="text-xs text-slate-500">{member.english}</p>
+												<p class="mt-1 text-xs text-slate-400">pl: {member.plural}</p>
+											</div>
+										{/each}
 									</div>
 								</div>
 							</section>

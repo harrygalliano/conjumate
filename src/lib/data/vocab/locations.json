@@ -1,0 +1,22 @@
+[
+	{ "italian": "sopra", "english": "above/on top of", "example": "Il libro è sopra il tavolo" },
+	{ "italian": "sotto", "english": "under/below", "example": "Il gatto è sotto il letto" },
+	{ "italian": "su", "english": "on/up", "example": "Sali su!" },
+	{ "italian": "giù", "english": "down", "example": "Vai giù per le scale" },
+	{ "italian": "davanti", "english": "in front of", "example": "Sono davanti alla porta" },
+	{ "italian": "dietro", "english": "behind", "example": "Il giardino è dietro la casa" },
+	{ "italian": "accanto", "english": "next to/beside", "example": "Siediti accanto a me" },
+	{ "italian": "vicino", "english": "near/close", "example": "Abito vicino al parco" },
+	{ "italian": "lontano", "english": "far", "example": "La stazione è lontano da qui" },
+	{ "italian": "tra", "english": "between/among", "example": "Tra Roma e Milano" },
+	{ "italian": "fra", "english": "between/among", "example": "Fra poco arriviamo" },
+	{ "italian": "dentro", "english": "inside", "example": "Resta dentro casa" },
+	{ "italian": "fuori", "english": "outside", "example": "Andiamo fuori!" },
+	{ "italian": "in", "english": "in/at", "example": "Sono in ufficio" },
+	{ "italian": "a", "english": "to/at", "example": "Vado a scuola" },
+	{ "italian": "da", "english": "from/at", "example": "Vengo da Milano" },
+	{ "italian": "di", "english": "of/from", "example": "Sono di Roma" },
+	{ "italian": "per", "english": "through/for", "example": "Passo per il centro" },
+	{ "italian": "verso", "english": "towards", "example": "Cammino verso casa" },
+	{ "italian": "oltre", "english": "beyond/past", "example": "Oltre la collina" }
+]

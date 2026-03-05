@@ -1,20 +1,22 @@
 <script lang="ts">
-	import type { ColorVocab, NumberVocab, LocationVocab } from '$lib/data/vocab';
+	import type { ColorVocab, NumberVocab, LocationVocab, FamilyQuizItem } from '$lib/data/vocab';
 	import { onDestroy } from 'svelte';
 
-	type VocabType = 'colors' | 'numbers' | 'locations';
+	type VocabType = 'colors' | 'numbers' | 'locations' | 'family';
 	type VocabItem = { prompt: string; answer: string; hint?: string };
 
 	let {
 		type,
 		colors = [],
 		numbers = [],
-		locations = []
+		locations = [],
+		familyItems = []
 	}: {
 		type: VocabType;
 		colors?: ColorVocab[];
 		numbers?: NumberVocab[];
 		locations?: LocationVocab[];
+		familyItems?: FamilyQuizItem[];
 	} = $props();
 
 	let isRunning = $state(false);
@@ -30,17 +32,31 @@
 
 	const accuracy = $derived(total === 0 ? 0 : Math.round((correct / total) * 100));
 	const placeholder = $derived(
-		type === 'colors' ? 'rosso' : type === 'numbers' ? 'venticinque' : 'sopra'
+		type === 'colors'
+			? 'rosso'
+			: type === 'numbers'
+				? 'venticinque'
+				: type === 'family'
+					? 'mio padre'
+					: 'sopra'
 	);
 	const instruction = $derived(
 		type === 'colors'
 			? 'Type the Italian word for the color shown.'
 			: type === 'numbers'
 				? 'Type the Italian word for the number shown.'
-				: 'Type the Italian preposition for the location shown.'
+				: type === 'family'
+					? 'Type the Italian possessive + family member.'
+					: 'Type the Italian preposition for the location shown.'
 	);
 	const title = $derived(
-		type === 'colors' ? 'Color Sprint' : type === 'numbers' ? 'Number Sprint' : 'Location Sprint'
+		type === 'colors'
+			? 'Color Sprint'
+			: type === 'numbers'
+				? 'Number Sprint'
+				: type === 'family'
+					? 'Family Sprint'
+					: 'Location Sprint'
 	);
 
 	const normalize = (input: string) =>
@@ -65,6 +81,13 @@
 				prompt: l.english,
 				answer: l.italian,
 				hint: l.example
+			}));
+		}
+		if (type === 'family') {
+			return familyItems.map((f) => ({
+				prompt: f.english,
+				answer: f.italian,
+				hint: `${f.pronoun} → ${f.member}`
 			}));
 		}
 		return numbers.map((n) => ({
@@ -247,6 +270,11 @@
 					<p class="mt-2">
 						Type the Italian word for each number. For compound numbers like 21, write
 						them as one word (ventuno).
+					</p>
+				{:else if type === 'family'}
+					<p class="mt-2">
+						Include the article when needed: plurals always need it (i miei fratelli), 
+						singular family doesn't (mio padre) - except "loro" (il loro padre).
 					</p>
 				{:else}
 					<p class="mt-2">

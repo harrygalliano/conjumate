@@ -1,0 +1,164 @@
+[
+	{
+		"infinitive": "essere",
+		"translation": "to be",
+		"auxiliary": "essere",
+		"pastParticiple": "stato"
+	},
+	{
+		"infinitive": "avere",
+		"translation": "to have",
+		"auxiliary": "avere",
+		"pastParticiple": "avuto"
+	},
+	{
+		"infinitive": "fare",
+		"translation": "to do / make",
+		"auxiliary": "avere",
+		"pastParticiple": "fatto"
+	},
+	{
+		"infinitive": "dire",
+		"translation": "to say / tell",
+		"auxiliary": "avere",
+		"pastParticiple": "detto"
+	},
+	{
+		"infinitive": "andare",
+		"translation": "to go",
+		"auxiliary": "essere",
+		"pastParticiple": "andato"
+	},
+	{
+		"infinitive": "venire",
+		"translation": "to come",
+		"auxiliary": "essere",
+		"pastParticiple": "venuto"
+	},
+	{
+		"infinitive": "arrivare",
+		"translation": "to arrive",
+		"auxiliary": "essere",
+		"pastParticiple": "arrivato"
+	},
+	{
+		"infinitive": "partire",
+		"translation": "to leave",
+		"auxiliary": "essere",
+		"pastParticiple": "partito"
+	},
+	{
+		"infinitive": "tornare",
+		"translation": "to return",
+		"auxiliary": "essere",
+		"pastParticiple": "tornato"
+	},
+	{
+		"infinitive": "rimanere",
+		"translation": "to stay",
+		"auxiliary": "essere",
+		"pastParticiple": "rimasto"
+	},
+	{
+		"infinitive": "nascere",
+		"translation": "to be born",
+		"auxiliary": "essere",
+		"pastParticiple": "nato"
+	},
+	{
+		"infinitive": "morire",
+		"translation": "to die",
+		"auxiliary": "essere",
+		"pastParticiple": "morto"
+	},
+	{
+		"infinitive": "uscire",
+		"translation": "to go out",
+		"auxiliary": "essere",
+		"pastParticiple": "uscito"
+	},
+	{
+		"infinitive": "entrare",
+		"translation": "to enter",
+		"auxiliary": "essere",
+		"pastParticiple": "entrato"
+	},
+	{
+		"infinitive": "mangiare",
+		"translation": "to eat",
+		"auxiliary": "avere",
+		"pastParticiple": "mangiato"
+	},
+	{
+		"infinitive": "parlare",
+		"translation": "to speak",
+		"auxiliary": "avere",
+		"pastParticiple": "parlato"
+	},
+	{
+		"infinitive": "studiare",
+		"translation": "to study",
+		"auxiliary": "avere",
+		"pastParticiple": "studiato"
+	},
+	{
+		"infinitive": "vedere",
+		"translation": "to see",
+		"auxiliary": "avere",
+		"pastParticiple": "visto"
+	},
+	{
+		"infinitive": "leggere",
+		"translation": "to read",
+		"auxiliary": "avere",
+		"pastParticiple": "letto"
+	},
+	{
+		"infinitive": "scrivere",
+		"translation": "to write",
+		"auxiliary": "avere",
+		"pastParticiple": "scritto"
+	},
+	{
+		"infinitive": "prendere",
+		"translation": "to take",
+		"auxiliary": "avere",
+		"pastParticiple": "preso"
+	},
+	{
+		"infinitive": "mettere",
+		"translation": "to put",
+		"auxiliary": "avere",
+		"pastParticiple": "messo"
+	},
+	{
+		"infinitive": "finire",
+		"translation": "to finish",
+		"auxiliary": "avere",
+		"pastParticiple": "finito"
+	},
+	{
+		"infinitive": "dormire",
+		"translation": "to sleep",
+		"auxiliary": "avere",
+		"pastParticiple": "dormito"
+	},
+	{
+		"infinitive": "vivere",
+		"translation": "to live",
+		"auxiliary": "avere",
+		"pastParticiple": "vissuto"
+	},
+	{
+		"infinitive": "conoscere",
+		"translation": "to know / meet",
+		"auxiliary": "avere",
+		"pastParticiple": "conosciuto"
+	},
+	{
+		"infinitive": "trovare",
+		"translation": "to find",
+		"auxiliary": "avere",
+		"pastParticiple": "trovato"
+	}
+]

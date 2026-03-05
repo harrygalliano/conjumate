@@ -1,10 +1,14 @@
-import verbs from './italian-verbs.json';
+import verbsBase from './verbs/base.json';
+import presentTense from './verbs/present.json';
 
-export type Verb = {
+type VerbBase = {
 	infinitive: string;
 	translation: string;
 	auxiliary: 'avere' | 'essere';
 	pastParticiple: string;
+};
+
+export type Verb = VerbBase & {
 	present?: VerbPresent;
 };
 
@@ -61,4 +65,10 @@ export const TENSES: TenseDefinition[] = [
 	}
 ];
 
-export const italianVerbs = verbs as Verb[];
+// Merge base verbs with tense-specific conjugations
+const presentConjugations = presentTense as Record<string, VerbPresent>;
+
+export const italianVerbs: Verb[] = (verbsBase as VerbBase[]).map((verb) => ({
+	...verb,
+	present: presentConjugations[verb.infinitive]
+}));
