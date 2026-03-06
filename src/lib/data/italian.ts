@@ -15,6 +15,9 @@ type VerbBase = {
 type VerbPassato = {
 	auxiliary: 'avere' | 'essere';
 	pastParticiple: string;
+	pastParticipleF?: string;
+	pastParticiplePl?: string;
+	pastParticipleFPl?: string;
 };
 
 export type Verb = VerbBase &

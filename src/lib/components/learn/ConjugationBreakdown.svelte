@@ -66,7 +66,7 @@
 	};
 
 	// Build passato prossimo for each pronoun
-	const buildPassatoProssimo = (pronoun: string): string => {
+	const buildPassatoProssimo = (pronoun: string, isFeminine = false): string => {
 		if (!verb.auxiliary || !verb.pastParticiple) return '—';
 		
 		const auxConj: Record<string, Record<string, string>> = {
@@ -77,18 +77,32 @@
 		const aux = auxConj[verb.auxiliary][pronoun];
 		let pp = verb.pastParticiple;
 
-		// Essere verbs agree in gender/number - show masculine singular for simplicity
+		// Essere verbs agree in gender/number
 		if (verb.auxiliary === 'essere') {
-			// For display, we'll show agreement markers
-			if (pronoun === 'noi' || pronoun === 'voi' || pronoun === 'loro') {
-				// Pluralize: -o → -i, -a → -e
-				if (pp.endsWith('o')) pp = pp.slice(0, -1) + 'i';
-				else if (pp.endsWith('a')) pp = pp.slice(0, -1) + 'e';
+			const isPlural = pronoun === 'noi' || pronoun === 'voi' || pronoun === 'loro';
+			if (isPlural && isFeminine) {
+				pp = verb.pastParticipleFPl ?? verb.pastParticiple;
+			} else if (isPlural) {
+				pp = verb.pastParticiplePl ?? verb.pastParticiple;
+			} else if (isFeminine) {
+				pp = verb.pastParticipleF ?? verb.pastParticiple;
 			}
 		}
 
 		return `${aux} ${pp}`;
 	};
+
+	// Get the gendered forms display for essere verbs
+	const essereGenderForms = $derived(
+		verb.auxiliary === 'essere'
+			? {
+					m: verb.pastParticiple,
+					f: verb.pastParticipleF ?? verb.pastParticiple,
+					mPl: verb.pastParticiplePl ?? verb.pastParticiple,
+					fPl: verb.pastParticipleFPl ?? verb.pastParticiple
+				}
+			: null
+	);
 </script>
 
 <div class="space-y-6">
@@ -140,7 +154,7 @@
 					</p>
 					{#if regularEndings[tense.id]?.[verbType]}
 						<div class="flex flex-wrap gap-2">
-							{#each regularEndings[tense.id][verbType] as ending, i}
+							{#each regularEndings[tense.id][verbType] as ending, i (i)}
 								<span class="rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 text-sm">
 									<span class="text-slate-500">{pronouns[i]}</span>
 									<span class="ml-1 font-mono text-emerald-400">{ending}</span>
@@ -168,13 +182,34 @@
 				<p class="text-sm text-slate-300">
 					Use the present tense of 
 					<span class="font-semibold text-amber-300">{verb.auxiliary}</span>
-					+ past participle 
-					<span class="rounded bg-slate-800 px-2 py-0.5 font-mono text-amber-300">{verb.pastParticiple}</span>
+					+ past participle
 				</p>
-				{#if verb.auxiliary === 'essere'}
-					<p class="text-xs text-slate-400">
-						Note: With essere, the past participle agrees with the subject in gender and number.
-					</p>
+				{#if verb.auxiliary === 'essere' && essereGenderForms}
+					<div class="rounded-xl border border-slate-700 bg-slate-900 p-4">
+						<p class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+							Past participle agrees with subject:
+						</p>
+						<div class="grid grid-cols-2 gap-2 text-sm">
+							<div class="flex items-center gap-2">
+								<span class="text-slate-400">♂ sing:</span>
+								<span class="font-mono text-amber-300">{essereGenderForms.m}</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<span class="text-slate-400">♀ sing:</span>
+								<span class="font-mono text-amber-300">{essereGenderForms.f}</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<span class="text-slate-400">♂ plur:</span>
+								<span class="font-mono text-amber-300">{essereGenderForms.mPl}</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<span class="text-slate-400">♀ plur:</span>
+								<span class="font-mono text-amber-300">{essereGenderForms.fPl}</span>
+							</div>
+						</div>
+					</div>
+				{:else}
+					<span class="rounded bg-slate-800 px-2 py-0.5 font-mono text-amber-300">{verb.pastParticiple}</span>
 				{/if}
 			</div>
 		{/if}
@@ -191,17 +226,39 @@
 				</div>
 			</div>
 		{:else if tense.id === 'passato_prossimo'}
-			<div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-				{#each pronounKeys as key, i}
-					<div class="flex items-center justify-between rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
-						<span class="text-sm text-slate-400">{pronouns[i]}</span>
-						<span class="font-semibold text-white">{buildPassatoProssimo(key)}</span>
-					</div>
-				{/each}
-			</div>
+			{#if verb.auxiliary === 'essere'}
+				<p class="mt-2 mb-4 text-xs text-slate-500">Showing both ♂ and ♀ forms</p>
+				<div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+					{#each pronounKeys as key, i (key)}
+						{@const isPlural = key === 'noi' || key === 'voi' || key === 'loro'}
+						<div class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+							<span class="text-sm text-slate-400">{pronouns[i]}</span>
+							<div class="mt-1 flex flex-col gap-1">
+								<span class="text-sm text-white">
+									<span class="text-slate-500">{isPlural ? '♂♂' : '♂'}</span>
+									<span class="ml-2 font-semibold">{buildPassatoProssimo(key, false)}</span>
+								</span>
+								<span class="text-sm text-white">
+									<span class="text-slate-500">{isPlural ? '♀♀' : '♀'}</span>
+									<span class="ml-2 font-semibold">{buildPassatoProssimo(key, true)}</span>
+								</span>
+							</div>
+						</div>
+					{/each}
+				</div>
+			{:else}
+				<div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+					{#each pronounKeys as key, i (key)}
+						<div class="flex items-center justify-between rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+							<span class="text-sm text-slate-400">{pronouns[i]}</span>
+							<span class="font-semibold text-white">{buildPassatoProssimo(key)}</span>
+						</div>
+					{/each}
+				</div>
+			{/if}
 		{:else if conjugations && typeof conjugations === 'object'}
 			<div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-				{#each pronounKeys as key, i}
+				{#each pronounKeys as key, i (key)}
 					{@const form = conjugations[key]}
 					{#if form}
 						<div class="flex items-center justify-between rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">

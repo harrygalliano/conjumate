@@ -3,13 +3,17 @@
 	import type {
 		ColorVocab,
 		NumberVocab,
+		TimeVocabItem,
 		LocationVocab,
+		LocationWord,
 		FamilyQuizItem,
-		PeopleDescriptionItem
+		PeopleDescriptionItem,
+		CalendarVocab
 	} from '$lib/data/vocab';
 	import { onDestroy, tick } from 'svelte';
+	import LocationIcon from './LocationIcon.svelte';
 
-	type VocabType = 'colors' | 'numbers' | 'locations' | 'family' | 'people';
+	type VocabType = 'colors' | 'numbers' | 'time' | 'calendar' | 'locations' | 'family' | 'people';
 	type VocabItem = { prompt: string; answer: string; hint?: string };
 	type Mode = 'sprint' | 'race' | 'mastery';
 	type Gender = 'feminine' | 'masculine';
@@ -19,6 +23,9 @@
 		type,
 		colors = [],
 		numbers = [],
+		timeItems = [],
+		timeMode = 'digital',
+		calendarItems = [],
 		locations = [],
 		familyItems = [],
 		peopleItems = []
@@ -26,6 +33,9 @@
 		type: VocabType;
 		colors?: ColorVocab[];
 		numbers?: NumberVocab[];
+		timeItems?: TimeVocabItem[];
+		timeMode?: 'analog' | 'digital';
+		calendarItems?: CalendarVocab[];
 		locations?: LocationVocab[];
 		familyItems?: FamilyQuizItem[];
 		peopleItems?: PeopleDescriptionItem[];
@@ -57,33 +67,45 @@
 			? 'rosso'
 			: type === 'numbers'
 				? 'venticinque'
-				: type === 'family'
-					? 'mio padre'
-					: type === 'people'
-						? 'loro sono alti'
-						: 'sopra'
+				: type === 'time'
+					? 'sono le due e cinque'
+					: type === 'calendar'
+						? 'lunedì'
+						: type === 'family'
+							? 'mio padre'
+							: type === 'people'
+								? 'loro sono alti'
+								: 'sopra'
 	);
 	const instruction = $derived(
 		type === 'colors'
 			? 'Type the Italian word for the color shown.'
 			: type === 'numbers'
 				? 'Type the Italian word for the number shown.'
-				: type === 'family'
-					? 'Type the Italian possessive + family member.'
-					: type === 'people'
-						? 'Translate the sentence using pronoun + essere + adjective.'
-						: 'Type the Italian preposition for the location shown.'
+				: type === 'time'
+					? `Type the Italian time phrase (${timeMode === 'analog' ? 'analogue' : 'digital'}).`
+					: type === 'calendar'
+						? 'Type the Italian word for the calendar item shown.'
+						: type === 'family'
+							? 'Type the Italian possessive + family member.'
+							: type === 'people'
+								? 'Translate the sentence using pronoun + essere + adjective.'
+								: 'Type the Italian preposition for the location shown.'
 	);
 	const title = $derived(
 		type === 'colors'
 			? 'Color Challenge'
 			: type === 'numbers'
 				? 'Number Challenge'
-				: type === 'family'
-					? 'Family Challenge'
-					: type === 'people'
-						? 'Describe People Challenge'
-						: 'Location Challenge'
+				: type === 'time'
+					? 'Time Challenge'
+					: type === 'calendar'
+						? 'Calendar Challenge'
+						: type === 'family'
+							? 'Family Challenge'
+							: type === 'people'
+								? 'Describe People Challenge'
+								: 'Location Challenge'
 	);
 	const formatTime = (seconds: number) => {
 		const minutes = Math.floor(seconds / 60);
@@ -117,6 +139,20 @@
 				prompt: c.english,
 				answer: c.italian,
 				hint: c.english
+			}));
+		}
+		if (type === 'calendar') {
+			return calendarItems.map((item) => ({
+				prompt: item.english,
+				answer: item.italian,
+				hint: item.category
+			}));
+		}
+		if (type === 'time') {
+			return timeItems.map((item) => ({
+				prompt: item.prompt,
+				answer: item.answer,
+				hint: item.hint
 			}));
 		}
 		if (type === 'locations') {
@@ -381,6 +417,14 @@
 						<p class="text-sm text-slate-500">What is "{current.prompt}" in Italian?</p>
 					{:else if type === 'numbers'}
 						<p class="text-sm text-slate-500">Write this number in Italian.</p>
+					{:else if type === 'calendar'}
+						<p class="text-sm text-slate-500">
+							Translate the calendar word into Italian.
+						</p>
+					{:else if type === 'time'}
+						<p class="text-sm text-slate-500">
+							Write the time in Italian words.
+						</p>
 					{:else if type === 'family'}
 						<p class="text-sm text-slate-500">
 							Translate the family phrase into Italian.
@@ -389,6 +433,13 @@
 						<p class="text-sm text-slate-500">
 							Translate the location phrase into Italian.
 						</p>
+						<div class="mt-3">
+							<LocationIcon
+								word={current.answer as LocationWord}
+								className="text-slate-700"
+								size={72}
+							/>
+						</div>
 					{:else}
 						<p class="text-sm text-slate-500">
 							Translate the sentence into Italian using essere.
@@ -557,6 +608,15 @@
 					<p class="mt-2">
 						Type the Italian word for each number. For compound numbers like 21, write
 						them as one word (ventuno).
+					</p>
+				{:else if type === 'calendar'}
+					<p class="mt-2">
+						Type the Italian word for each day, month, season, or time word shown.
+					</p>
+				{:else if type === 'time'}
+					<p class="mt-2">
+						Use "è l'una" for 1 o'clock, otherwise "sono le". Analogue uses 5-minute
+						steps with e/meno (un quarto, mezza), digital uses all minutes.
 					</p>
 				{:else if type === 'family'}
 					<p class="mt-2">

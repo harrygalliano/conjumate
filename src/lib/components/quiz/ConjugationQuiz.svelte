@@ -7,9 +7,11 @@
 		id: 'io' | 'tu' | 'lui_lei' | 'noi' | 'voi' | 'loro';
 		label: string;
 		forms: string[];
+		isPlural: boolean;
 	};
 
-	type Prompt = { verb: Verb; subject: Subject };
+	type SubjectGender = 'm' | 'f' | 'mPl' | 'fPl';
+	type Prompt = { verb: Verb; subject: Subject; subjectGender?: SubjectGender };
 	type Mode = 'sprint' | 'race' | 'mastery';
 	type Gender = 'feminine' | 'masculine';
 	type Outcome = 'idle' | 'success' | 'fail' | 'time';
@@ -19,13 +21,23 @@
 	const raceTargets = [25, 50, 100];
 
 	const subjects: Subject[] = [
-		{ id: 'io', label: 'io', forms: ['io'] },
-		{ id: 'tu', label: 'tu', forms: ['tu'] },
-		{ id: 'lui_lei', label: 'lui/lei', forms: ['lui', 'lei'] },
-		{ id: 'noi', label: 'noi', forms: ['noi'] },
-		{ id: 'voi', label: 'voi', forms: ['voi'] },
-		{ id: 'loro', label: 'loro', forms: ['loro'] }
+		{ id: 'io', label: 'io', forms: ['io'], isPlural: false },
+		{ id: 'tu', label: 'tu', forms: ['tu'], isPlural: false },
+		{ id: 'lui_lei', label: 'lui/lei', forms: ['lui', 'lei'], isPlural: false },
+		{ id: 'noi', label: 'noi', forms: ['noi'], isPlural: true },
+		{ id: 'voi', label: 'voi', forms: ['voi'], isPlural: true },
+		{ id: 'loro', label: 'loro', forms: ['loro'], isPlural: true }
 	];
+
+	// Labels with gender context for essere verbs in passato prossimo
+	const genderedLabels: Record<Subject['id'], Record<SubjectGender, string>> = {
+		io: { m: 'io (♂)', f: 'io (♀)', mPl: 'io (♂)', fPl: 'io (♀)' },
+		tu: { m: 'tu (♂)', f: 'tu (♀)', mPl: 'tu (♂)', fPl: 'tu (♀)' },
+		lui_lei: { m: 'lui', f: 'lei', mPl: 'lui', fPl: 'lei' },
+		noi: { m: 'noi (♂♂)', f: 'noi (♀♀)', mPl: 'noi (♂♂)', fPl: 'noi (♀♀)' },
+		voi: { m: 'voi (♂♂)', f: 'voi (♀♀)', mPl: 'voi (♂♂)', fPl: 'voi (♀♀)' },
+		loro: { m: 'loro (♂♂)', f: 'loro (♀♀)', mPl: 'loro (♂♂)', fPl: 'loro (♀♀)' }
+	};
 
 	const auxiliaryForms: Record<Verb['auxiliary'], Record<Subject['id'], string>> = {
 		avere: {
@@ -171,7 +183,26 @@
 		}
 
 		const aux = auxiliaryForms[prompt.verb.auxiliary][prompt.subject.id];
-		const base = `${aux} ${prompt.verb.pastParticiple}`;
+		
+		// For essere verbs, use gendered participle based on subjectGender
+		let participle = prompt.verb.pastParticiple;
+		if (prompt.verb.auxiliary === 'essere' && prompt.subjectGender) {
+			switch (prompt.subjectGender) {
+				case 'f':
+					participle = prompt.verb.pastParticipleF ?? prompt.verb.pastParticiple;
+					break;
+				case 'mPl':
+					participle = prompt.verb.pastParticiplePl ?? prompt.verb.pastParticiple;
+					break;
+				case 'fPl':
+					participle = prompt.verb.pastParticipleFPl ?? prompt.verb.pastParticiple;
+					break;
+				default:
+					participle = prompt.verb.pastParticiple;
+			}
+		}
+		
+		const base = `${aux} ${participle}`;
 		return prompt.verb.reflexive ? withReflexivePronoun(base) : withSubjectPronoun(base);
 	};
 
@@ -183,7 +214,17 @@
 
 		const verb = availableVerbs[Math.floor(Math.random() * availableVerbs.length)];
 		const subject = subjects[Math.floor(Math.random() * subjects.length)];
-		current = { verb, subject };
+		
+		// For passato prossimo with essere, randomly assign gender
+		let subjectGender: SubjectGender | undefined;
+		if (tense.id === 'passato_prossimo' && verb.auxiliary === 'essere') {
+			const isFeminine = Math.random() < 0.5;
+			subjectGender = subject.isPlural
+				? (isFeminine ? 'fPl' : 'mPl')
+				: (isFeminine ? 'f' : 'm');
+		}
+		
+		current = { verb, subject, subjectGender };
 	};
 
 	const clearTimer = () => {
@@ -409,9 +450,12 @@
 			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
 				<p class="text-xs uppercase tracking-wide text-slate-400">Prompt</p>
 				{#if current}
+					{@const promptLabel = current.subjectGender
+						? genderedLabels[current.subject.id][current.subjectGender]
+						: current.subject.label}
 					<div class="mt-2 flex flex-wrap items-center gap-2">
 						<p class="text-lg font-semibold text-slate-900">
-							{current.subject.label} + {current.verb.infinitive}
+							{promptLabel} + {current.verb.infinitive}
 						</p>
 						<span
 							title={`${isIrregular ? 'Irregular' : 'Regular'} in ${tense.shortName}`}

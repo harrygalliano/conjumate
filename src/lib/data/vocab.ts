@@ -4,6 +4,7 @@ import locationsData from './vocab/locations.json';
 import familyData from './vocab/family.json';
 import possessivesData from './vocab/possessives.json';
 import peopleData from './vocab/people.json';
+import calendarData from './vocab/calendar.json';
 
 // Types
 export type ColorVocab = {
@@ -81,6 +82,20 @@ export type PeopleDescriptionItem = {
 	gender: 'm' | 'f';
 };
 
+export type CalendarCategory = 'basics' | 'days' | 'months' | 'seasons';
+
+export type CalendarVocab = {
+	italian: string;
+	english: string;
+	category: CalendarCategory;
+};
+
+export type TimeVocabItem = {
+	prompt: string;
+	answer: string;
+	hint?: string;
+};
+
 // Data exports
 export const colors = colorsData as ColorVocab[];
 export const numbers = numbersData as NumberVocab[];
@@ -88,6 +103,78 @@ export const locations = locationsData as LocationVocab[];
 export const familyMembers = familyData as FamilyMember[];
 export const possessives = possessivesData as PossessiveData[];
 export const peopleAdjectives = peopleData as PeopleAdjective[];
+export const calendar = calendarData as CalendarVocab[];
+
+const numberMap = new Map<number, string>();
+for (const item of numbersData as NumberVocab[]) {
+	numberMap.set(item.value, item.italian);
+}
+
+const numberWord = (value: number) => numberMap.get(value) ?? String(value);
+const pad2 = (value: number) => value.toString().padStart(2, '0');
+const isOneHour = (hour: number) => hour === 1;
+
+const formatHourPhrase = (hour: number) =>
+	isOneHour(hour) ? "l'una" : `le ${numberWord(hour)}`;
+
+const timePhraseDigital = (hour: number, minute: number) => {
+	if (hour === 0 && minute === 0) return 'è mezzanotte';
+	if (hour === 12 && minute === 0) return 'è mezzogiorno';
+	const verb = isOneHour(hour) ? 'è' : 'sono';
+	const hourPhrase = formatHourPhrase(hour);
+	if (minute === 0) return `${verb} ${hourPhrase}`;
+	return `${verb} ${hourPhrase} e ${numberWord(minute)}`;
+};
+
+const minuteWordAnalog = (minute: number) => {
+	if (minute === 15) return 'un quarto';
+	if (minute === 30) return 'mezza';
+	return numberWord(minute);
+};
+
+const timePhraseAnalog = (hour: number, minute: number) => {
+	const hourLabel = formatHourPhrase(hour);
+	const verb = isOneHour(hour) ? 'è' : 'sono';
+	if (minute === 0) return `${verb} ${hourLabel}`;
+	if (minute <= 30) {
+		return `${verb} ${hourLabel} e ${minuteWordAnalog(minute)}`;
+	}
+	const nextHour = hour === 12 ? 1 : hour + 1;
+	const nextVerb = isOneHour(nextHour) ? 'è' : 'sono';
+	const nextLabel = formatHourPhrase(nextHour);
+	return `${nextVerb} ${nextLabel} meno ${minuteWordAnalog(60 - minute)}`;
+};
+
+const buildAnalogTimes = () => {
+	const items: TimeVocabItem[] = [];
+	for (let hour = 1; hour <= 12; hour += 1) {
+		for (let minute = 0; minute < 60; minute += 5) {
+			items.push({
+				prompt: `${hour}:${pad2(minute)}`,
+				answer: timePhraseAnalog(hour, minute),
+				hint: 'analogue'
+			});
+		}
+	}
+	return items;
+};
+
+const buildDigitalTimes = () => {
+	const items: TimeVocabItem[] = [];
+	for (let hour = 0; hour < 24; hour += 1) {
+		for (let minute = 0; minute < 60; minute += 1) {
+			items.push({
+				prompt: `${pad2(hour)}:${pad2(minute)}`,
+				answer: timePhraseDigital(hour, minute),
+				hint: 'digital'
+			});
+		}
+	}
+	return items;
+};
+
+export const timeAnalogItems = buildAnalogTimes();
+export const timeDigitalItems = buildDigitalTimes();
 
 // Articles for possessives
 const articles = {

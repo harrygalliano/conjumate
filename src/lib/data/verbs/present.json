@@ -328,44 +328,44 @@
 		"loro": "spingono"
 	},
 	"scusarsi": {
-		"io": "scuso",
-		"tu": "scusi",
-		"lui_lei": "scusa",
-		"noi": "scusiamo",
-		"voi": "scusate",
-		"loro": "scusano"
+		"io": "mi scuso",
+		"tu": "ti scusi",
+		"lui_lei": "si scusa",
+		"noi": "ci scusiamo",
+		"voi": "vi scusate",
+		"loro": "si scusano"
 	},
 	"chiamarsi": {
-		"io": "chiamo",
-		"tu": "chiami",
-		"lui_lei": "chiama",
-		"noi": "chiamiamo",
-		"voi": "chiamate",
-		"loro": "chiamano"
+		"io": "mi chiamo",
+		"tu": "ti chiami",
+		"lui_lei": "si chiama",
+		"noi": "ci chiamiamo",
+		"voi": "vi chiamate",
+		"loro": "si chiamano"
 	},
 	"divertirsi": {
-		"io": "diverto",
-		"tu": "diverti",
-		"lui_lei": "diverte",
-		"noi": "divertiamo",
-		"voi": "divertite",
-		"loro": "divertono"
+		"io": "mi diverto",
+		"tu": "ti diverti",
+		"lui_lei": "si diverte",
+		"noi": "ci divertiamo",
+		"voi": "vi divertite",
+		"loro": "si divertono"
 	},
 	"abituarsi": {
-		"io": "abituo",
-		"tu": "abitui",
-		"lui_lei": "abitua",
-		"noi": "abituiamo",
-		"voi": "abituate",
-		"loro": "abituano"
+		"io": "mi abituo",
+		"tu": "ti abitui",
+		"lui_lei": "si abitua",
+		"noi": "ci abituiamo",
+		"voi": "vi abituate",
+		"loro": "si abituano"
 	},
 	"comportarsi": {
-		"io": "comporto",
-		"tu": "comporti",
-		"lui_lei": "comporta",
-		"noi": "comportiamo",
-		"voi": "comportate",
-		"loro": "comportano"
+		"io": "mi comporto",
+		"tu": "ti comporti",
+		"lui_lei": "si comporta",
+		"noi": "ci comportiamo",
+		"voi": "vi comportate",
+		"loro": "si comportano"
 	},
 	"piacere": {
 		"io": "piaccio",

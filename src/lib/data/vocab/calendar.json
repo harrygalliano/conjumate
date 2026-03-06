@@ -1,0 +1,32 @@
+[
+	{ "category": "basics", "italian": "giorno", "english": "day" },
+	{ "category": "basics", "italian": "settimana", "english": "week" },
+	{ "category": "basics", "italian": "mese", "english": "month" },
+	{ "category": "basics", "italian": "anno", "english": "year" },
+
+	{ "category": "days", "italian": "lunedì", "english": "Monday" },
+	{ "category": "days", "italian": "martedì", "english": "Tuesday" },
+	{ "category": "days", "italian": "mercoledì", "english": "Wednesday" },
+	{ "category": "days", "italian": "giovedì", "english": "Thursday" },
+	{ "category": "days", "italian": "venerdì", "english": "Friday" },
+	{ "category": "days", "italian": "sabato", "english": "Saturday" },
+	{ "category": "days", "italian": "domenica", "english": "Sunday" },
+
+	{ "category": "months", "italian": "gennaio", "english": "January" },
+	{ "category": "months", "italian": "febbraio", "english": "February" },
+	{ "category": "months", "italian": "marzo", "english": "March" },
+	{ "category": "months", "italian": "aprile", "english": "April" },
+	{ "category": "months", "italian": "maggio", "english": "May" },
+	{ "category": "months", "italian": "giugno", "english": "June" },
+	{ "category": "months", "italian": "luglio", "english": "July" },
+	{ "category": "months", "italian": "agosto", "english": "August" },
+	{ "category": "months", "italian": "settembre", "english": "September" },
+	{ "category": "months", "italian": "ottobre", "english": "October" },
+	{ "category": "months", "italian": "novembre", "english": "November" },
+	{ "category": "months", "italian": "dicembre", "english": "December" },
+
+	{ "category": "seasons", "italian": "primavera", "english": "spring" },
+	{ "category": "seasons", "italian": "estate", "english": "summer" },
+	{ "category": "seasons", "italian": "autunno", "english": "autumn" },
+	{ "category": "seasons", "italian": "inverno", "english": "winter" }
+]

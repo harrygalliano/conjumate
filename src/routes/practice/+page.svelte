@@ -11,7 +11,10 @@
 	import {
 		colors,
 		numbers,
+		timeAnalogItems,
+		timeDigitalItems,
 		locations,
+		calendar,
 		familyMembers,
 		familyQuizItems,
 		possessives,
@@ -20,12 +23,24 @@
 	import { onMount } from 'svelte';
 
 	type TabId = 'grammar' | 'vocab' | 'location';
-	type VocabView = 'list' | 'colors-test' | 'numbers-test' | 'family-test' | 'people-test';
+	type VocabView =
+		| 'list'
+		| 'colors-test'
+		| 'numbers-test'
+		| 'time-analog-test'
+		| 'time-digital-test'
+		| 'calendar-test'
+		| 'family-test'
+		| 'people-test';
 	type LocationView = 'list' | 'test';
 
 	const tabItems: Array<{ id: TabId; label: string; description: string }> = [
 		{ id: 'grammar', label: 'Grammar', description: 'Conjugation modes' },
-		{ id: 'vocab', label: 'Vocab', description: 'Colors + numbers + people + family' },
+		{
+			id: 'vocab',
+			label: 'Vocab',
+			description: 'Colors + numbers + time + calendar + people + family'
+		},
 		{ id: 'location', label: 'Location', description: 'Prepositions' }
 	];
 
@@ -34,6 +49,12 @@
 	let locationView = $state<LocationView>('list');
 	let selectedTense = $state(TENSES[0].id);
 	const currentTense = $derived(TENSES.find((tense) => tense.id === selectedTense) ?? TENSES[0]);
+	const calendarSections = [
+		{ id: 'basics', label: 'Basics', items: calendar.filter((item) => item.category === 'basics') },
+		{ id: 'days', label: 'Days', items: calendar.filter((item) => item.category === 'days') },
+		{ id: 'months', label: 'Months', items: calendar.filter((item) => item.category === 'months') },
+		{ id: 'seasons', label: 'Seasons', items: calendar.filter((item) => item.category === 'seasons') }
+	];
 
 	const setTab = (tabId: TabId) => {
 		activeTab = tabId;
@@ -142,6 +163,39 @@
 						</button>
 						<VocabQuiz type="numbers" {numbers} />
 					</div>
+				{:else if vocabView === 'time-analog-test'}
+					<div class="space-y-4">
+						<button
+							type="button"
+							onclick={() => (vocabView = 'list')}
+							class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+						>
+							← Back to vocab list
+						</button>
+						<VocabQuiz type="time" timeItems={timeAnalogItems} timeMode="analog" />
+					</div>
+				{:else if vocabView === 'time-digital-test'}
+					<div class="space-y-4">
+						<button
+							type="button"
+							onclick={() => (vocabView = 'list')}
+							class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+						>
+							← Back to vocab list
+						</button>
+						<VocabQuiz type="time" timeItems={timeDigitalItems} timeMode="digital" />
+					</div>
+				{:else if vocabView === 'calendar-test'}
+					<div class="space-y-4">
+						<button
+							type="button"
+							onclick={() => (vocabView = 'list')}
+							class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+						>
+							← Back to vocab list
+						</button>
+						<VocabQuiz type="calendar" calendarItems={calendar} />
+					</div>
 				{:else if vocabView === 'people-test'}
 					<div class="space-y-4">
 						<button
@@ -231,6 +285,89 @@
 										</div>
 									{/each}
 								</div>
+							</div>
+						</div>
+
+						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<div class="flex items-center justify-between gap-3">
+								<div>
+									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
+										Time
+									</p>
+									<h2 class="text-2xl font-semibold text-white">Che ora è?</h2>
+									<p class="mt-2 text-sm text-slate-200">
+										Practice telling the time in Italian.
+									</p>
+								</div>
+								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+									{timeAnalogItems.length + timeDigitalItems.length}
+								</span>
+							</div>
+							<div class="mt-4 grid gap-3 sm:grid-cols-2">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'time-analog-test')}
+									class="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+								>
+									Analogue (5-min)
+								</button>
+								<button
+									type="button"
+									onclick={() => (vocabView = 'time-digital-test')}
+									class="rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/20"
+								>
+									Digital (all times)
+								</button>
+							</div>
+							<div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+								<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
+									Quick guide
+								</p>
+								<p class="mt-2 text-sm text-slate-200">
+									Use "è l'una" for 1 o'clock, otherwise "sono le". Analogue uses e/meno
+									with 5-minute steps.
+								</p>
+							</div>
+						</div>
+
+						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<div class="flex items-center justify-between gap-3">
+								<div>
+									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
+										Calendar
+									</p>
+									<h2 class="text-2xl font-semibold text-white">Tempo e date</h2>
+									<p class="mt-2 text-sm text-slate-200">
+										Days, months, seasons, and time basics.
+									</p>
+								</div>
+								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+									{calendar.length}
+								</span>
+							</div>
+							<button
+								type="button"
+								onclick={() => (vocabView = 'calendar-test')}
+								class="mt-4 w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+							>
+								Test Me
+							</button>
+							<div class="mt-4 grid gap-3 sm:grid-cols-2">
+								{#each calendarSections as section (section.id)}
+									<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+										<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
+											{section.label}
+										</p>
+										<div class="mt-2 grid gap-1">
+											{#each section.items as item (item.italian)}
+												<div class="flex items-center justify-between gap-3 text-sm">
+													<span class="font-semibold text-white">{item.italian}</span>
+													<span class="text-slate-300">{item.english}</span>
+												</div>
+											{/each}
+										</div>
+									</div>
+								{/each}
 							</div>
 						</div>
 
@@ -349,11 +486,18 @@
 						<div class="mt-4 grid gap-3 sm:grid-cols-2">
 							{#each locations as location (location.italian)}
 								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-									<p class="text-lg font-semibold text-white">{location.italian}</p>
-									<p class="text-sm text-slate-300">{location.english}</p>
-									{#if location.example}
-										<p class="mt-1 text-xs italic text-slate-400">{location.example}</p>
-									{/if}
+									<div class="flex items-center gap-4">
+										<LocationIcon word={location.italian} size={72} className="text-slate-200" />
+										<div>
+											<p class="text-lg font-semibold text-white">{location.italian}</p>
+											<p class="text-sm text-slate-300">{location.english}</p>
+											{#if location.example}
+												<p class="mt-1 text-xs italic text-slate-400">
+													{location.example}
+												</p>
+											{/if}
+										</div>
+									</div>
 								</div>
 							{/each}
 						</div>

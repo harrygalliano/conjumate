@@ -1,7 +1,11 @@
 <script lang="ts">
 	import type { LocationWord } from '$lib/data/vocab';
 
-	let { word }: { word: LocationWord } = $props();
+	let {
+		word,
+		className = 'text-slate-200',
+		size = 96
+	}: { word: LocationWord; className?: string; size?: number } = $props();
 
 	const box = { x: 35, y: 35, w: 30, h: 30 };
 
@@ -61,7 +65,7 @@
 	const p = $derived(dotPos(word));
 </script>
 
-<svg viewBox="0 0 100 100" width="96" height="96" aria-label={word} class="text-slate-700">
+<svg viewBox="0 0 100 100" width={size} height={size} aria-label={word} class={className}>
 	<!-- reference object -->
 	<rect
 		x={box.x}

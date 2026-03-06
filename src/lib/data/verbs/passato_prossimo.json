@@ -1,7 +1,10 @@
 {
 	"essere": {
 		"auxiliary": "essere",
-		"pastParticiple": "stato"
+		"pastParticiple": "stato",
+		"pastParticipleF": "stata",
+		"pastParticiplePl": "stati",
+		"pastParticipleFPl": "state"
 	},
 	"avere": {
 		"auxiliary": "avere",
@@ -33,15 +36,24 @@
 	},
 	"uscire": {
 		"auxiliary": "essere",
-		"pastParticiple": "uscito"
+		"pastParticiple": "uscito",
+		"pastParticipleF": "uscita",
+		"pastParticiplePl": "usciti",
+		"pastParticipleFPl": "uscite"
 	},
 	"andare": {
 		"auxiliary": "essere",
-		"pastParticiple": "andato"
+		"pastParticiple": "andato",
+		"pastParticipleF": "andata",
+		"pastParticiplePl": "andati",
+		"pastParticipleFPl": "andate"
 	},
 	"venire": {
 		"auxiliary": "essere",
-		"pastParticiple": "venuto"
+		"pastParticiple": "venuto",
+		"pastParticipleF": "venuta",
+		"pastParticiplePl": "venuti",
+		"pastParticipleFPl": "venute"
 	},
 	"potere": {
 		"auxiliary": "avere",
@@ -61,15 +73,24 @@
 	},
 	"salire": {
 		"auxiliary": "essere",
-		"pastParticiple": "salito"
+		"pastParticiple": "salito",
+		"pastParticipleF": "salita",
+		"pastParticiplePl": "saliti",
+		"pastParticipleFPl": "salite"
 	},
 	"rimanere": {
 		"auxiliary": "essere",
-		"pastParticiple": "rimasto"
+		"pastParticiple": "rimasto",
+		"pastParticipleF": "rimasta",
+		"pastParticiplePl": "rimasti",
+		"pastParticipleFPl": "rimaste"
 	},
 	"morire": {
 		"auxiliary": "essere",
-		"pastParticiple": "morto"
+		"pastParticiple": "morto",
+		"pastParticipleF": "morta",
+		"pastParticiplePl": "morti",
+		"pastParticipleFPl": "morte"
 	},
 	"finire": {
 		"auxiliary": "avere",
@@ -85,7 +106,10 @@
 	},
 	"nascere": {
 		"auxiliary": "essere",
-		"pastParticiple": "nato"
+		"pastParticiple": "nato",
+		"pastParticipleF": "nata",
+		"pastParticiplePl": "nati",
+		"pastParticipleFPl": "nate"
 	},
 	"chiedere": {
 		"auxiliary": "avere",
@@ -97,7 +121,7 @@
 	},
 	"conoscere": {
 		"auxiliary": "avere",
-		"pastParticiple": "conoscuto"
+		"pastParticiple": "conosciuto"
 	},
 	"mettere": {
 		"auxiliary": "avere",
@@ -121,7 +145,10 @@
 	},
 	"scendere": {
 		"auxiliary": "essere",
-		"pastParticiple": "sceso"
+		"pastParticiple": "sceso",
+		"pastParticipleF": "scesa",
+		"pastParticiplePl": "scesi",
+		"pastParticipleFPl": "scese"
 	},
 	"scrivere": {
 		"auxiliary": "avere",
@@ -157,7 +184,10 @@
 	},
 	"crescere": {
 		"auxiliary": "essere",
-		"pastParticiple": "cresciuto"
+		"pastParticiple": "cresciuto",
+		"pastParticipleF": "cresciuta",
+		"pastParticiplePl": "cresciuti",
+		"pastParticipleFPl": "cresciute"
 	},
 	"spingere": {
 		"auxiliary": "avere",
@@ -165,31 +195,52 @@
 	},
 	"scusarsi": {
 		"auxiliary": "essere",
-		"pastParticiple": "scusato"
+		"pastParticiple": "scusato",
+		"pastParticipleF": "scusata",
+		"pastParticiplePl": "scusati",
+		"pastParticipleFPl": "scusate"
 	},
 	"chiamarsi": {
 		"auxiliary": "essere",
-		"pastParticiple": "chiamato"
+		"pastParticiple": "chiamato",
+		"pastParticipleF": "chiamata",
+		"pastParticiplePl": "chiamati",
+		"pastParticipleFPl": "chiamate"
 	},
 	"divertirsi": {
 		"auxiliary": "essere",
-		"pastParticiple": "divertito"
+		"pastParticiple": "divertito",
+		"pastParticipleF": "divertita",
+		"pastParticiplePl": "divertiti",
+		"pastParticipleFPl": "divertite"
 	},
 	"abituarsi": {
 		"auxiliary": "essere",
-		"pastParticiple": "abituato"
+		"pastParticiple": "abituato",
+		"pastParticipleF": "abituata",
+		"pastParticiplePl": "abituati",
+		"pastParticipleFPl": "abituate"
 	},
 	"comportarsi": {
 		"auxiliary": "essere",
-		"pastParticiple": "comportato"
+		"pastParticiple": "comportato",
+		"pastParticipleF": "comportata",
+		"pastParticiplePl": "comportati",
+		"pastParticipleFPl": "comportate"
 	},
 	"piacere": {
 		"auxiliary": "essere",
-		"pastParticiple": "piaciuto"
+		"pastParticiple": "piaciuto",
+		"pastParticipleF": "piaciuta",
+		"pastParticiplePl": "piaciuti",
+		"pastParticipleFPl": "piaciute"
 	},
 	"dispiacere": {
 		"auxiliary": "essere",
-		"pastParticiple": "dispiaciuto"
+		"pastParticiple": "dispiaciuto",
+		"pastParticipleF": "dispiaciuta",
+		"pastParticiplePl": "dispiaciuti",
+		"pastParticipleFPl": "dispiaciute"
 	},
 	"mancare": {
 		"auxiliary": "avere",
@@ -201,7 +252,10 @@
 	},
 	"sembrare": {
 		"auxiliary": "essere",
-		"pastParticiple": "sembrato"
+		"pastParticiple": "sembrato",
+		"pastParticipleF": "sembrata",
+		"pastParticiplePl": "sembrati",
+		"pastParticipleFPl": "sembrate"
 	},
 	"amare": {
 		"auxiliary": "avere",
@@ -249,7 +303,10 @@
 	},
 	"tornare": {
 		"auxiliary": "essere",
-		"pastParticiple": "tornato"
+		"pastParticiple": "tornato",
+		"pastParticipleF": "tornata",
+		"pastParticiplePl": "tornati",
+		"pastParticipleFPl": "tornate"
 	},
 	"trovare": {
 		"auxiliary": "avere",
@@ -293,7 +350,10 @@
 	},
 	"entrare": {
 		"auxiliary": "essere",
-		"pastParticiple": "entrato"
+		"pastParticiple": "entrato",
+		"pastParticipleF": "entrata",
+		"pastParticiplePl": "entrati",
+		"pastParticipleFPl": "entrate"
 	},
 	"lavorare": {
 		"auxiliary": "avere",
@@ -361,7 +421,10 @@
 	},
 	"diventare": {
 		"auxiliary": "essere",
-		"pastParticiple": "diventato"
+		"pastParticiple": "diventato",
+		"pastParticipleF": "diventata",
+		"pastParticiplePl": "diventati",
+		"pastParticipleFPl": "diventate"
 	},
 	"giocare": {
 		"auxiliary": "avere",
@@ -393,7 +456,10 @@
 	},
 	"partire": {
 		"auxiliary": "essere",
-		"pastParticiple": "partito"
+		"pastParticiple": "partito",
+		"pastParticipleF": "partita",
+		"pastParticiplePl": "partiti",
+		"pastParticipleFPl": "partite"
 	},
 	"pulire": {
 		"auxiliary": "avere",
