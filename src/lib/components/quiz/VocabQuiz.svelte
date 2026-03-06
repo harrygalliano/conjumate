@@ -12,6 +12,7 @@
 	} from '$lib/data/vocab';
 	import { onDestroy, tick } from 'svelte';
 	import LocationIcon from './LocationIcon.svelte';
+	import TimeClock from './TimeClock.svelte';
 
 	type VocabType = 'colors' | 'numbers' | 'time' | 'calendar' | 'locations' | 'family' | 'people';
 	type VocabItem = { prompt: string; answer: string; hint?: string };
@@ -184,6 +185,18 @@
 	};
 
 	const items = $derived(buildItems());
+	const currentTime = $derived(
+		type === 'time' && current
+			? (() => {
+					const parts = current.prompt.split(':');
+					if (parts.length !== 2) return null;
+					const hour = Number(parts[0]);
+					const minute = Number(parts[1]);
+					if (Number.isNaN(hour) || Number.isNaN(minute)) return null;
+					return { hour, minute };
+				})()
+			: null
+	);
 
 	const pickPrompt = () => {
 		if (!items.length) {
@@ -410,9 +423,20 @@
 			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
 				<p class="text-xs uppercase tracking-wide text-slate-400">Prompt</p>
 				{#if current}
-					<p class="mt-2 text-3xl font-bold text-slate-900">
-						{current.prompt}
-					</p>
+					{#if type === 'time' && timeMode === 'analog' && currentTime}
+						<div class="mt-2 flex items-center justify-center">
+							<TimeClock
+								hour={currentTime.hour}
+								minute={currentTime.minute}
+								className="text-slate-700"
+								size={120}
+							/>
+						</div>
+					{:else}
+						<p class="mt-2 text-3xl font-bold text-slate-900">
+							{current.prompt}
+						</p>
+					{/if}
 					{#if type === 'colors'}
 						<p class="text-sm text-slate-500">What is "{current.prompt}" in Italian?</p>
 					{:else if type === 'numbers'}

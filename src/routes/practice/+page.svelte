@@ -165,24 +165,60 @@
 					</div>
 				{:else if vocabView === 'time-analog-test'}
 					<div class="space-y-4">
-						<button
-							type="button"
-							onclick={() => (vocabView = 'list')}
-							class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-						>
-							← Back to vocab list
-						</button>
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<button
+								type="button"
+								onclick={() => (vocabView = 'list')}
+								class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+							>
+								← Back to vocab list
+							</button>
+							<div class="flex flex-wrap gap-2">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'time-analog-test')}
+									class="rounded-full border border-white/40 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 transition"
+								>
+									Analogue
+								</button>
+								<button
+									type="button"
+									onclick={() => (vocabView = 'time-digital-test')}
+									class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/20"
+								>
+									Digital
+								</button>
+							</div>
+						</div>
 						<VocabQuiz type="time" timeItems={timeAnalogItems} timeMode="analog" />
 					</div>
 				{:else if vocabView === 'time-digital-test'}
 					<div class="space-y-4">
-						<button
-							type="button"
-							onclick={() => (vocabView = 'list')}
-							class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-						>
-							← Back to vocab list
-						</button>
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<button
+								type="button"
+								onclick={() => (vocabView = 'list')}
+								class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+							>
+								← Back to vocab list
+							</button>
+							<div class="flex flex-wrap gap-2">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'time-analog-test')}
+									class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/20"
+								>
+									Analogue
+								</button>
+								<button
+									type="button"
+									onclick={() => (vocabView = 'time-digital-test')}
+									class="rounded-full border border-white/40 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 transition"
+								>
+									Digital
+								</button>
+							</div>
+						</div>
 						<VocabQuiz type="time" timeItems={timeDigitalItems} timeMode="digital" />
 					</div>
 				{:else if vocabView === 'calendar-test'}
@@ -220,8 +256,8 @@
 					</div>
 				{:else}
 					<section class="grid gap-6 lg:grid-cols-3">
-						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
-							<div class="flex items-center justify-between gap-3">
+						<details class="group rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-3">
 								<div>
 									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
 										Colors
@@ -231,29 +267,36 @@
 										30 common colors for everyday conversation.
 									</p>
 								</div>
-								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-									30
-								</span>
+								<div class="flex items-center gap-3">
+									<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+										30
+									</span>
+									<span class="text-sm text-white/70 transition-transform group-open:rotate-180">
+										v
+									</span>
+								</div>
+							</summary>
+							<div class="mt-4">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'colors-test')}
+									class="w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+								>
+									Test Me
+								</button>
+								<div class="mt-4 grid gap-3 sm:grid-cols-2">
+									{#each colors as color (color.italian)}
+										<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+											<p class="text-lg font-semibold text-white">{color.italian}</p>
+											<p class="text-sm text-slate-300">{color.english}</p>
+										</div>
+									{/each}
+								</div>
 							</div>
-							<button
-								type="button"
-								onclick={() => (vocabView = 'colors-test')}
-								class="mt-4 w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-							>
-								Test Me
-							</button>
-							<div class="mt-4 grid gap-3 sm:grid-cols-2">
-								{#each colors as color (color.italian)}
-									<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-										<p class="text-lg font-semibold text-white">{color.italian}</p>
-										<p class="text-sm text-slate-300">{color.english}</p>
-									</div>
-								{/each}
-							</div>
-						</div>
+						</details>
 
-						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
-							<div class="flex items-center justify-between gap-3">
+						<details class="group rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-3">
 								<div>
 									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
 										Numbers
@@ -263,33 +306,40 @@
 										Scroll and drill the full range.
 									</p>
 								</div>
-								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-									101
-								</span>
-							</div>
-							<button
-								type="button"
-								onclick={() => (vocabView = 'numbers-test')}
-								class="mt-4 w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-							>
-								Test Me
-							</button>
-							<div class="mt-4 max-h-[28rem] overflow-auto pr-2">
-								<div class="grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6">
-									{#each numbers as item (item.value)}
-										<div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-											<p class="text-xs uppercase tracking-[0.15em] text-slate-300">
-												{item.value}
-											</p>
-											<p class="text-sm font-semibold text-white">{item.italian}</p>
-										</div>
-									{/each}
+								<div class="flex items-center gap-3">
+									<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+										101
+									</span>
+									<span class="text-sm text-white/70 transition-transform group-open:rotate-180">
+										v
+									</span>
+								</div>
+							</summary>
+							<div class="mt-4">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'numbers-test')}
+									class="w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+								>
+									Test Me
+								</button>
+								<div class="mt-4 max-h-[28rem] overflow-auto pr-2">
+									<div class="grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6">
+										{#each numbers as item (item.value)}
+											<div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+												<p class="text-xs uppercase tracking-[0.15em] text-slate-300">
+													{item.value}
+												</p>
+												<p class="text-sm font-semibold text-white">{item.italian}</p>
+											</div>
+										{/each}
+									</div>
 								</div>
 							</div>
-						</div>
+						</details>
 
-						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
-							<div class="flex items-center justify-between gap-3">
+						<details class="group rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-3">
 								<div>
 									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
 										Time
@@ -299,39 +349,46 @@
 										Practice telling the time in Italian.
 									</p>
 								</div>
-								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-									{timeAnalogItems.length + timeDigitalItems.length}
-								</span>
+								<div class="flex items-center gap-3">
+									<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+										{timeAnalogItems.length + timeDigitalItems.length}
+									</span>
+									<span class="text-sm text-white/70 transition-transform group-open:rotate-180">
+										v
+									</span>
+								</div>
+							</summary>
+							<div class="mt-4">
+								<div class="grid gap-3 sm:grid-cols-2">
+									<button
+										type="button"
+										onclick={() => (vocabView = 'time-analog-test')}
+										class="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+									>
+										Analogue (5-min)
+									</button>
+									<button
+										type="button"
+										onclick={() => (vocabView = 'time-digital-test')}
+										class="rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/20"
+									>
+										Digital (all times)
+									</button>
+								</div>
+								<div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+									<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
+										Quick guide
+									</p>
+									<p class="mt-2 text-sm text-slate-200">
+										Use "è l'una" for 1 o'clock, otherwise "sono le". Analogue uses
+										e/meno with 5-minute steps.
+									</p>
+								</div>
 							</div>
-							<div class="mt-4 grid gap-3 sm:grid-cols-2">
-								<button
-									type="button"
-									onclick={() => (vocabView = 'time-analog-test')}
-									class="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-								>
-									Analogue (5-min)
-								</button>
-								<button
-									type="button"
-									onclick={() => (vocabView = 'time-digital-test')}
-									class="rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/20"
-								>
-									Digital (all times)
-								</button>
-							</div>
-							<div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-								<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
-									Quick guide
-								</p>
-								<p class="mt-2 text-sm text-slate-200">
-									Use "è l'una" for 1 o'clock, otherwise "sono le". Analogue uses e/meno
-									with 5-minute steps.
-								</p>
-							</div>
-						</div>
+						</details>
 
-						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
-							<div class="flex items-center justify-between gap-3">
+						<details class="group rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-3">
 								<div>
 									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
 										Calendar
@@ -341,38 +398,45 @@
 										Days, months, seasons, and time basics.
 									</p>
 								</div>
-								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-									{calendar.length}
-								</span>
-							</div>
-							<button
-								type="button"
-								onclick={() => (vocabView = 'calendar-test')}
-								class="mt-4 w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-							>
-								Test Me
-							</button>
-							<div class="mt-4 grid gap-3 sm:grid-cols-2">
-								{#each calendarSections as section (section.id)}
-									<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-										<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
-											{section.label}
-										</p>
-										<div class="mt-2 grid gap-1">
-											{#each section.items as item (item.italian)}
-												<div class="flex items-center justify-between gap-3 text-sm">
-													<span class="font-semibold text-white">{item.italian}</span>
-													<span class="text-slate-300">{item.english}</span>
-												</div>
-											{/each}
+								<div class="flex items-center gap-3">
+									<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+										{calendar.length}
+									</span>
+									<span class="text-sm text-white/70 transition-transform group-open:rotate-180">
+										v
+									</span>
+								</div>
+							</summary>
+							<div class="mt-4">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'calendar-test')}
+									class="w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+								>
+									Test Me
+								</button>
+								<div class="mt-4 grid gap-3 sm:grid-cols-2">
+									{#each calendarSections as section (section.id)}
+										<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+											<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
+												{section.label}
+											</p>
+											<div class="mt-2 grid gap-1">
+												{#each section.items as item (item.italian)}
+													<div class="flex items-center justify-between gap-3 text-sm">
+														<span class="font-semibold text-white">{item.italian}</span>
+														<span class="text-slate-300">{item.english}</span>
+													</div>
+												{/each}
+											</div>
 										</div>
-									</div>
-								{/each}
+									{/each}
+								</div>
 							</div>
-						</div>
+						</details>
 
-						<div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
-							<div class="flex items-center justify-between gap-3">
+						<details class="group rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-3">
 								<div>
 									<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
 										People
@@ -382,30 +446,37 @@
 										30 common descriptions using essere.
 									</p>
 								</div>
-								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-									{peopleDescriptions.length}
-								</span>
+								<div class="flex items-center gap-3">
+									<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+										{peopleDescriptions.length}
+									</span>
+									<span class="text-sm text-white/70 transition-transform group-open:rotate-180">
+										v
+									</span>
+								</div>
+							</summary>
+							<div class="mt-4">
+								<button
+									type="button"
+									onclick={() => (vocabView = 'people-test')}
+									class="w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+								>
+									Test Me
+								</button>
+								<div class="mt-4 grid gap-3 sm:grid-cols-2">
+									{#each peopleDescriptions as item (item.italian)}
+										<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+											<p class="text-base font-semibold text-white">{item.italian}</p>
+											<p class="text-xs text-slate-300">{item.english}</p>
+										</div>
+									{/each}
+								</div>
 							</div>
-							<button
-								type="button"
-								onclick={() => (vocabView = 'people-test')}
-								class="mt-4 w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-							>
-								Test Me
-							</button>
-							<div class="mt-4 grid gap-3 sm:grid-cols-2">
-								{#each peopleDescriptions as item (item.italian)}
-									<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-										<p class="text-base font-semibold text-white">{item.italian}</p>
-										<p class="text-xs text-slate-300">{item.english}</p>
-									</div>
-								{/each}
-							</div>
-						</div>
+						</details>
 					</section>
 
-					<section class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
-						<div class="flex items-center justify-between gap-3">
+					<details class="group rounded-3xl border border-white/10 bg-white/10 p-6 shadow-sm">
+						<summary class="flex cursor-pointer list-none items-center justify-between gap-3">
 							<div>
 								<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
 									Family
@@ -415,36 +486,45 @@
 									Family members plus possessives.
 								</p>
 							</div>
-							<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-								{familyMembers.length}
-							</span>
-						</div>
-						<button
-							type="button"
-							onclick={() => (vocabView = 'family-test')}
-							class="mt-4 w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-						>
-							Test Me
-						</button>
-						<div class="mt-4 grid gap-3 sm:grid-cols-2">
-							{#each familyMembers as member (member.english)}
-								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-									<p class="text-lg font-semibold text-white">{member.italian}</p>
-									<p class="text-sm text-slate-300">{member.english}</p>
-								</div>
-							{/each}
-						</div>
-						<div class="mt-4 border-t border-white/10 pt-4">
-							<p class="text-xs uppercase tracking-[0.2em] text-slate-300">Possessives</p>
-							<div class="mt-2 flex flex-wrap gap-2">
-								{#each possessives as item (item.pronoun)}
-									<span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
-										{item.forms.ms} · {item.english}
-									</span>
+							<div class="flex items-center gap-3">
+								<span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+									{familyMembers.length}
+								</span>
+								<span class="text-sm text-white/70 transition-transform group-open:rotate-180">
+									⌄
+								</span>
+							</div>
+						</summary>
+						<div class="mt-4">
+							<button
+								type="button"
+								onclick={() => (vocabView = 'family-test')}
+								class="w-full rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+							>
+								Test Me
+							</button>
+							<div class="mt-4 grid gap-3 sm:grid-cols-2">
+								{#each familyMembers as member (member.english)}
+									<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+										<p class="text-lg font-semibold text-white">{member.italian}</p>
+										<p class="text-sm text-slate-300">{member.english}</p>
+									</div>
 								{/each}
 							</div>
+							<div class="mt-4 border-t border-white/10 pt-4">
+								<p class="text-xs uppercase tracking-[0.2em] text-slate-300">
+									Possessives
+								</p>
+								<div class="mt-2 flex flex-wrap gap-2">
+									{#each possessives as item (item.pronoun)}
+										<span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
+											{item.forms.ms} · {item.english}
+										</span>
+									{/each}
+								</div>
+							</div>
 						</div>
-					</section>
+					</details>
 				{/if}
 			</div>
 		{:else}
@@ -507,3 +587,12 @@
 		{/if}
 	</main>
 </div>
+
+<style>
+	summary::-webkit-details-marker {
+		display: none;
+	}
+	summary {
+		list-style: none;
+	}
+</style>
