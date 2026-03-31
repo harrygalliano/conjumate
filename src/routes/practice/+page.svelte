@@ -6,6 +6,7 @@
 		ArticleSelect,
 		ConjugationQuiz,
 		LocationIcon,
+		PrepositionComboQuiz,
 		TenseBlurb,
 		TenseSelect,
 		VerbList,
@@ -18,6 +19,11 @@
 	} from '$lib/data/articlePractice';
 	import { TENSES, italianVerbs } from '$lib/data/italian';
 	import { articleGuides } from '$lib/data/learn/articles';
+	import { prepositionGuideCard } from '$lib/data/learn/prepositions';
+	import {
+		prepositionArticleItems,
+		prepositionArticleSources
+	} from '$lib/data/prepositionPractice';
 	import {
 		colors,
 		numbers,
@@ -33,7 +39,7 @@
 	import { onMount } from 'svelte';
 
 	type TabId = 'grammar' | 'vocab' | 'location';
-	type GrammarView = 'conjugation' | 'articles';
+	type GrammarView = 'conjugation' | 'articles' | 'preposition-combos';
 	type VocabView =
 		| 'list'
 		| 'colors-test'
@@ -60,6 +66,11 @@
 			id: 'articles',
 			label: 'Articles',
 			description: 'Definite singular + definite plural + indefinite'
+		},
+		{
+			id: 'preposition-combos',
+			label: 'Prep + Articles',
+			description: 'del + al + nel + sul'
 		}
 	];
 
@@ -75,6 +86,9 @@
 	);
 	const currentArticleGuide = $derived(
 		articleGuides.find((guide) => guide.slug === currentArticleMode.guideSlug) ?? articleGuides[0]
+	);
+	const articulatedPrepositionSources = prepositionArticleSources.filter(
+		(source) => source.combines_with_articles !== false
 	);
 	const calendarSections = [
 		{ id: 'basics', label: 'Basics', items: calendar.filter((item) => item.category === 'basics') },
@@ -189,7 +203,7 @@
 					<ConjugationQuiz verbs={italianVerbs} tense={currentTense} />
 
 					<VerbList verbs={italianVerbs} label={currentTense.shortName} />
-				{:else}
+				{:else if grammarView === 'articles'}
 					<section class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
 						<div class="space-y-4">
 							<ArticleSelect modes={articlePracticeModes} bind:value={selectedArticleMode} />
@@ -214,6 +228,79 @@
 						articleMode={selectedArticleMode}
 						label={currentArticleMode.shortName}
 					/>
+				{:else}
+					<section class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+						<div class="space-y-4">
+							<div
+								class="rounded-3xl border border-white/10 bg-white/10 p-5 text-sm text-slate-200"
+							>
+								<p class="font-semibold text-white">Quick rules</p>
+								<p class="mt-2">
+									Type the merged form for the preposition + article pair shown: `di + la -> della`.
+								</p>
+								<p class="mt-2">
+									Focus on the regular contraction families first: `di`, `a`, `da`, `in`, and `su`.
+								</p>
+								<p class="mt-2">
+									`con` is included only where common contracted forms exist, and the quiz also
+									accepts the modern full forms when they are listed.
+								</p>
+								<p class="mt-2 text-xs tracking-[0.2em] text-slate-300 uppercase">
+									Prompt bank: {prepositionArticleItems.length} combinations
+								</p>
+							</div>
+						</div>
+						<section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+							<div class="flex flex-col gap-2">
+								<div class="flex flex-wrap items-center justify-between gap-3">
+									<div>
+										<p class="text-xs font-semibold tracking-[0.2em] text-amber-500 uppercase">
+											{prepositionGuideCard.shortName}
+										</p>
+										<h2 class="text-2xl font-semibold text-slate-900">Articulated Prepositions</h2>
+									</div>
+									<a
+										href={`/learn/${prepositionGuideCard.slug}`}
+										class="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold tracking-[0.2em] text-slate-600 uppercase transition hover:border-slate-400 hover:text-slate-900"
+									>
+										Open Lesson
+									</a>
+								</div>
+
+								<div class="mt-1 flex flex-wrap gap-2">
+									{#each articulatedPrepositionSources as source (source.preposition)}
+										<span
+											class="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800"
+										>
+											{source.preposition}
+										</span>
+									{/each}
+								</div>
+
+								<div class="space-y-3 text-base text-slate-600">
+									<p>
+										Italian often combines a preposition with the following definite article into a
+										single word: `di + il = del`, `a + gli = agli`, `in + la = nella`.
+									</p>
+									<p>
+										These merged forms are extremely common in everyday speech and writing, so speed
+										with them matters.
+									</p>
+								</div>
+
+								<div
+									class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"
+								>
+									<p class="font-semibold">
+										Answer with the combined form. For the `con` prompts, the quiz will also accept
+										the listed full form when modern Italian prefers it.
+									</p>
+								</div>
+							</div>
+						</section>
+					</section>
+
+					<PrepositionComboQuiz />
 				{/if}
 			</div>
 		{:else if activeTab === 'vocab'}

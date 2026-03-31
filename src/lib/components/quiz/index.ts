@@ -4,6 +4,7 @@ export { default as ArticleQuiz } from './ArticleQuiz.svelte';
 export { default as ArticleSelect } from './ArticleSelect.svelte';
 export { default as ConjugationQuiz } from './ConjugationQuiz.svelte';
 export { default as LocationIcon } from './LocationIcon.svelte';
+export { default as PrepositionComboQuiz } from './PrepositionComboQuiz.svelte';
 export { default as TenseBlurb } from './TenseBlurb.svelte';
 export { default as TenseSelect } from './TenseSelect.svelte';
 export { default as VerbList } from './VerbList.svelte';

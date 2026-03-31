@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { learnTenses, type LearnTense } from '$lib/data/learn';
 	import { articleGuides } from '$lib/data/learn/articles';
+	import { prepositionGuideCard } from '$lib/data/learn/prepositions';
 	import { italianVerbs, type Verb } from '$lib/data/italian';
 	import { VerbSearch, ConjugationBreakdown } from '$lib/components/learn';
 
@@ -58,6 +59,28 @@
 						<p class="mt-4 text-sm font-semibold text-amber-200">Open guide</p>
 					</a>
 				{/each}
+			</div>
+		</section>
+
+		<section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
+			<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">
+				Preposition Guide
+			</p>
+			<p class="mt-2 text-sm text-slate-400">
+				A focused walkthrough of the core Italian prepositions and their most common uses.
+			</p>
+			<div class="mt-4">
+				<a
+					href={`/learn/${prepositionGuideCard.slug}`}
+					class="block rounded-2xl border border-slate-800 bg-slate-950/70 p-5 transition hover:border-slate-600 hover:bg-slate-950"
+				>
+					<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">
+						{prepositionGuideCard.shortName}
+					</p>
+					<h2 class="mt-2 text-lg font-semibold text-white">{prepositionGuideCard.name}</h2>
+					<p class="mt-2 text-sm text-slate-300">{prepositionGuideCard.summary}</p>
+					<p class="mt-4 text-sm font-semibold text-amber-200">Open guide</p>
+				</a>
 			</div>
 		</section>
 
