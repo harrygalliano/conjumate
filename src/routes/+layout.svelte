@@ -18,7 +18,7 @@
 		const url = $page.url;
 
 		if (href === '/') return url.pathname === '/';
-		if (href === '/learn') return url.pathname === '/learn';
+		if (href === '/learn') return url.pathname === '/learn' || url.pathname.startsWith('/learn/');
 		if (href.startsWith('/practice')) {
 			if (url.pathname !== '/practice') return false;
 			if (href.includes('#vocab')) return url.hash === '#vocab';
@@ -44,16 +44,20 @@
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
 <div class="min-h-[100svh] bg-gradient-to-br from-slate-950 via-[#0b1020] to-[#140b2a]">
-	<div class="sticky top-0 z-40 flex items-center justify-between border-b border-slate-900/60 bg-slate-950/90 px-4 py-3 text-slate-100 backdrop-blur lg:hidden">
+	<div
+		class="sticky top-0 z-40 flex items-center justify-between border-b border-slate-900/60 bg-slate-950/90 px-4 py-3 text-slate-100 backdrop-blur lg:hidden"
+	>
 		<div class="flex items-center gap-3">
-			<div class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-400 text-sm font-bold text-slate-900">
+			<div
+				class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-400 text-sm font-bold text-slate-900"
+			>
 				C
 			</div>
-			<div class="text-xs uppercase tracking-[0.3em] text-amber-300">Conjumate</div>
+			<div class="text-xs tracking-[0.3em] text-amber-300 uppercase">Conjumate</div>
 		</div>
 		<button
 			type="button"
-			class="rounded-full border border-slate-700 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200"
+			class="rounded-full border border-slate-700 px-3 py-2 text-xs font-semibold tracking-[0.2em] text-slate-200 uppercase"
 			aria-label="Toggle navigation"
 			aria-expanded={isMenuOpen}
 			onclick={() => (isMenuOpen = !isMenuOpen)}
@@ -72,17 +76,19 @@
 		<aside class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950 text-slate-100 shadow-2xl">
 			<div class="flex items-center justify-between border-b border-slate-800 px-6 py-5">
 				<div class="flex items-center gap-3">
-					<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400 text-base font-bold text-slate-900">
+					<div
+						class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400 text-base font-bold text-slate-900"
+					>
 						C
 					</div>
 					<div>
-						<p class="text-xs uppercase tracking-[0.3em] text-amber-300">Conjumate</p>
+						<p class="text-xs tracking-[0.3em] text-amber-300 uppercase">Conjumate</p>
 						<p class="text-xs text-slate-400">Italian trainer</p>
 					</div>
 				</div>
 				<button
 					type="button"
-					class="rounded-full border border-slate-700 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200"
+					class="rounded-full border border-slate-700 px-3 py-2 text-xs font-semibold tracking-[0.2em] text-slate-200 uppercase"
 					onclick={closeMenu}
 				>
 					Close
@@ -100,7 +106,7 @@
 									: 'border-slate-800 bg-slate-900/60 text-slate-200 hover:border-slate-600'
 							}`}
 						>
-							<span class="text-sm font-semibold uppercase tracking-[0.2em]">
+							<span class="text-sm font-semibold tracking-[0.2em] uppercase">
 								{link.label}
 							</span>
 							<span class="text-xs text-slate-400">{link.description}</span>
@@ -112,11 +118,9 @@
 	{/if}
 
 	<div class="lg:grid lg:grid-cols-[240px_1fr] lg:gap-6">
-		<aside class="hidden lg:flex lg:flex-col lg:gap-4 lg:pl-6 lg:pt-8">
+		<aside class="hidden lg:flex lg:flex-col lg:gap-4 lg:pt-8 lg:pl-6">
 			<nav class="rounded-3xl border border-slate-800 bg-slate-950/95 p-5 text-slate-100 shadow-xl">
-				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
-					Navigate
-				</p>
+				<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Navigate</p>
 				<div class="mt-4 space-y-2">
 					{#each navLinks as link (link.href)}
 						<a
@@ -127,7 +131,7 @@
 									: 'border-slate-800 bg-slate-900/60 text-slate-200 hover:border-slate-600'
 							}`}
 						>
-							<span class="text-sm font-semibold uppercase tracking-[0.2em]">
+							<span class="text-sm font-semibold tracking-[0.2em] uppercase">
 								{link.label}
 							</span>
 							<span class="text-xs text-slate-400">{link.description}</span>
@@ -137,6 +141,6 @@
 			</nav>
 		</aside>
 
-		<div class="min-h-[100svh] lg:pr-6 lg:pt-8">{@render children()}</div>
+		<div class="min-h-[100svh] lg:pt-8 lg:pr-6">{@render children()}</div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { learnTenses, type LearnTense } from '$lib/data/learn';
+	import { articleGuides } from '$lib/data/learn/articles';
 	import { italianVerbs, type Verb } from '$lib/data/italian';
 	import { VerbSearch, ConjugationBreakdown } from '$lib/components/learn';
 
@@ -10,9 +11,7 @@
 	let activeTense = $state<TenseId>(learnTenses[0].id);
 	let selectedVerb = $state<Verb | null>(null);
 
-	const current = $derived(
-		learnTenses.find((tense) => tense.id === activeTense) ?? learnTenses[0]
-	);
+	const current = $derived(learnTenses.find((tense) => tense.id === activeTense) ?? learnTenses[0]);
 
 	const handleVerbSelect = (verb: Verb) => {
 		selectedVerb = verb;
@@ -27,19 +26,44 @@
 	<title>Conjumate · Learn</title>
 </svelte:head>
 
-<div class="min-h-[100svh] bg-gradient-to-br from-slate-950 via-[#0b1020] to-[#140b2a] text-slate-100">
+<div
+	class="min-h-[100svh] bg-gradient-to-br from-slate-950 via-[#0b1020] to-[#140b2a] text-slate-100"
+>
 	<main class="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-10">
 		<header class="space-y-3">
-			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Learn</p>
+			<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Learn</p>
 			<h1 class="text-3xl font-semibold text-white sm:text-4xl">Grammar Library</h1>
 			<p class="text-base text-slate-300 sm:text-lg">
-				Search for any verb and see how to conjugate it, or explore tense guides below.
+				Search for any verb and see how to conjugate it, or browse focused guides for articles and
+				verb tenses.
 			</p>
 		</header>
 
+		<section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
+			<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Article Guides</p>
+			<p class="mt-2 text-sm text-slate-400">
+				Short lessons for using Italian definite and indefinite articles.
+			</p>
+			<div class="mt-4 grid gap-4 md:grid-cols-2">
+				{#each articleGuides as guide (guide.slug)}
+					<a
+						href={`/learn/${guide.slug}`}
+						class="rounded-2xl border border-slate-800 bg-slate-950/70 p-5 transition hover:border-slate-600 hover:bg-slate-950"
+					>
+						<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">
+							{guide.shortName}
+						</p>
+						<h2 class="mt-2 text-lg font-semibold text-white">{guide.name}</h2>
+						<p class="mt-2 text-sm text-slate-300">{guide.summary}</p>
+						<p class="mt-4 text-sm font-semibold text-amber-200">Open guide</p>
+					</a>
+				{/each}
+			</div>
+		</section>
+
 		<!-- Verb Lookup Section -->
 		<section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
-			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Verb Lookup</p>
+			<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Verb Lookup</p>
 			<p class="mt-2 text-sm text-slate-400">
 				Search 100 common Italian verbs by Italian or English
 			</p>
@@ -86,10 +110,8 @@
 
 		<!-- Tense Guide Section -->
 		<div class="border-t border-slate-800 pt-10">
-			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Tense Guides</p>
-			<p class="mt-2 text-sm text-slate-400">
-				Learn the rules and patterns for each tense
-			</p>
+			<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Tense Guides</p>
+			<p class="mt-2 text-sm text-slate-400">Learn the rules and patterns for each tense</p>
 		</div>
 
 		<div class="flex flex-wrap gap-2" role="tablist" aria-label="Learn tabs">
@@ -99,13 +121,13 @@
 					role="tab"
 					aria-selected={activeTense === tense.id}
 					onclick={() => (activeTense = tense.id)}
-					class={`flex flex-1 flex-col gap-1 rounded-2xl border px-4 py-3 text-left transition sm:flex-none sm:min-w-[12rem] ${
+					class={`flex flex-1 flex-col gap-1 rounded-2xl border px-4 py-3 text-left transition sm:min-w-[12rem] sm:flex-none ${
 						activeTense === tense.id
 							? 'border-amber-400/40 bg-amber-400/10 text-white'
 							: 'border-slate-800 bg-slate-900/60 text-slate-200 hover:border-slate-600'
 					}`}
 				>
-					<span class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
+					<span class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">
 						{tense.shortName}
 					</span>
 					<span class="text-sm font-semibold">{tense.name}</span>
@@ -115,7 +137,7 @@
 
 		<section class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
 			<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
-				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Focus</p>
+				<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Focus</p>
 				<h2 class="mt-3 text-2xl font-semibold text-white">{current.name}</h2>
 				<p class="mt-2 text-sm text-slate-300">{current.focus}</p>
 				<div class="mt-4 space-y-2 text-sm text-slate-300">
@@ -124,13 +146,13 @@
 					{/each}
 				</div>
 				<div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
-					<p class="text-xs uppercase tracking-[0.2em] text-slate-400">Formula</p>
+					<p class="text-xs tracking-[0.2em] text-slate-400 uppercase">Formula</p>
 					<p class="mt-2 text-base font-semibold text-white">{current.formula}</p>
 				</div>
 			</div>
 
 			<div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
-				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Examples</p>
+				<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Examples</p>
 				<ul class="mt-4 space-y-3">
 					{#each current.examples as example (example.italian)}
 						<li class="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
@@ -143,7 +165,7 @@
 		</section>
 
 		<section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
-			<p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Tips</p>
+			<p class="text-xs font-semibold tracking-[0.3em] text-amber-300 uppercase">Tips</p>
 			<ul class="mt-4 space-y-2 text-sm text-slate-300">
 				{#each current.tips as tip, index (index)}
 					<li class="rounded-2xl border border-slate-800 bg-slate-950/70 p-3">{tip}</li>

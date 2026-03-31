@@ -22,10 +22,10 @@ type VerbPassato = {
 
 export type Verb = VerbBase &
 	VerbPassato & {
-	present?: VerbPresent;
-	gerund?: string;
-	future?: VerbFuture;
-};
+		present?: VerbPresent;
+		gerund?: string;
+		future?: VerbFuture;
+	};
 
 export type VerbIrregular = {
 	presente: boolean;
@@ -44,6 +44,10 @@ export type VerbPresent = {
 };
 
 export type VerbFuture = VerbPresent;
+export type VerbGerund = {
+	gerund: string;
+	type: string;
+};
 
 export type TenseDefinition = {
 	id: 'presente' | 'gerundio' | 'passato_prossimo' | 'futuro_semplice';
@@ -58,14 +62,14 @@ export const TENSES: TenseDefinition[] = learnTenses;
 
 // Merge base verbs with tense-specific conjugations
 const presentConjugations = presentTense as Record<string, VerbPresent>;
-const gerundConjugations = gerundTense as Record<string, string>;
+const gerundConjugations = gerundTense as Record<string, VerbGerund>;
 const futureConjugations = futureTense as Record<string, VerbFuture>;
 const passatoConjugations = passatoTense as Record<string, VerbPassato>;
 
 export const italianVerbs: Verb[] = (verbsBase as VerbBase[]).map((verb) => ({
 	...verb,
 	present: presentConjugations[verb.infinitive],
-	gerund: gerundConjugations[verb.infinitive],
+	gerund: gerundConjugations[verb.infinitive]?.gerund,
 	future: futureConjugations[verb.infinitive],
 	...passatoConjugations[verb.infinitive]
 }));

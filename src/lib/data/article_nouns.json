@@ -1,0 +1,1102 @@
+[
+	{
+		"singular": "libro",
+		"plural": "libri",
+		"english": "book",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "ragazzo",
+		"plural": "ragazzi",
+		"english": "boy",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "giorno",
+		"plural": "giorni",
+		"english": "day",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "treno",
+		"plural": "treni",
+		"english": "train",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "telefono",
+		"plural": "telefoni",
+		"english": "telephone",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "mercato",
+		"plural": "mercati",
+		"english": "market",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "tavolo",
+		"plural": "tavoli",
+		"english": "table",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "ristorante",
+		"plural": "ristoranti",
+		"english": "restaurant",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "caffè",
+		"plural": "caffè",
+		"english": "coffee",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "film",
+		"plural": "film",
+		"english": "film",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "giardino",
+		"plural": "giardini",
+		"english": "garden",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "computer",
+		"plural": "computer",
+		"english": "computer",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "bicchiere",
+		"plural": "bicchieri",
+		"english": "glass",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "panino",
+		"plural": "panini",
+		"english": "sandwich",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "formaggio",
+		"plural": "formaggi",
+		"english": "cheese",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "lavoro",
+		"plural": "lavori",
+		"english": "job",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "negozio",
+		"plural": "negozi",
+		"english": "shop",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "museo",
+		"plural": "musei",
+		"english": "museum",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "paese",
+		"plural": "paesi",
+		"english": "town",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "dolce",
+		"plural": "dolci",
+		"english": "dessert",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "vino",
+		"plural": "vini",
+		"english": "wine",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "problema",
+		"plural": "problemi",
+		"english": "problem",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "programma",
+		"plural": "programmi",
+		"english": "program",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "giornale",
+		"plural": "giornali",
+		"english": "newspaper",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "quaderno",
+		"plural": "quaderni",
+		"english": "notebook",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "biglietto",
+		"plural": "biglietti",
+		"english": "ticket",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "castello",
+		"plural": "castelli",
+		"english": "castle",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "mare",
+		"plural": "mari",
+		"english": "sea",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "fiore",
+		"plural": "fiori",
+		"english": "flower",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "vestito",
+		"plural": "vestiti",
+		"english": "dress",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "il",
+			"definitePlural": "i",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "studente",
+		"plural": "studenti",
+		"english": "student",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "zaino",
+		"plural": "zaini",
+		"english": "backpack",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "zio",
+		"plural": "zii",
+		"english": "uncle",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "specchio",
+		"plural": "specchi",
+		"english": "mirror",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "sport",
+		"plural": "sport",
+		"english": "sport",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "gnomo",
+		"plural": "gnomi",
+		"english": "gnome",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "psicologo",
+		"plural": "psicologi",
+		"english": "psychologist",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "xilofono",
+		"plural": "xilofoni",
+		"english": "xylophone",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "yogurt",
+		"plural": "yogurt",
+		"english": "yogurt",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "scontrino",
+		"plural": "scontrini",
+		"english": "receipt",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "stadio",
+		"plural": "stadi",
+		"english": "stadium",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "sciopero",
+		"plural": "scioperi",
+		"english": "strike",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "squalo",
+		"plural": "squali",
+		"english": "shark",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "spazio",
+		"plural": "spazi",
+		"english": "space",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "stivale",
+		"plural": "stivali",
+		"english": "boot",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "pneumatico",
+		"plural": "pneumatici",
+		"english": "tire",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "lo",
+			"definitePlural": "gli",
+			"indefinite": "uno"
+		}
+	},
+	{
+		"singular": "amico",
+		"plural": "amici",
+		"english": "friend",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "gli",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "albero",
+		"plural": "alberi",
+		"english": "tree",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "gli",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "aeroporto",
+		"plural": "aeroporti",
+		"english": "airport",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "gli",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "ufficio",
+		"plural": "uffici",
+		"english": "office",
+		"gender": "m",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "gli",
+			"indefinite": "un"
+		}
+	},
+	{
+		"singular": "casa",
+		"plural": "case",
+		"english": "house",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "penna",
+		"plural": "penne",
+		"english": "pen",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "macchina",
+		"plural": "macchine",
+		"english": "car",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "scuola",
+		"plural": "scuole",
+		"english": "school",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "stazione",
+		"plural": "stazioni",
+		"english": "station",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "notte",
+		"plural": "notti",
+		"english": "night",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "porta",
+		"plural": "porte",
+		"english": "door",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "strada",
+		"plural": "strade",
+		"english": "street",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "famiglia",
+		"plural": "famiglie",
+		"english": "family",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "camera",
+		"plural": "camere",
+		"english": "room",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "chiave",
+		"plural": "chiavi",
+		"english": "key",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "città",
+		"plural": "città",
+		"english": "city",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "pizza",
+		"plural": "pizze",
+		"english": "pizza",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "borsa",
+		"plural": "borse",
+		"english": "bag",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "finestra",
+		"plural": "finestre",
+		"english": "window",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "lezione",
+		"plural": "lezioni",
+		"english": "lesson",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "domanda",
+		"plural": "domande",
+		"english": "question",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "risposta",
+		"plural": "risposte",
+		"english": "answer",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "maglietta",
+		"plural": "magliette",
+		"english": "T-shirt",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "scarpa",
+		"plural": "scarpe",
+		"english": "shoe",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "vacanza",
+		"plural": "vacanze",
+		"english": "holiday",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "foto",
+		"plural": "foto",
+		"english": "photo",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "spiaggia",
+		"plural": "spiagge",
+		"english": "beach",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "cucina",
+		"plural": "cucine",
+		"english": "kitchen",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "sedia",
+		"plural": "sedie",
+		"english": "chair",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "lettera",
+		"plural": "lettere",
+		"english": "letter",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "pagina",
+		"plural": "pagine",
+		"english": "page",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "bottiglia",
+		"plural": "bottiglie",
+		"english": "bottle",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "forchetta",
+		"plural": "forchette",
+		"english": "fork",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "torta",
+		"plural": "torte",
+		"english": "cake",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "serata",
+		"plural": "serate",
+		"english": "evening",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "mattina",
+		"plural": "mattine",
+		"english": "morning",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "settimana",
+		"plural": "settimane",
+		"english": "week",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "storia",
+		"plural": "storie",
+		"english": "story",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "faccia",
+		"plural": "facce",
+		"english": "face",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "festa",
+		"plural": "feste",
+		"english": "party",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "la",
+			"definitePlural": "le",
+			"indefinite": "una"
+		}
+	},
+	{
+		"singular": "idea",
+		"plural": "idee",
+		"english": "idea",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "isola",
+		"plural": "isole",
+		"english": "island",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "amica",
+		"plural": "amiche",
+		"english": "friend",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "università",
+		"plural": "università",
+		"english": "university",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "ora",
+		"plural": "ore",
+		"english": "hour",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "auto",
+		"plural": "auto",
+		"english": "car",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "agenda",
+		"plural": "agende",
+		"english": "planner",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "ombra",
+		"plural": "ombre",
+		"english": "shadow",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "acqua",
+		"plural": "acque",
+		"english": "water",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "erba",
+		"plural": "erbe",
+		"english": "grass",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "aria",
+		"plural": "arie",
+		"english": "air",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "aula",
+		"plural": "aule",
+		"english": "classroom",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "azienda",
+		"plural": "aziende",
+		"english": "company",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	},
+	{
+		"singular": "insalata",
+		"plural": "insalate",
+		"english": "salad",
+		"gender": "f",
+		"articles": {
+			"definiteSingular": "l'",
+			"definitePlural": "le",
+			"indefinite": "un'"
+		}
+	}
+]
